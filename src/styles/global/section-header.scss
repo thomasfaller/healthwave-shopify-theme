@@ -1,26 +1,11 @@
-.navbar-collapse btn-group {
-  margin: 13px 0;
-}
-// //  TO INSERT
-// #register-btn {
-  
-// }
-// #cart-btn {
-  
-// }
-
-// #navbar-custom-style {
-  
-// }
-// TO INSERT -end
-
 //***************************************** //
 //            SECTION - HEADER              //
 // **************************************** //
 
-.navbar {
+nav#navbar-custom-style {
   background-color: white !important;
-  border-bottom: 4px solid $color-main-green !important;
+  border-bottom: 3px solid $color-main-green !important;
+  padding: 20px 0;
   #login-btn {
     background-color: white;
     border: 2px solid $color-main-green;
@@ -61,8 +46,12 @@
 }
 
 //***************************************** //
-//            MEDIA QUERIES                 //
+//     MEDIA QUERIES + MOBILE DISPLAY       //
 // **************************************** //
+
+.navbar-collapse btn-group {
+  margin: 13px 0;
+}
 
 @media (max-width: 480px) {
   .site-header__logo-image {

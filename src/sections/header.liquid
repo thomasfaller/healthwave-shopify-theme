@@ -8,7 +8,7 @@
              alt="{{ section.settings.logo.alt | default: shop.name }}"
              itemprop="logo">
       {% else %}
-      	<img src="{{ 'healthwave_logo_green.png' | asset_url: '200px' }}"
+      	<img src="{{ 'healthwave_logo_green.png' | asset_img_url: '220x' }}"
              alt="{{ shop.name }}" 
              itemprop="logo">
       {% endif %}
