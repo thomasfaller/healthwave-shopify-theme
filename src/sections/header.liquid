@@ -8,7 +8,9 @@
              alt="{{ section.settings.logo.alt | default: shop.name }}"
              itemprop="logo">
       {% else %}
-      	<img src="{{ '../assets/images/healthwave_logo_green.png' | asset_url }}" width:"200" alt="{{ shop.name }}" itemprop="logo">
+      	<img src="{{ 'healthwave_logo_green.png' | asset_url: '200px' }}"
+             alt="{{ shop.name }}" 
+             itemprop="logo">
       {% endif %}
     </a>
   	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsed-content" aria-controls="collapsed-content" aria-expanded="false" aria-label="Toggle navigation">
