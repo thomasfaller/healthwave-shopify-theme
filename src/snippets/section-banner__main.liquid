@@ -1,0 +1,17 @@
+<div class="col-lg-7">
+  <div class="shopify-section-banner__main">
+    <h1 
+      class="shopify-section-banner__main__heading"
+      style="color:{% if section.settings.banner_color_scheme == 'green' %}white{% else %}black{% endif %}">
+      {{ section.settings.banner_heading }}
+    </h1>
+    <p 
+      class="shopify-section-banner__main__text"
+      style="color:{% if section.settings.banner_color_scheme == 'green' %}white{% else %}black{% endif %}">
+      {{ section.settings.banner_text }}
+    </p>
+    {% if section.settings.banner_btn_enabled == "enabled" %}
+    <button class="shopify-section-banner__main__button btn btn-lg">{{ section.settings.banner_btn_text }}</button>
+    {% endif %}
+  </div>
+</div>

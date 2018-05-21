@@ -1,0 +1,83 @@
+<div 
+    class="shopify-section-{{ section.id }}"
+    style="background-color:{% if section.settings.banner_color_scheme == 'green' %}#00BFB3{% else %}white{% endif %}">
+  <div class="container">
+    <div class="row">
+        {% include 'section-banner__secondary' %}
+        {% include 'section-banner__main' %}
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Banner (image-left)",
+    "settings": [
+      {
+        "type": "radio",
+        "id": "banner_color_scheme",
+        "label": "Colors",
+        "options": [
+          {"value": "green", "label": "White text on green"},
+          {"value": "white", "label": "Black text on white"}
+        ],
+        "default": "green"
+      },
+      {
+        "type": "text",
+        "id": "banner_heading",
+        "label": "Heading",
+        "default": "Order your prescription by SMS"
+      },
+      {
+        "type": "text",
+        "id": "banner_text",
+        "label": "Text",
+        "default": "We've made it really easy to contact us. Simply text us and we'll dispatch your order the same day."
+      },
+      {
+        "type": "radio",
+        "id": "banner_btn_enabled",
+        "label": "Button",
+        "options": [
+          {"value": "enabled", "label": "enabled"},
+          {"value": "disabled", "label": "disabled"}
+        ],
+        "default": "disabled"
+      },
+      {
+        "type": "text",
+        "id": "banner_btn_text",
+        "label": "Button text",
+        "default": "Learn more"
+      },
+      {
+        "type": "image_picker",
+        "id": "banner_image",
+        "label": "Banner image"
+      },
+      {
+        "type": "range",
+        "id": "banner_image_width",
+        "min": 250,
+        "max": 450,
+        "step": 10,
+        "unit": "px",
+        "label": "Image width",
+        "default": 320
+      },
+      {
+        "type": "radio",
+        "id": "layout",
+        "label": "Image placement",
+        "options": [
+          {"value": "left", "label": "Image on the left"},
+          {"value": "right", "label": "Image on the right"}
+        ],
+        "default": "left"
+      }
+    ]
+  }
+
+{% endschema %}
