@@ -4,24 +4,24 @@
 
 .shopify-section-banner {
   height: 550px;
-  &__main {
+  .shopify-section-banner__main {
     display: flex;
     align-items: center;
-    &__wrapper {
+    .shopify-section-banner__main__wrapper {
       text-align: right;
-      &__heading {
+      .shopify-section-banner__main__wrapper__heading {
         font-size: 3.125rem;
         font-weight: 300;
       }
-      &__primary {
+      .shopify-section-banner__main__wrapper__primary {
         font-size: 1.625rem;
         font-weight: 300;
       }
     }
   }
-  &__secondary {
+  .shopify-section-banner__secondary {
     display: flex;
-    &__image {
+    .shopify-section-banner__secondary__image {
       max-height: 480px;
       width: auto;
       display: block;
