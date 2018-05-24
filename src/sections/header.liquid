@@ -1,21 +1,21 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="navbar-custom-style">	
+<nav class="shopify-section-{{ section.id }} navbar navbar-expand-lg navbar-light bg-light fixed-top">	
   <div class="container">
-  	<a href="/" itemprop="url" class="navbar-brand site-logo{% if section.settings.logo != blank %} site-header__logo-image{% endif %}">
+    <a href="/" itemprop="url" class="navbar-brand site-logo{% if section.settings.logo != blank %} site-header__logo-image{% endif %}">
       {% if section.settings.logo != blank %}
-      	{% capture image_size %}{{ section.settings.logo_max_width }}x{% endcapture %}
-      	<img src="{{ section.settings.logo | img_url: image_size }}"
-             srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
-             alt="{{ section.settings.logo.alt | default: shop.name }}"
-             itemprop="logo">
+        {% capture image_size %}{{ section.settings.logo_max_width }}x{% endcapture %}
+        <img src="{{ section.settings.logo | img_url: image_size }}"
+            srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
+            alt="{{ section.settings.logo.alt | default: shop.name }}"
+            itemprop="logo">
       {% else %}
-      	<img src="{{ 'healthwave_logo_green.png' | asset_img_url: '220x' }}"
-             alt="{{ shop.name }}" 
-             itemprop="logo">
+        <img src="{{ 'healthwave_logo_green.png' | asset_img_url: '220x' }}"
+            alt="{{ shop.name }}" 
+            itemprop="logo">
       {% endif %}
     </a>
-  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsed-content" aria-controls="collapsed-content" aria-expanded="false" aria-label="Toggle navigation">
-    	<span class="navbar-toggler-icon"></span>
-  	</button>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsed-content" aria-controls="collapsed-content" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
     <div class="collapse navbar-collapse" id="collapsed-content">
       <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
         {% for link in linklists[section.settings.main_linklist].links %}
@@ -27,7 +27,7 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="Dropdown">
               {% for childlink in menus[child_list_handle].links %}
-              	<a class="dropdown-item" href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
+                <a class="dropdown-item" href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
               {% endfor %}
             </div>
           </li>
@@ -39,30 +39,31 @@
       {% endfor %}
       </ul>
       {% if shop.customer_accounts_enabled %}
-      	<div class="dropdown-divider"></div>
-      	<div class="btn-group btn-group-justified">
+        <div class="dropdown-divider"></div>
+        <div class="btn-group btn-group-justified">
         {% if customer  %}
           <a href="" class="btn btn-secondary">Your account</a>
           {% else %}
           {{ 'Log in' | customer_login_link | replace: 'href', 'class="btn btn-xs-block" id="login-btn" href' }}
           {% if shop.customer_accounts_optional %}
-          	{{ 'Register' | customer_register_link | replace: 'href', 'class="btn btn-xs-block" id="register-btn" href' }}
+            {{ 'Register' | customer_register_link | replace: 'href', 'class="btn btn-xs-block" id="register-btn" href' }}
           {% endif %}
           {% endif %}
           
           <a href="/cart"
-             class="btn btn-xs-block"
-             id="cart-btn">
+            class="btn btn-xs-block"
+            id="cart-btn">
             <i class="fas fa-shopping-cart"></i>
             <span id="cartCount" class="badge badge-pill badge-info">
               {{ cart.item_count }}
             </span>
           </a>
-      	</div>
+        </div>
       {% endif %}
     </div>
   </div>
 </nav>
+  
 
 {% schema %}
   {

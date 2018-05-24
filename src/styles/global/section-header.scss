@@ -1,9 +1,5 @@
-//***************************************** //
-//            SECTION - HEADER              //
-// **************************************** //
-
-nav#navbar-custom-style {
-  background-color: white !important;
+#navbar-custom-style {
+  background-color: lime !important;
   border-bottom: 3px solid $color-main-green !important;
   padding: 20px 0;
   a {
@@ -55,10 +51,6 @@ nav#navbar-custom-style {
     }
   }
 }
-
-//***************************************** //
-//     MEDIA QUERIES + MOBILE DISPLAY       //
-// **************************************** //
 
 .navbar-collapse btn-group {
   margin: 13px 0;

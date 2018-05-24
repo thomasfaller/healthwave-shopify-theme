@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /*============================================================================
-  [replace with theme name] | Built with Slate
+  Healthwave Custom Shopify Theme | Built with Slate
     - You cannot use native CSS/Sass @imports in this file without a build script
 ==============================================================================*/
 
@@ -22,10 +22,10 @@
 @import url('global/links-buttons.scss');
 @import url('global/forms.scss');
 @import url('global/blank-states.scss');
-@import url('global/custom-styles.scss');
 @import url('global/section-header.scss');
-@import url('global/home-section-banner.scss');
+@import url('global/section-home-banner.scss');
 @import url('global/section-banner.scss');
+@import url('global/custom-styles.scss');
 
 /*================ MODULES ================*/
 @import url('modules/site-header.scss');
