@@ -3,8 +3,13 @@
     style="background-color:{% if section.settings.banner_color_scheme == 'green' %}#00BFB3{% else %}white{% endif %}">
   <div class="container">
     <div class="row">
+      {% if section.settings.layout == 'left' %}
         {% include 'section-banner__secondary' %}
         {% include 'section-banner__main' %}
+      {% else %}
+        {% include 'section-banner__main' %}
+        {% include 'section-banner__secondary' %}
+      {% endif %}  
     </div>
   </div>
 </div>
@@ -12,7 +17,7 @@
 
 {% schema %}
   {
-    "name": "Banner (image-left)",
+    "name": "Banner",
     "settings": [
       {
         "type": "radio",
