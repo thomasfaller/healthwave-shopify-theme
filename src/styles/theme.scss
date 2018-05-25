@@ -29,6 +29,8 @@
 
 /*================ SECTIONS ================*/
 
-@import url('global/section-header.scss');
-@import url('global/section-home-banner.scss');
-@import url('global/section-banner.scss');
+@import url('sections/header.scss');
+@import url('sections/home-banner.scss');
+@import url('sections/banner.scss');
+@import url('sections/cta-banner.scss');
+@import url('sections/footer.scss');

@@ -1,26 +1,3 @@
-<div class="mt-5 container">
-  <div class="row">
-    <div class="col-lg-7">
-      <div class="shopify-section-banner__main">
-        <h1 class="shopify-section-banner__main__heading">{{ section.settings.banner_heading }}</h1>
-        <p class="shopify-section-banner__main__text">{{ section.settings.banner_text }}</p>
-        {% if section.settings.banner_btn_enabled == "enabled" %}
-        <button class="shopify-section-banner__main__button btn btn-lg">{{ section.settings.banner_btn_text }}</button>
-        {% endif %}
-      </div>
-    </div>
-    <div class="shopify-section-banner__secondary col-lg-5">
-      <img 
-        class="shopify-section-banner__secondary__image" 
-        src="https://res.cloudinary.com/djr6sgsbd/image/upload/f_auto/v1523883163/pill-bottle-in-hand.jpg" 
-        width={{ section.settings.banner_image_width }}
-        />
-    </div>
-    </div>
-  </div>
-</div>
-
-
 {% schema %}
   {
     "name": "Home banner",
@@ -82,3 +59,26 @@
   }
 
 {% endschema %}
+
+<div class="mt-5 container">
+  <div class="row">
+    <div class="col-lg-7">
+      <div id="home-text" class="shopify-section-banner__main">
+        <h1 class="shopify-section-banner__main__heading">{{ section.settings.banner_heading }}</h1>
+        <p class="shopify-section-banner__main__text">{{ section.settings.banner_text }}</p>
+        {% if section.settings.banner_btn_enabled == "enabled" %}
+        <button class="shopify-section-banner__main__button btn btn-lg">{{ section.settings.banner_btn_text }}</button>
+        {% endif %}
+      </div>
+    </div>
+    <div class="shopify-section-banner__secondary col-lg-5">
+      <img
+        id="hand"
+        class="shopify-section-banner__secondary__image" 
+        src="https://res.cloudinary.com/djr6sgsbd/image/upload/f_auto/v1523883163/pill-bottle-in-hand.jpg" 
+        width={{ section.settings.banner_image_width }}
+        />
+    </div>
+    </div>
+  </div>
+</div>

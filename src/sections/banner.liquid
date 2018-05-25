@@ -1,53 +1,6 @@
-<div style="background-color:{% if section.settings.banner_color_scheme == 'green' %}#00BFB3{% else %}white{% endif %}">
-  <div class="container">
-    <div class="shopify-section-{{ section.id }} row">
-      {% if section.settings.layout == 'left' %}
-      <div class="shopify-section-banner__secondary col-lg-5">
-        <img class="shopify-section-banner__secondary__image" src="https://res.cloudinary.com/djr6sgsbd/image/upload/v1523627051/iPhone7-Text-ordering-with-phone.png"
-          width={{ section.settings.banner_image_width }} {% if section.settings.layout=='left' %} style="right:0px" {% endif
-          %} />
-      </div>
-      <div class="shopify-section-banner__main col-lg-7">
-        <div class="shopify-section-banner__main__wrapper">
-          <h1 class="shopify-section-banner__main__wrapper__heading" style="color:{% if section.settings.banner_color_scheme == 'green' %}white{% else %}black{% endif %}">
-            {{ section.settings.banner_heading }}
-          </h1>
-          <p class="shopify-section-banner__main__wrapper__text" style="color:{% if section.settings.banner_color_scheme == 'green' %}white{% else %}black{% endif %}">
-            {{ section.settings.banner_text }}
-          </p>
-          {% if section.settings.banner_btn_enabled == "enabled" %}
-          <button class="shopify-section-banner__main__button btn btn-lg">{{ section.settings.banner_btn_text }}</button>
-          {% endif %}
-        </div>
-      </div>
-      {% else %}
-      <div class="shopify-section-banner__main col-lg-7">
-        <div class="shopify-section-banner__main__wrapper text-left">
-          <h1 class="shopify-section-banner__main__wrapper__heading" style="color:{% if section.settings.banner_color_scheme == 'green' %}white{% else %}black{% endif %}">
-            {{ section.settings.banner_heading }}
-          </h1>
-          <p class="shopify-section-banner__main__wrapper__text" style="color:{% if section.settings.banner_color_scheme == 'green' %}white{% else %}black{% endif %}">
-            {{ section.settings.banner_text }}
-          </p>
-          {% if section.settings.banner_btn_enabled == "enabled" %}
-          <button class="shopify-section-banner__main__button btn btn-lg">{{ section.settings.banner_btn_text }}</button>
-          {% endif %}
-        </div>
-      </div>
-      <div class="shopify-section-banner__secondary col-lg-5">
-        <img class="shopify-section-banner__secondary__image" src="https://res.cloudinary.com/djr6sgsbd/image/upload/v1523627051/iPhone7-Text-ordering-with-phone.png"
-          width={{ section.settings.banner_image_width }} {% if section.settings.layout=='left' %} style="right:0px" {% endif
-          %} />
-      </div>
-      {% endif %}
-    </div>
-  </div>
-</div>
-
-
 {% schema %}
   {
-    "name": "Banner (image-left)",
+    "name": "Banner",
     "settings": [
       {
         "type": "radio",
@@ -116,3 +69,51 @@
   }
 
 {% endschema %}
+
+
+
+<div style="background-color:{% if section.settings.banner_color_scheme == 'green' %}#00BFB3{% else %}white{% endif %}">
+  <div class="container">
+    <div class="shopify-section-{{ section.id }} row">
+      {% if section.settings.layout == 'left' %}
+      <div class="shopify-section-banner__secondary col-lg-5">
+        <img class="shopify-section-banner__secondary__image" src="https://res.cloudinary.com/djr6sgsbd/image/upload/v1523627051/iPhone7-Text-ordering-with-phone.png"
+          width={{ section.settings.banner_image_width }} {% if section.settings.layout=='left' %} style="right:0px" {% endif
+          %} />
+      </div>
+      <div class="shopify-section-banner__main col-lg-7">
+        <div class="shopify-section-banner__main__wrapper text-left">
+          <h1 class="shopify-section-banner__main__wrapper__heading" style="color:{% if section.settings.banner_color_scheme == 'green' %}white{% else %}black{% endif %}">
+            {{ section.settings.banner_heading }}
+          </h1>
+          <p class="shopify-section-banner__main__wrapper__text" style="color:{% if section.settings.banner_color_scheme == 'green' %}white{% else %}black{% endif %}">
+            {{ section.settings.banner_text }}
+          </p>
+          {% if section.settings.banner_btn_enabled == "enabled" %}
+          <button class="shopify-section-banner__main__button btn btn-lg">{{ section.settings.banner_btn_text }}</button>
+          {% endif %}
+        </div>
+      </div>
+      {% else %}
+      <div class="shopify-section-banner__main col-lg-7">
+        <div class="shopify-section-banner__main__wrapper text-right">
+          <h1 class="shopify-section-banner__main__wrapper__heading" style="color:{% if section.settings.banner_color_scheme == 'green' %}white{% else %}black{% endif %}">
+            {{ section.settings.banner_heading }}
+          </h1>
+          <p class="shopify-section-banner__main__wrapper__text" style="color:{% if section.settings.banner_color_scheme == 'green' %}white{% else %}black{% endif %}">
+            {{ section.settings.banner_text }}
+          </p>
+          {% if section.settings.banner_btn_enabled == "enabled" %}
+          <button class="shopify-section-banner__main__button btn btn-lg">{{ section.settings.banner_btn_text }}</button>
+          {% endif %}
+        </div>
+      </div>
+      <div class="shopify-section-banner__secondary col-lg-5">
+        <img class="shopify-section-banner__secondary__image" src="https://res.cloudinary.com/djr6sgsbd/image/upload/v1523627051/iPhone7-Text-ordering-with-phone.png"
+          width={{ section.settings.banner_image_width }} {% if section.settings.layout=='left' %} style="right:0px" {% endif
+          %} />
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,118 @@
+{% schema %}
+    {
+      "name": "3 steps section",
+      "settings": [{
+          "type": "text",
+          "id": "b1_heading",
+          "default": "Order your prescription by SMS",
+          "label": "Heading"
+        },
+        {
+          "type": "text",
+          "id": "b1_text",
+          "default": "We've made it really easy for you to contact us. Simply text us and we'll dispatch your order the same day.",
+          "label": "Text"
+        },
+        {
+          "type": "image_picker",
+          "id": "b1_img",
+          "label": "Image"
+        }, {
+          "type": "text",
+          "id": "b2_heading",
+          "default": "The whole house is covered",
+          "label": "Heading"
+        }, {
+          "type": "text",
+          "id": "b2_text",
+          "default": "Membership covers prescriptions for 2 adults and any children up to the age of 23.",
+          "label": "Text"
+        }, {
+          "type": "image_picker",
+          "id": "b2_img",
+          "label": "Image"
+        }, {
+          "type": "text",
+          "id": "b3_heading",
+          "default": "You get delivered at home",
+          "label": "Heading"
+        }, {
+          "type": "text",
+          "id": "b3_text",
+          "label": "Text"
+        }, {
+          "type": "image_picker",
+          "id": "b3_img",
+          "label": "Image"
+        }
+      ]
+    }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
+
+<div style="background-color:#00BFB3;"> {%- comment -%} raising z-index to allow hand animation to slide under the section {%- endcomment -%}
+  <div class="container">
+    <div class="shopify-section-{{ section.id }} row">
+      <div class="shopify-section-{{ section.id }}__secondary col-lg-5">
+        {% if section.settings.b1_img != nil %} {{ section.settings.b1_img }} {% else %}
+        <img class="shopify-section-{{ section.id }}__secondary__image" src="{{ 'iphone-text-ordering.png' | asset_img_url: '300x' }}" style="right:0px"
+        /> {% endif %}
+      </div>
+      <div class="shopify-section-{{ section.id }}__main col-lg-7">
+        <div class="shopify-section-{{ section.id }}__main__wrapper text-left" style="color:white!important">
+          <h1 class="shopify-section-{{ section.id }}__main__wrapper__heading">
+            {{ section.settings.b1_heading }}
+          </h1>
+          <p class="shopify-section-{{ section.id }}__main__wrapper__text">
+            {{ section.settings.b1_text }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div style="background-color:white">
+  <div class="container">
+    <div class="shopify-section-{{ section.id }} row">
+      <div class="shopify-section-{{ section.id }}__main col-lg-7">
+        <div class="shopify-section-{{ section.id }}__main__wrapper text-right">
+          <h1 class="shopify-section-{{ section.id }}__main__wrapper__heading">
+            {{ section.settings.b2_heading }}
+          </h1>
+          <p class="shopify-section-{{ section.id }}__main__wrapper__text">
+            {{ section.settings.b2_text }}
+          </p>
+        </div>
+      </div>
+      <div class="shopify-section-{{ section.id }}__secondary col-lg-5">
+        {% if section.settings.b2_img != nil %} {{ section.settings.b2_img }} {% else %}
+        <img class="shopify-section-{{ section.id }}__secondary__image" src="{{ 'family.png' | asset_img_url: '400x' }}" style="left:0px" /> {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+<div style="background-color:#00BFB3">
+  <div class="container">
+    <div class="shopify-section-{{ section.id }} row">
+      <div class="shopify-section-{{ section.id }}__secondary col-lg-5">
+        {% if section.settings.b3_img != nil %} {{ section.settings.b3_img }} {% else %}
+        <img class="shopify-section-{{ section.id }}__secondary__image" src="{{ 'delivery.png' | asset_img_url: '400x' }}" style="right:0px" /> {% endif %}
+      </div>
+      <div class="shopify-section-{{ section.id }}__main col-lg-7">
+        <div class="shopify-section-{{ section.id }}__main__wrapper text-left">
+          <h1 class="shopify-section-{{ section.id }}__main__wrapper__heading" style="color:white">
+            {{ section.settings.b3_heading }}
+          </h1>
+          <p class="shopify-section-{{ section.id }}__main__wrapper__text" style="color:white">
+            {{ section.settings.b3_text }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

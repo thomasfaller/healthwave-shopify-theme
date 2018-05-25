@@ -62,7 +62,7 @@
 
   {{ '//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.min.css' | stylesheet_tag }}
   {{ '//use.fontawesome.com/releases/v5.0.13/css/all.css' | stylesheet_tag }}
-  
+
 </head>
 
 <body id="{{ page_title | handle }}" class="template-{{ template.name | handle }}">
@@ -80,6 +80,22 @@
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+
+<script>
+  window.sr = ScrollReveal();
+  sr.reveal('#home-text',{scale: 1, distance: 0, duration: 700});
+  sr.reveal('#hand',{
+    origin: 'right',
+    distance: '700px',
+    duration: 1000,
+    delay: 500
+  });
+  sr.reveal('.shopify-section-3-steps__secondary__image',{
+    viewFactor: 0.9,
+    duration: 750
+  });
+</script>
 
 </body>
 </html>

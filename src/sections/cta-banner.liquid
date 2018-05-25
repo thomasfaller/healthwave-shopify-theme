@@ -1,0 +1,68 @@
+{% schema %}
+  {
+    "name": "3 steps section",
+    "settings": [{
+        "type": "image_picker",
+        "id": "img",
+        "label": "Image"
+      },
+      {
+        "type": "color",
+        "id": "background_color",
+        "default": "#ffffff",
+        "label": "Background color"
+      },
+      {
+        "type": "text",
+        "id": "heading",
+        "default": "Sign up today and save up to 1200 € on your medications.",
+        "label": "Heading"
+      },
+      {
+        "type": "radio",
+        "id": "sub-heading_enabled",
+        "label": "Subheading",
+        "default": "disabled",
+        "options": [{
+          "value": "enabled",
+          "label": "enabled"
+        }, {
+          "value": "disabled",
+          "label": "disabled"
+        }]
+      },
+      {
+        "type": "richtext",
+        "id": "sub-heading",
+        "default": "<p></p>",
+        "label": "Subheading text"
+      },
+      {
+        "type": "text",
+        "id": "button_text",
+        "default": "Get started",
+        "label": "Subheading text"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
+
+<div style="background-color:white;margin-bottom:30px">
+  <div class="container">
+    <div class="shopify-section-{{ section.id }}">
+      {% if section.settings.b1_img != nil %} {{ section.settings.b1_img }} {% else %}
+      <img class="shopify-section-{{ section.id }}__image" src="{{ 'piggy-bank-85.png' | asset_img_url: '300x' }}" /> {% endif %}
+      <h1 class="shopify-section-{{ section.id }}__heading">{{ section.settings.heading }}</h1>
+      {% if section.settings.sub-heading_enabled == 'enabled' %}
+      <p class="shopify-section-{{ section.id }}__subheading">{{ section.settings.sub-heading }}</p>
+      {% endif %}
+      <button class="shopify-section-cta-banner__button btn btn-xl">{{ section.settings.button_text }}</button>
+    </div>
+  </div>
+</div>

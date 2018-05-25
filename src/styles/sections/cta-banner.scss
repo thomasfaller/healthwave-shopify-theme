@@ -1,0 +1,30 @@
+//*******************************************
+//***          CTA BANNER - SECTION     ***
+// ******************************************
+.shopify-section-cta-banner {
+  .shopify-section-cta-banner__image {
+    display: block;
+    margin: 0 auto 40px auto;
+  }
+  .shopify-section-cta-banner__heading {
+    color: $color-main-gray;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 300;
+  }
+  .shopify-section-cta-banner__subheading {
+    font-size: 1.75rem;
+    font-weight: 300;
+  }
+  .shopify-section-cta-banner__button {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 30px;
+    background-color: $color-main-green;
+    color: white;
+    font-size: 2rem;
+    font-weight: 200;
+  }
+}

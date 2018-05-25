@@ -1,0 +1,62 @@
+//*******************************************
+//***          BANNER - SECTION     ***
+// ******************************************
+
+.shopify-section-banner {
+  height: 550px;
+  .shopify-section-banner__main {
+    display: flex;
+    align-items: center;
+    .shopify-section-banner__main__wrapper {
+      text-align: right;
+      .shopify-section-banner__main__wrapper__heading {
+        color: $color-main-gray;
+        font-size: 3.125rem;
+        font-weight: 300;
+      }
+      .shopify-section-banner__main__wrapper__primary {
+        color: $color-main-gray;
+        font-size: 1.625rem;
+        font-weight: 300;
+      }
+    }
+  }
+  .shopify-section-banner__secondary {
+    display: flex;
+    .shopify-section-banner__secondary__image {
+      max-height: 480px;
+      width: auto;
+      display: block;
+      margin: auto;
+    }
+  }
+}
+
+// 3steps-section
+
+.shopify-section-3-steps {
+  height: 550px;
+  .shopify-section-3-steps__main {
+    display: flex;
+    align-items: center;
+    .shopify-section-3-steps__main__wrapper {
+      .shopify-section-3-steps__main__wrapper__heading {
+        font-size: 3.125rem;
+        font-weight: 300;
+      }
+      .shopify-section-3-steps__main__wrapper__text {
+        font-size: 1.625rem;
+        font-weight: 300;
+      }
+    }
+  }
+  .shopify-section-3-steps__secondary {
+    display: flex;
+    .shopify-section-3-steps__secondary__image {
+      max-height: 480px;
+      width: auto;
+      display: block;
+      margin: auto;
+    }
+  }
+}
