@@ -1,0 +1,39 @@
+<div class="page-title-banner">
+  <div class="container" id="parent">
+  	<div class="page-title-banner__title" id="child">
+      <h1>{{ page_title }}</h1>
+    </div>
+  </div>
+</div>
+
+<style>
+  #shopify-section-page-title {
+    margin-top: 120px;
+  }
+  #shopify-section-page-title .page-title-banner {
+    height: 100px;
+    background-color: white;
+    color: white;
+  }
+  #parent {display: table;}
+  #child {
+    color: #00BFB3;
+    display: inline-block;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+  }
+</style>
+
+{% schema %}
+  {
+    "name": "Page Title",
+    "settings": []
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -18,20 +18,17 @@
         margin-bottom: 20px;
       }
       .shopify-section-banner__main__heading {
+        @include text-heading;
         white-space: nowrap;
         color: $color-main-gray;
-        font-size: 3.75rem;
       }
       .shopify-section-banner__main__text {
+        @include text-regular;
         color: $color-main-gray;
-        font-size: 1.25rem;
       }
       .shopify-section-banner__main__button {
-        font-size: 1.75rem;
-        font-weight: 400;
-        padding: 10px 30px;
-        background-color: white;
-        color: $color-main-green;
+        @include text-regular;
+        @include button-regular(white, $color-main-green);
         border: 2.5px solid $color-main-green;
       }
     }
@@ -47,8 +44,7 @@
 }
 
 #custom-button { // located on the "pharmacists snippet"
-  font-size: 1.75rem;
-  font-weight: 400;
+  @include text-regular;
   padding: 10px 30px;
   background-color: $color-main-green;
   color: white;

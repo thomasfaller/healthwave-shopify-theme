@@ -1,0 +1,73 @@
+<nav class="toolbar-filters navbar navbar-expand-lg">
+    <div class="container">
+        <div class="ml-2">
+            <form action="">
+                <span class="visually-hidden">View as</span>
+                <a href="?view=grid">
+                    <i class="icon-view ml-2 fas fa-th-large{% if collection-view == 'grid' %} selected{% endif %}"></i>
+                </a>
+                <a href="?view=list">
+                    <i class="icon-view ml-3 fas fa-list-ul{% if collection-view == 'list' %} selected{% endif %}"></i>
+                </a>
+            </form>
+        </div>
+        <div>
+            <span>
+                {{ collection.products_count }} products in {% if current_tags == blank %}total{% else %}{{ collection.title | escape }}{%
+                endif %}.
+            </span>
+        </div>
+        <div class="toolbar-filters__sort-by__wrapper">
+            {% include 'sort-by' %}
+        </div>
+    </div>
+</nav>
+
+<style>
+  .icon-view {
+      color: black;
+      font-size: 1.5rem;
+  }
+
+  a .selected {
+      color: lightgray;
+  }
+
+  .toolbar-filters {
+      margin-top: 0;
+      height: 4rem;
+      border-top: 1px solid #e8e9eb;
+      border-bottom: 1px solid #e8e9eb;
+  }
+
+  @media (max-width: 768px) {
+      span {
+          display: none;
+      }
+  }
+
+  .toolbar-filters__sort-by__wrapper {
+      width: 170px;
+  }
+</style>
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+Shopify.queryParams = {};
+if (location.search.length) {
+    for (var aKeyValue, i = 0, aCouples = location.search.substr(1).split('&'); i < aCouples.length; i++) {
+        aKeyValue = aCouples[i].split('=');
+        if (aKeyValue.length > 1) {
+            Shopify.queryParams[decodeURIComponent(aKeyValue[0])] = decodeURIComponent(aKeyValue[1]);
+        }
+    }
+}
+jQuery('#sort-by')
+    .val('{{ collection.sort_by | default: collection.default_sort_by | escape }}')
+    .bind('change', function () {
+        Shopify.queryParams.sort_by = jQuery(this).val();
+        location.search = jQuery.param(Shopify.queryParams).replace(/\+/g, '%20');
+    });
+{% endjavascript %}

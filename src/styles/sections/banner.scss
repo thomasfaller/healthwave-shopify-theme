@@ -41,12 +41,10 @@
     align-items: center;
     .shopify-section-3-steps__main__wrapper {
       .shopify-section-3-steps__main__wrapper__heading {
-        font-size: 3.125rem;
-        font-weight: 300;
+        @include text-heading;
       }
       .shopify-section-3-steps__main__wrapper__text {
-        font-size: 1.625rem;
-        font-weight: 300;
+        @include text-regular;
       }
     }
   }
