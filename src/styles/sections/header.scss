@@ -1,7 +1,9 @@
 #shopify-section-header>nav {
   background-color: white !important;
-  // border-bottom: 3px solid $color-main-green !important;
   padding: 20px 0;
+  #logo {
+    max-width: 220px;
+  }
   a.nav-link {
     color: $color-main-gray;
     &:hover {
@@ -60,9 +62,13 @@
   .btn-group {
     display: grid;
   }
-  #login-btn, #register-btn, #cart-btn {
-    padding-top: .5rem; padding-bottom: .5rem;
-    margin-top: .25rem; margin-bottom: .25rem;
+  #login-btn,
+  #register-btn,
+  #cart-btn {
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    margin-top: .25rem;
+    margin-bottom: .25rem;
     border-radius: .25rem;
   }
 }

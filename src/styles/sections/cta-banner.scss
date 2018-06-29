@@ -1,25 +1,28 @@
 //*******************************************
 //***          CTA BANNER - SECTION     ***
 // ******************************************
-.shopify-section-cta-banner {
-  .shopify-section-cta-banner__image {
-    display: block;
-    margin: 0 auto 40px auto;
-  }
-  .shopify-section-cta-banner__heading {
-    @include text-heading;
-    color: $color-main-gray;
-    margin-top: 40px;
-    margin-bottom: 40px;
-    text-align: center;
-  }
-  .shopify-section-cta-banner__subheading {
-    @include text-regular;
-  }
-  .shopify-section-cta-banner__button {
-    @include button-regular($color-main-green, white);
-    @include text-regular;
-    display: block;
-    margin: 0 auto;
+
+#shopify-section-cta-banner {
+  margin-bottom: 55px;
+  .shopify-section-cta-banner {
+    .shopify-section-cta-banner__image {
+      @include center-block;
+      margin-bottom: 40px;
+    }
+    .shopify-section-cta-banner__heading {
+      @include text-heading;
+      color: $color-main-gray;
+      margin-top: 40px;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+    .shopify-section-cta-banner__subheading {
+      @include text-regular;
+    }
+    .shopify-section-cta-banner__button {
+      @include center-block;
+      @include text-regular;
+      @include button-regular($color-main-green, white);
+    }
   }
 }

@@ -1,0 +1,73 @@
+//*******************************************
+//***          CTA BANNER - SECTION     ***
+// ******************************************
+
+#shopify-section-cta-banner {
+  .cta-banner {
+    .cta-banner__image {
+      @include center-block;
+      height: 200px;
+      margin-bottom: 40px;
+    }
+    .cta-banner__heading {
+      @include text-heading-mobile(2rem);
+      @include regular-bottom-margin;
+      text-align: center;
+    }
+    .cta-banner__subheading {
+      @include text-regular-mobile;
+      @include regular-bottom-margin;
+    }
+    .cta-banner__button {
+      @include center-block;
+      @include text-regular-mobile;
+      @include button-regular-mobile;
+      margin-bottom: 40px;
+    }
+  }
+}
+
+@media only screen and (min-width: 500px) {
+  #shopify-section-cta-banner {
+    .cta-banner {
+      .cta-banner__image {
+        height: 270px;
+      }
+      .cta-banner__heading  {
+        margin-bottom: 20px;
+      }
+      .cta-banner__subheading  {
+        margin-bottom: 20px;
+      }
+      .cta-banner__button {
+        width: 400px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  #shopify-section-cta-banner {
+    .cta-banner {
+      .cta-banner__image {
+        height: 370px;
+      }
+      .cta-banner__heading {
+        @include text-heading(4rem, 200);
+        color: $color-main-gray;
+        margin-top: 40px;
+        margin-bottom: 40px;
+      }
+      .cta-banner__subheading {
+        @include text-regular;
+      }
+      .cta-banner__button {
+        @include text-regular;
+        @include button-regular(white, $color-main-green);
+        border: 1.75px solid $color-main-green;
+        width: 250px;
+        margin-bottom: 60px;
+      }
+    }
+  }
+}

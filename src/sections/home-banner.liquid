@@ -12,7 +12,7 @@
         "type": "text",
         "id": "banner_text",
         "label": "Text",
-        "default": "Over 15,000 people have switched to Healthwave for their prescriptionm medicines. See how much you can save by joining."
+        "default": "Over 15,000 people have switched to Healthwave for their prescription. See how much you can save by joining."
       },
       {
         "type": "radio",
@@ -60,25 +60,22 @@
 
 {% endschema %}
 
-<div class="mt-5 container">
+<div class="container">
   <div class="row">
-    <div class="col-lg-7">
-      <div id="home-text" class="shopify-section-banner__main">
-        <h1 class="shopify-section-banner__main__heading">{{ section.settings.banner_heading }}</h1>
-        <p class="shopify-section-banner__main__text">{{ section.settings.banner_text }}</p>
-        {% if section.settings.banner_btn_enabled == "enabled" %}
-        <button class="shopify-section-banner__main__button btn btn-lg">{{ section.settings.banner_btn_text }}</button>
-        {% endif %}
-      </div>
+    <div id="home-text" class="{{ section.id }}__main col-lg-7">
+      <h1 class="{{ section.id }}__main__heading">{{ section.settings.banner_heading }}</h1>
+      <p class="{{ section.id }}__main__text">{{ section.settings.banner_text }}</p>
+      {% if section.settings.banner_btn_enabled == "enabled" %}
+      <button class="{{ section.id }}__main__button btn">{{ section.settings.banner_btn_text }}</button>
+      {% endif %}
     </div>
-    <div class="shopify-section-banner__secondary col-lg-5">
+    <div class="{{ section.id }}__secondary col-lg-5">
       <img
         id="hand"
-        class="shopify-section-banner__secondary__image" 
-        src="https://res.cloudinary.com/djr6sgsbd/image/upload/f_auto/v1523883163/pill-bottle-in-hand.jpg" 
+        class="{{ section.id }}__secondary__image"
+        src="https://res.cloudinary.com/djr6sgsbd/image/upload/f_auto/v1523883163/pill-bottle-in-hand.jpg"
         width={{ section.settings.banner_image_width }}
-        />
-    </div>
+      />
     </div>
   </div>
 </div>

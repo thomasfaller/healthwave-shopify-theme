@@ -1,14 +1,16 @@
-<nav class="shopify-section-{{ section.id }} navbar navbar-expand-lg navbar-light bg-light fixed-top">	
+<nav class="shopify-section-{{ section.id }} navbar navbar-expand-lg navbar-light bg-light static-top">	
   <div class="container">
     <a href="/" itemprop="url" class="navbar-brand site-logo{% if section.settings.logo != blank %} site-header__logo-image{% endif %}">
       {% if section.settings.logo != blank %}
         {% capture image_size %}{{ section.settings.logo_max_width }}x{% endcapture %}
-        <img src="{{ section.settings.logo | img_url: image_size }}"
+        <img id="logo"
+            src="{{ section.settings.logo | img_url: image_size }}"
             srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
             alt="{{ section.settings.logo.alt | default: shop.name }}"
             itemprop="logo">
       {% else %}
-        <img src="{{ 'healthwave_logo_green.png' | asset_img_url: '220x' }}"
+        <img id="logo"
+            src="{{ 'logo.png' | asset_url }}"
             alt="{{ shop.name }}" 
             itemprop="logo">
       {% endif %}

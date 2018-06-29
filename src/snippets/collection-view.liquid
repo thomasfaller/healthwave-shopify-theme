@@ -1,33 +1,29 @@
 <main id="collection-main">
-  <form id="collection-form" method="get" action="{{ collection.url }}{% if current_tags %}/{{ current_tags | join: '+' }}{% endif %}" data-submit-load="#collection-main" rel="noopener noreferrer">
-    {% section 'page-title' %}
-    {% section 'collection-filter-toolbar' %}
+  <form id="collection-form" method="get" action="{{ collection.url }}{% if current_tags %}/{{ current_tags | join: '+' }}{% endif %}"
+    data-submit-load="#collection-main" rel="noopener noreferrer">
+    {% section 'page-title' %} {% section 'collection-filter-toolbar' %}
     <div class="container">
       <div class="mt-4 grid">
         <aside class="grid__item medium-up--one-quarter large--one-fifth">
-          {% section 'collection-sidebar' %}
+          {% section 'collection-sidebar-plugin' %}
         </aside>
         {%- paginate collection.products by 12 -%}
         <div class="grid__item medium-up--three-quarters large--four-fifths">
           {%- if collection-view == 'grid' -%}
-          <div class="grid">
-            {%- for product in collection.products -%}
-            {%- include 'product' -%}
-            {%- endfor -%}
+          <div id="bc-sf-filter-products" class="grid">
+            {%- for product in collection.products -%} {%- include 'product' -%} {%- endfor -%}
           </div>
-          {%- else  -%}
-          {%- for product in collection.products -%}
-          {%- include 'product-list' -%}
-          {%- endfor -%}
-          {%- endif -%}
-          {%- if paginate.pages > 1 -%}
+          {%- else -%} {%- for product in collection.products -%} {%- include 'product-list' -%} {%- endfor -%} {%- endif -%} {%- if
+          paginate.pages > 1 -%}
           <div class="text-center">
-            {{ paginate | default_pagination | replace: '&laquo; Previous', '&larr;' | replace: 'Next &raquo;', '&rarr;' }}
+            <div id="bc-sf-filter-bottom-pagination"></div>
+            {% comment %} {{ paginate | default_pagination | replace: '&laquo; Previous', '&larr;' | replace: 'Next &raquo;', '&rarr;'
+            }} {% endcomment %}
           </div>
           {%- endif -%}
         </div>
         {%- endpaginate -%}
-        </div>
       </div>
+    </div>
   </form>
 </main>

@@ -53,16 +53,16 @@
 {% javascript %}
 {% endjavascript %}
 
-<div style="background-color:white;margin-bottom:30px">
+<div>
   <div class="container">
-    <div class="shopify-section-{{ section.id }}">
+    <div class="{{ section.id }}">
       {% if section.settings.b1_img != nil %} {{ section.settings.b1_img }} {% else %}
-      <img class="shopify-section-{{ section.id }}__image" src="{{ 'piggy-bank-85.png' | asset_img_url: '300x' }}" /> {% endif %}
-      <h1 class="shopify-section-{{ section.id }}__heading">{{ section.settings.heading }}</h1>
+      <img class="{{ section.id }}__image" src="{{ 'piggy-bank-85.png' | asset_img_url: '300x' }}" /> {% endif %}
+      <h1 class="{{ section.id }}__heading">{{ section.settings.heading }}</h1>
       {% if section.settings.sub-heading_enabled == 'enabled' %}
-      <p class="shopify-section-{{ section.id }}__subheading">{{ section.settings.sub-heading }}</p>
+      <p class="{{ section.id }}__subheading">{{ section.settings.sub-heading }}</p>
       {% endif %}
-      <button class="shopify-section-cta-banner__button btn btn-xl">{{ section.settings.button_text }}</button>
+      <button class="{{ section.id }}__button btn">{{ section.settings.button_text }}</button>
     </div>
   </div>
 </div>

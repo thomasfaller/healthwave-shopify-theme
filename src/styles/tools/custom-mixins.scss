@@ -1,0 +1,78 @@
+// Utilities
+@mixin center-block {
+  display: block;
+  margin: 0 auto;
+}
+
+// Spacing
+@mixin regular-bottom-margin {
+  margin-bottom: 16px;
+}
+
+// Typography mixins
+
+// default font-sizes
+$regular-font-size: 1.625rem;
+$heading-font-size: 3.125rem;
+
+@mixin text-heading($font-size: $heading-font-size, $font-weight: 300) {
+  font-size: $font-size;
+  font-weight: $font-weight;
+  color: $color-main-gray;
+}
+@mixin text-heading-mobile($font-size: 2.5rem, $font-weight: 700) {
+  font-size: $font-size;
+  font-weight: $font-weight;
+  color: $color-main-gray;
+  letter-spacing: -.03em;
+  line-height: 1.2em;
+}
+@mixin text-regular($font-size: $regular-font-size) {
+  font-size: $font-size;
+  font-weight: 300;
+  letter-spacing: .02em;
+  color: $color-main-gray;
+}
+@mixin text-regular-mobile($font-size: 1.1875rem) {
+  font-size: $font-size;
+  font-weight: 400;
+  letter-spacing: -.02em;
+  line-height: 1.2em;
+  color: $color-main-gray;
+}
+
+
+
+
+
+// Buttons
+
+@mixin button-regular($bg-color: $color-main-green, $text-color: white) {
+  background-color: $bg-color;
+  color: $text-color;
+  font-size: $regular-font-size;
+  font-weight: 300;
+  padding: 15px 30px;
+  width: 250px;
+}
+@mixin button-regular-outlined($bg-color: white, $text-color: $color-main-green) {
+  background-color: $bg-color;
+  border: 1.75px solid $text-color;
+  color: $text-color;
+  font-size: $regular-font-size;
+  font-weight: 300;
+  padding: 15px 30px;
+  width: 250px;
+}
+
+@mixin button-regular-mobile($bg-color: $color-main-green, $text-color: white) {
+  font-weight: 700;
+  border-radius: 3px;
+  padding: 16px 0;
+  width: 100%;
+  font-size: 1.25rem;
+  text-decoration: none;
+  letter-spacing: .03em;
+  background-color: $bg-color;
+  color: $text-color;
+}

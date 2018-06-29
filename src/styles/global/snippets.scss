@@ -1,0 +1,20 @@
+// snippets
+
+.page-title-banner {
+  border-bottom: 2px solid #00BFB3;
+  .page-title-banner__title {
+    h1 {
+      @include text-heading;
+      color: $color-main-green;
+    }
+  }
+}
+
+#parent {display: table;}
+#child {
+  color: #00BFB3;
+  display: inline-block;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}

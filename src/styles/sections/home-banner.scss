@@ -30,6 +30,10 @@
         @include text-regular;
         @include button-regular(white, $color-main-green);
         border: 2.5px solid $color-main-green;
+        @media only screen and (max-width: 550px) {
+          width: 100%;
+          font-size: 2.25em;
+        }
       }
     }
   }
@@ -39,7 +43,14 @@
     .shopify-section-banner__secondary__image {
       z-index: -1;
       vertical-align: bottom;
+      @media only screen and (max-width: 987px) {
+        display: none;
+      }
     }
+  }
+  @media only screen and (max-width: 987px) {
+    margin-top: 13em;
+    height: 450px;
   }
 }
 

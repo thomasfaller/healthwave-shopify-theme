@@ -17,30 +17,37 @@
           "type": "image_picker",
           "id": "b1_img",
           "label": "Image"
-        }, {
+        },
+        {
           "type": "text",
           "id": "b2_heading",
           "default": "The whole house is covered",
           "label": "Heading"
-        }, {
+        },
+        {
           "type": "text",
           "id": "b2_text",
           "default": "Membership covers prescriptions for 2 adults and any children up to the age of 23.",
           "label": "Text"
-        }, {
+        },
+        {
           "type": "image_picker",
           "id": "b2_img",
           "label": "Image"
-        }, {
+        },
+        {
           "type": "text",
           "id": "b3_heading",
           "default": "You get delivered at home",
           "label": "Heading"
-        }, {
+        },
+        {
           "type": "text",
           "id": "b3_text",
+          "default": "Sample text.",
           "label": "Text"
-        }, {
+        },
+        {
           "type": "image_picker",
           "id": "b3_img",
           "label": "Image"
@@ -60,15 +67,15 @@
     <div class="shopify-section-{{ section.id }} row">
       <div class="shopify-section-{{ section.id }}__secondary col-lg-5">
         {% if section.settings.b1_img != nil %} {{ section.settings.b1_img }} {% else %}
-        <img class="shopify-section-{{ section.id }}__secondary__image" src="{{ 'iphone-text-ordering.png' | asset_img_url: '300x' }}" style="right:0px"
-        /> {% endif %}
+        <img id="img-1" class="shopify-section-{{ section.id }}__secondary__image" src="{{ 'iphone-text-ordering.png' | asset_img_url: '300x' }}"
+          style="right:0px" /> {% endif %}
       </div>
       <div class="shopify-section-{{ section.id }}__main col-lg-7">
-        <div class="shopify-section-{{ section.id }}__main__wrapper text-left" style="color:white!important">
-          <h1 class="shopify-section-{{ section.id }}__main__wrapper__heading">
+        <div class="shopify-section-{{ section.id }}__main__wrapper">
+          <h1 class="shopify-section-{{ section.id }}__main__wrapper__heading" style="color:white">
             {{ section.settings.b1_heading }}
           </h1>
-          <p class="shopify-section-{{ section.id }}__main__wrapper__text">
+          <p class="shopify-section-{{ section.id }}__main__wrapper__text" style="color:white">
             {{ section.settings.b1_text }}
           </p>
         </div>
@@ -79,8 +86,8 @@
 <div style="background-color:white">
   <div class="container">
     <div class="shopify-section-{{ section.id }} row">
-      <div class="shopify-section-{{ section.id }}__main col-lg-7">
-        <div class="shopify-section-{{ section.id }}__main__wrapper text-right">
+      <div class="shopify-section-{{ section.id }}__main col-lg-7 order-2 order-md-1">
+        <div class="shopify-section-{{ section.id }}__main__wrapper">
           <h1 class="shopify-section-{{ section.id }}__main__wrapper__heading">
             {{ section.settings.b2_heading }}
           </h1>
@@ -89,9 +96,10 @@
           </p>
         </div>
       </div>
-      <div class="shopify-section-{{ section.id }}__secondary col-lg-5">
+      <div class="shopify-section-{{ section.id }}__secondary col-lg-5 order-1 order-md-2">
         {% if section.settings.b2_img != nil %} {{ section.settings.b2_img }} {% else %}
-        <img class="shopify-section-{{ section.id }}__secondary__image" src="{{ 'family.png' | asset_img_url: '400x' }}" style="left:0px" /> {% endif %}
+        <img id="img-2" class="shopify-section-{{ section.id }}__secondary__image" src="{{ 'family.png' | asset_img_url: '400x' }}"
+          style="left:0px" /> {% endif %}
       </div>
     </div>
   </div>
@@ -101,16 +109,15 @@
     <div class="shopify-section-{{ section.id }} row">
       <div class="shopify-section-{{ section.id }}__secondary col-lg-5">
         {% if section.settings.b3_img != nil %} {{ section.settings.b3_img }} {% else %}
-        <img class="shopify-section-{{ section.id }}__secondary__image" src="{{ 'delivery.png' | asset_img_url: '400x' }}" style="right:0px" /> {% endif %}
+        <img id="img-3" class="shopify-section-{{ section.id }}__secondary__image" src="{{ 'delivery.png' | asset_img_url: '400x' }}"
+          style="right:0px" /> {% endif %}
       </div>
       <div class="shopify-section-{{ section.id }}__main col-lg-7">
         <div class="shopify-section-{{ section.id }}__main__wrapper text-left">
           <h1 class="shopify-section-{{ section.id }}__main__wrapper__heading" style="color:white">
             {{ section.settings.b3_heading }}
           </h1>
-          <p class="shopify-section-{{ section.id }}__main__wrapper__text" style="color:white">
-            {{ section.settings.b3_text }}
-          </p>
+          <p class="shopify-section-{{ section.id }}__main__wrapper__text" style="color:white">Medication will be dispatched the next day</p>
         </div>
       </div>
     </div>

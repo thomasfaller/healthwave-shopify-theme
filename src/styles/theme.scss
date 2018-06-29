@@ -6,6 +6,7 @@
 
 /*================ UTILS ================*/
 @import url('tools/mixins.scss');
+@import url('tools/custom-mixins.scss');
 
 /*================ SETTINGS ================*/
 @import url('settings/variables.scss.liquid');
@@ -22,6 +23,10 @@
 @import url('global/links-buttons.scss');
 @import url('global/forms.scss');
 @import url('global/blank-states.scss');
+@import url('global/snippets.scss');
+
+/*================ TYPOGRAPHY ================*/
+@import url('typography/typography.scss');
 
 /*================ MODULES ================*/
 @import url('modules/site-header.scss');
@@ -30,8 +35,20 @@
 /*================ SECTIONS ================*/
 
 @import url('sections/header.scss');
-@import url('sections/home-banner.scss');
+// @import url('sections/home-banner.scss');
 @import url('sections/banner.scss');
-@import url('sections/cta-banner.scss');
+// @import url('sections/3-steps.scss');
+// @import url('sections/cta-banner.scss');
 @import url('sections/footer.scss');
 @import url('sections/collection-sidebar.scss');
+@import url('sections/collection-filter-toolbar.scss');
+
+/*================ PAGES ================*/
+
+@import url('pages/membership.scss');
+
+
+// Mobile-First transition
+@import url('sections/home-banner-mobileFirst.scss');
+@import url('sections/3-steps-mobileFirst.scss');
+@import url('sections/cta-banner-mobileFirst.scss');

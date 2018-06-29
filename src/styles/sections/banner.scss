@@ -31,30 +31,3 @@
     }
   }
 }
-
-// 3steps-section
-
-.shopify-section-3-steps {
-  height: 550px;
-  .shopify-section-3-steps__main {
-    display: flex;
-    align-items: center;
-    .shopify-section-3-steps__main__wrapper {
-      .shopify-section-3-steps__main__wrapper__heading {
-        @include text-heading;
-      }
-      .shopify-section-3-steps__main__wrapper__text {
-        @include text-regular;
-      }
-    }
-  }
-  .shopify-section-3-steps__secondary {
-    display: flex;
-    .shopify-section-3-steps__secondary__image {
-      max-height: 480px;
-      width: auto;
-      display: block;
-      margin: auto;
-    }
-  }
-}

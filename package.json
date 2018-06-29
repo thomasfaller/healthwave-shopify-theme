@@ -2,6 +2,7 @@
   "name": "new-hw-theme",
   "version": "0.0.1",
   "devDependencies": {
+    "@shopify/slate": "^0.14.0",
     "@shopify/slate-tools": "0.13.0"
   }
 }

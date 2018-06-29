@@ -1,0 +1,14 @@
+// * section - filter-toolbar
+
+#shopify-section-collection-filter-toolbar {
+  .toolbar-filters {
+    a[href^="?view"] {
+      &.selected {
+        color: blue;
+      }
+      i {
+        color: $color-main-green;
+      }
+    }
+  }
+}

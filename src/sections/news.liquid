@@ -1,0 +1,103 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6">
+      <a href="/blogs/">
+        <div class="card border-0">
+          <img class="card-img-top" src="{{ section.settings.logo_left | img_url: '500x' }}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{ section.settings.title_left }}</h5>
+            <p class="card-text">{{ section.settings.tagline_left }}</p>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="col-lg-6">
+      <a href="/blogs/health-hub">
+        <div class="card border-0">
+          <img class="card-img-top" src="{{ section.settings.logo_right | img_url: '500x' }}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{ section.settings.title_right }}</h5>
+            <p class="card-text">{{ section.settings.tagline_right }}</p>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .card:hover .card-img-top {
+  	transform: scale(1.1);
+    color: white;
+    -webkit-transition: transform 2s ease-in-out;
+    transition: transform 1s ease-in-out;
+  }
+  .card:hover {
+  	background-color: lightgray;
+    -webkit-transition: transform 2s ease-in-out;
+    transition: transform .1s ease-in-out;
+  }
+  .card-img-top {
+    opacity:{{ section.settings.logo_opacity }};
+  }
+  
+  .card-body {
+  	position: absolute;
+    top: 100px;left: 50px;
+    color: #00BFB3;
+  }
+  .card-title {
+      font-size: 5rem;
+    }
+  .card-text {
+      font-size: 2rem;
+    }
+</style>
+
+
+{% schema %}
+  {
+    "name": "News",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "logo_left",
+        "label": "Logo image (left)"
+      },
+	  {
+		"type": "text",
+        "id": "title_left",
+        "label": "Heading (left)"
+	  },
+      {
+		"type": "text",
+        "id": "tagline_left",
+        "label": "Tagline (left)"
+	  },
+	  {
+        "type": "image_picker",
+        "id": "logo_right",
+        "label": "Logo image (right)"
+      },
+	  {
+		"type": "text",
+        "id": "title_right",
+        "label": "Heading (right)"
+	  },
+      {
+		"type": "text",
+        "id": "tagline_right",
+        "label": "Tagline (right)"
+	  },
+	  {
+		"type": "range",
+        "id": "logo_opacity",
+        "label": "Logo opacity",
+		"min": 0,
+		"max": 1,
+		"step": 0.1,
+    	"default": 0.5
+	  }
+    ]
+  }
+{% endschema %}

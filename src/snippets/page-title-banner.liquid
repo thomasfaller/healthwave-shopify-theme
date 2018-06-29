@@ -1,0 +1,13 @@
+<div class="page-title-banner">
+  <div class="container" id="parent">
+  	<div class="page-title-banner__title" id="child">
+      <h1>
+      {%- if custom_page_title != nil -%}
+      {{ custom_page_title }}
+      {%- else -%}
+      {{ page_title }}
+      {%- endif -%}
+      </h1>
+    </div>
+  </div>
+</div>
