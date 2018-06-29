@@ -1,74 +1,107 @@
-#shopify-section-header>nav {
-  background-color: white !important;
-  padding: 20px 0;
-  #logo {
-    max-width: 220px;
-  }
-  a.nav-link {
-    color: $color-main-gray;
-    &:hover {
-      color: $color-main-green;
+#shopify-section-header {
+  margin-bottom: 20px;
+  nav.shopify-section-header {
+    background-color: white !important;
+    #logo {
+      max-width: 180px;
     }
-  }
-  #login-btn {
-    background-color: white;
-    border: 2px solid $color-main-green;
-    color: $color-main-green;
-    font-weight: $font-weight-normal;
-  }
-  #register-btn {
-    background-color: $color-main-green;
-    border: 2px solid $color-main-green;
-    color: white;
-    font-weight: $font-weight-normal;
-  }
-  #cart-btn {
-    background-color: white;
-    border: 2px solid $color-main-green;
-    border-radius: 0 3px 3px 0;
-    color: $color-main-green;
-    font-weight: $font-weight-normal;
-    padding: 0 25px;
-    i {
-      position: relative;
-      right: 4px;
-      top: 8px;
-      font-size: x-large;
-    }
-    span {
-      position: absolute;
-      top: 1px;
-      left: 36px;
-      background-color: white;
-      color: $color-main-green;
-      font-size: 8px;
-      line-height: 10px;
-      border: 1px solid $color-main-green;
-      -webkit-box-shadow: 1px 1px 1px #00988F;
-      -moz-box-shadow: 1px 1px 1px #00988F;
-      box-shadow: 1px 1px 1px #00988F;
+    ul.navbar-nav {
+      li.nav-item {
+        a.nav-link {
+          font-size: 1.3rem;
+        }
+      }
+      #login-btn {
+        background-color: white;
+        border: 2px solid $color-main-green;
+        color: $color-main-green;
+        font-weight: $font-weight-normal;
+      }
     }
   }
 }
 
-.navbar-collapse btn-group {
-  margin: 13px 0;
+
+
+@media only screen and (min-width: 500px) {
+
 }
 
-@media (max-width: 480px) {
-  .site-header__logo-image {
-    max-width: 200px;
-  }
-  .btn-group {
-    display: grid;
-  }
-  #login-btn,
-  #register-btn,
-  #cart-btn {
-    padding-top: .5rem;
-    padding-bottom: .5rem;
-    margin-top: .25rem;
-    margin-bottom: .25rem;
-    border-radius: .25rem;
-  }
-}
+
+
+
+
+// #shopify-section-header>nav {
+//   background-color: white !important;
+//   padding: 20px 0;
+//   #logo {
+//     max-width: 220px;
+//   }
+//   a.nav-link {
+//     color: $color-main-gray;
+//     &:hover {
+//       color: $color-main-green;
+//     }
+//   }
+//   #login-btn {
+//     background-color: white;
+//     border: 2px solid $color-main-green;
+//     color: $color-main-green;
+//     font-weight: $font-weight-normal;
+//   }
+//   #register-btn {
+//     background-color: $color-main-green;
+//     border: 2px solid $color-main-green;
+//     color: white;
+//     font-weight: $font-weight-normal;
+//   }
+//   #cart-btn {
+//     background-color: white;
+//     border: 2px solid $color-main-green;
+//     border-radius: 0 3px 3px 0;
+//     color: $color-main-green;
+//     font-weight: $font-weight-normal;
+//     padding: 0 25px;
+//     i {
+//       position: relative;
+//       right: 4px;
+//       top: 8px;
+//       font-size: x-large;
+//     }
+//     span {
+//       position: absolute;
+//       top: 1px;
+//       left: 36px;
+//       background-color: white;
+//       color: $color-main-green;
+//       font-size: 8px;
+//       line-height: 10px;
+//       border: 1px solid $color-main-green;
+//       -webkit-box-shadow: 1px 1px 1px #00988F;
+//       -moz-box-shadow: 1px 1px 1px #00988F;
+//       box-shadow: 1px 1px 1px #00988F;
+//     }
+//   }
+// }
+
+// .navbar-collapse btn-group {
+//   margin: 13px 0;
+// }
+
+// @media (max-width: 480px) {
+//   .site-header__logo-image {
+//     max-width: 200px;
+//   }
+//   .btn-group {
+//     display: grid;
+//   }
+//   #login-btn,
+//   #register-btn,
+//   #cart-btn {
+//     padding-top: .5rem;
+//     padding-bottom: .5rem;
+//     margin-top: .25rem;
+//     margin-bottom: .25rem;
+//     border-radius: .25rem;
+//   }
+// }

@@ -1,4 +1,4 @@
-<nav class="shopify-section-{{ section.id }} navbar navbar-expand-lg navbar-light bg-light static-top">	
+<nav class="shopify-section-{{ section.id }} navbar navbar-expand-lg navbar-light bg-light sticky-top">	
   <div class="container">
     <a href="/" itemprop="url" class="navbar-brand site-logo{% if section.settings.logo != blank %} site-header__logo-image{% endif %}">
       {% if section.settings.logo != blank %}
@@ -11,7 +11,7 @@
       {% else %}
         <img id="logo"
             src="{{ 'logo.png' | asset_url }}"
-            alt="{{ shop.name }}" 
+            alt="{{ shop.name }}"
             itemprop="logo">
       {% endif %}
     </a>
