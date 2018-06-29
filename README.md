@@ -1,4 +1,4 @@
-![Healthwave logo]('./src/assets/logo.png') ![Shopify logo]('./src/assets/shopify-logo.png')
+![Healthwave logo](./src/assets/logo.png) ![Shopify logo](./src/assets/shopify-logo.png)
 
 # Shopify Theme for Healthwave
 
