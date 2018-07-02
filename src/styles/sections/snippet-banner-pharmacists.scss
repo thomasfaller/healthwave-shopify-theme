@@ -1,0 +1,18 @@
+// snippet-banner-pharmacists
+#snippet-banner-pharmacists {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  h1.banner-pharmacists__main__wrapper__heading {
+    @include text-heading-mobile(2rem);
+  }
+  .banner-pharmacists__button {
+    @include center-block;
+    @include text-regular-mobile;
+    @include button-regular-mobile(white, $color-main-green);
+  }
+  .banner-pharmacists__secondary__image {
+    display: block;
+    width: 120px;
+    margin: 45px auto 20px;
+  }
+}

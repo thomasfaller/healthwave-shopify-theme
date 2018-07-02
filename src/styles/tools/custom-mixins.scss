@@ -15,6 +15,8 @@
 $regular-font-size: 1.625rem;
 $heading-font-size: 3.125rem;
 
+// Headings
+
 @mixin text-heading($font-size: $heading-font-size, $font-weight: 300) {
   font-size: $font-size;
   font-weight: $font-weight;
@@ -41,9 +43,12 @@ $heading-font-size: 3.125rem;
   color: $color-main-gray;
 }
 
+// Links / Nav
 
-
-
+@mixin text-regular-nav-link($color: $color-main-gray, $font-size: 1.3rem) {
+  color: $color;
+  font-size: $font-size;
+}
 
 // Buttons
 
@@ -75,4 +80,16 @@ $heading-font-size: 3.125rem;
   letter-spacing: .03em;
   background-color: $bg-color;
   color: $text-color;
+}
+
+// Navigation Buttons
+
+@mixin button-navigation-mobile {
+  font-weight: 700;
+  font-size: 1.3rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-top: .25rem;
+  margin-bottom: .25rem;
+  border-radius: .25rem;
 }

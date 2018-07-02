@@ -42,6 +42,9 @@
       </ul>
       {% if shop.customer_accounts_enabled %}
         <div class="dropdown-divider"></div>
+
+
+
         <div class="btn-group btn-group-justified">
         {% if customer  %}
           <a href="" class="btn btn-secondary">Your account</a>
@@ -51,7 +54,9 @@
             {{ 'Register' | customer_register_link | replace: 'href', 'class="btn btn-xs-block" id="register-btn" href' }}
           {% endif %}
           {% endif %}
-          
+
+          {%- comment -%}Shopping cart icon{%- endcomment -%}
+          {% unless cart.item_count == 0 %}
           <a href="/cart"
             class="btn btn-xs-block"
             id="cart-btn">
@@ -60,7 +65,14 @@
               {{ cart.item_count }}
             </span>
           </a>
+          {% endunless %}
+          {%- comment -%}Shopping cart icon (END){%- endcomment -%}
         </div>
+
+
+
+
+
       {% endif %}
     </div>
   </div>

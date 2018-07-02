@@ -1,0 +1,36 @@
+// TESTING
+// This stylesheet is for testing purposes only.
+
+#intercom-container {display: none;}
+
+
+// OPTION 1
+
+#test-snippet {
+  img.img-desktop,
+  img.img-tablet {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 500px) {
+  #test-snippet {
+    img.img-mobile {
+      display: none;
+    }
+    img.img-tablet {
+      display: block;
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  #test-snippet {
+    img.img-tablet {
+      display: none;
+    }
+    img.img-desktop {
+      display: block;
+    }
+  }
+}

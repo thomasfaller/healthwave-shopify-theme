@@ -1,19 +1,19 @@
-<div style="background-color:#00BFB3">
+<div id="snippet-banner-pharmacists" style="background-color:#00BFB3">
   <div class="container">
-    <div class="shopify-section-banner row">
-      <div class="shopify-section-banner__main col-lg-7">
-        <div class="shopify-section-banner__main__wrapper text-right">
-          <h1 class="shopify-section-banner__main__wrapper__heading" style="color:white!important">Our team of certified pharmacists are here for you!</h1>
+    <div class="row">
+      <div class="banner-pharmacists__main col-lg-7">
+        <div class="banner-pharmacists__main__wrapper">
+          <h1 class="banner-pharmacists__main__wrapper__heading" style="color:white!important">Our team of certified pharmacists are here for you!</h1>
           <br>
-          <button id="custom-button" class="btn btn-lg">Contact us</button> {%- comment -%}This button has the class of the home-banner button for styling purposes{%- endcomment -%}
+          <button class="banner-pharmacists__button btn btn-lg">Contact us</button> {%- comment -%}This button has the class of the home-banner button for styling purposes{%- endcomment -%}
         </div>
       </div>
-      <div class="shopify-section-banner__secondary col-lg-5">
+      <div class="banner-pharmacists__secondary col-lg-5">
         <img
             id="pharmacists"
-            class="shopify-section-banner__secondary__image"
+            class="banner-pharmacists__secondary__image"
             src="{{ 'pharmacists.png' | asset_img_url: '250x' }}"
-            style="left:0px" />
+            />
       </div>
     </div>
   </div>
