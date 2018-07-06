@@ -1,0 +1,37 @@
+#shopify-section-testimony-banner {
+  .testimony-banner__title {
+    text-align: center;
+    color: white;
+  }
+  .testimony-banner__testimonial-container {
+    background-color: #fff;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+  }
+}
+
+
+
+.shopify-section-testimony-banner {
+  height: 550px;
+  background-color: #00BFB3;
+}
+.testimony-banner__title {
+  text-align: center;
+  color: white;
+}
+.testimony-banner__testimonial-container {
+  padding: 40px;
+  margin: 0 10px;
+  background-color: white;
+  height: 270px;
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+}
+.testimony-banner__testimonial-img {
+  width: 140px !important;
+}
+i.testimonial__text::after {
+content: '"';
+}
+span.testimonial__author {
+  font-weight: bold;
+}

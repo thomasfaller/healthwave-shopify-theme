@@ -1,24 +1,16 @@
-.mobile-nav-bottom-border {
-  box-shadow: 1px 1px 20px #666;
+#logo {
+  max-width: 180px !important;
+}
+
+#shopify-section-header.mobile-nav-bottom-border {
+  border-bottom: solid 1px #888;
   padding-bottom: 15px;
 }
 
 #shopify-section-header {
   margin-bottom: 20px;
   nav.shopify-section-header {
-    .navbar-collapse btn-group {
-      margin: 13px 0;
-    }
-    .container {
-      width: 95%;
-    }
     background-color: white !important;
-    #logo {
-      max-width: 180px;
-    }
-    .btn-group {
-      display: grid;
-    }
     li.nav-item {
       a.nav-link {
         @include text-regular-nav-link;
@@ -27,49 +19,21 @@
         }
       }
     }
-    #collapsed-content>div.dropdown-divider {
+    #collapsed-content > div.dropdown-divider {
       display: none;
-    }
-    #login-btn {
-      @include button-navigation-mobile;
-      background-color: white;
-      border: 2px solid $color-main-green;
-      color: $color-main-green;
-    }
-    #register-btn {
-      @include button-navigation-mobile;
-      background-color: $color-main-green;
-      border: 2px solid $color-main-green;
-      color: white;
-    }
-    #cart-btn {
-      @include button-navigation-mobile;
-      background-color: white;
-      border: 2px solid $color-main-green;
-      border-radius: 0 3px 3px 0;
-      color: $color-main-green;
-      padding: 0 25px;
-      i {
-        position: relative;
-        right: 4px;
-        top: 8px;
-        font-size: x-large;
-      }
-      span {
-        position: absolute;
-        top: 1px;
-        left: 36px;
-        background-color: white;
-        color: $color-main-green;
-        font-size: 8px;
-        line-height: 10px;
-        border: 1px solid $color-main-green;
-        -webkit-box-shadow: 1px 1px 1px #00988F;
-        -moz-box-shadow: 1px 1px 1px #00988F;
-        box-shadow: 1px 1px 1px #00988F;
-      }
     }
   }
 }
 
-@media only screen and (min-width: 500px) {}
+#account-btn {
+  @include button-navigation-mobile--outlined;
+  margin-bottom: 8px;
+}
+#login-btn, #cart-btn {
+  @include button-navigation-mobile--outlined;
+  margin-bottom: 8px;
+}
+#register-btn {
+  @include button-navigation-mobile--regular;
+  margin-top: 8px;
+}

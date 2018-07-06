@@ -1,62 +1,71 @@
 {% schema %}
-  {
-    "name": "Testimonials",
-    "settings": []
-  }
+{
+  "name": "Testimonials",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "id": "heading",
+      "type": "text",
+      "label": "Heading",
+      "default": "What our members are saying"
+    }
+  ],
+  "blocks": [
+    {
+    "name": "testimonial",
+    "type": "text",
+    "settings": [
+        {
+          "type": "text",
+          "id": "testimonial",
+          "label": "Testimonial",
+          "default": "This is a testimonial!"
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Author",
+          "default": "John Shopify"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "category": "Banner sections",
+      "name": "Testimonial section",
+      "blocks": [
+        {
+          "type": "text"
+        },
+        {
+          "type": "text"
+        }
+      ]
+    }
+  ]
+}
 {% endschema %}
 
 {% stylesheet %}
-.shopify-section-testimony-banner {
-  height: 550px;
-  background-color: #00BFB3;
-}
-.testimony-banner__title {
-  text-align: center;
-  color: white;
-}
-.testimony-banner__testimonial-container {
-  padding: 40px;
-  margin: 0 10px;
-  background-color: white;
-  height: 270px;
-  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
-}
-.testimony-banner__testimonial-img {
-  width: 140px !important;
-}
-i.testimonial__text::after {
-content: '"';
-}
-span.testimonial__author {
-  font-weight: bold;
-}
-
 {% endstylesheet %}
 
-<div class="shopify-section-{{section.id}}">
+<div>
   <div class="container">
-    <h1 class="{{section.id}}__title">What our members are saying</h1>
+    <h1 class="{{section.id}}__title">{{ section.settings.heading }}</h1>
     <div class="row">
+      {% for block in section.blocks %}
       <div class="col-md-6">
         <section class="{{section.id}}__testimonial-container">
           <p>
-            <i class="testimonial__text">My friends were discussing Healthwave on the golf course and I didn’t believe them! I’m glad I checked it out,
-              my monthly prescription bill has gone from €144 to €37 thanks to HealthPass.</i>
+            <i class="testimonial__text">{{ block.settings.testimonial }}</i>
             <br>
             <br>
-            <span class="testimonial__author">- Gerard</span>
+            <span class="testimonial__author">- {{ block.settings.author }}</span>
           </p>
         </section>
       </div>
-      <div class="col-md-6">
-        <section class="{{section.id}}__testimonial-container">
-          <p>
-            <i class="testimonial__text">Healthwave has changed my life. I was paying €144 on my monthly medicines. My payment is now €28.</i>
-            <br>
-            <br>
-            <span class="testimonial__author">- TheJournal.ie</span>
-          </p>
-        </section>
-      </div>
+      {% endfor %}
     </div>
   </div>
+

@@ -19,7 +19,6 @@
       color: $color-main-gray;
     }
     .home-banner__main__button {
-      @include text-regular-mobile;
       @include button-regular-mobile;
       @include regular-bottom-margin;
     }

@@ -1,83 +1,55 @@
-<nav class="shopify-section-{{ section.id }} navbar navbar-expand-lg navbar-light bg-light sticky-top">	
+<nav class="shopify-section-{{ section.id }} navbar navbar-expand-lg navbar-light bg-light sticky-top">
   <div class="container">
     <a href="/" itemprop="url" class="navbar-brand site-logo{% if section.settings.logo != blank %} site-header__logo-image{% endif %}">
-      {% if section.settings.logo != blank %}
-        {% capture image_size %}{{ section.settings.logo_max_width }}x{% endcapture %}
-        <img id="logo"
-            src="{{ section.settings.logo | img_url: image_size }}"
-            srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
-            alt="{{ section.settings.logo.alt | default: shop.name }}"
-            itemprop="logo">
-      {% else %}
-        <img id="logo"
-            src="{{ 'logo.png' | asset_url }}"
-            alt="{{ shop.name }}"
-            itemprop="logo">
-      {% endif %}
+      {% if section.settings.logo != blank %} {% capture image_size %}{{ section.settings.logo_max_width }}x{% endcapture %}
+      <img id="logo" src="{{ section.settings.logo | img_url: image_size }}" srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
+        alt="{{ section.settings.logo.alt | default: shop.name }}" itemprop="logo"> {% else %}
+      <img id="logo" src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}" itemprop="logo"> {% endif %}
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsed-content" aria-controls="collapsed-content" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsed-content" aria-controls="collapsed-content"
+      aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="collapsed-content">
       <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
-        {% for link in linklists[section.settings.main_linklist].links %}
-        {% assign child_list_handle = link.title | handleize %}
+        {% for link in linklists[section.settings.main_linklist].links %} {% assign child_list_handle = link.title | handleize %}
         {% if menus[child_list_handle].links != blank %}
-          <li class="nav-item dropdown">
-            <a href="{{ link.url }}" class="nav-link dropdown-toggle{% if link.active %} active{% endif %}" id="Dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              {{ link.title }}
-            </a>
-            <div class="dropdown-menu" aria-labelledby="Dropdown">
-              {% for childlink in menus[child_list_handle].links %}
-                <a class="dropdown-item" href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
-              {% endfor %}
-            </div>
-          </li>
+        <li class="nav-item dropdown">
+          <a href="{{ link.url }}" class="nav-link dropdown-toggle{% if link.active %} active{% endif %}" id="Dropdown" role="button"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{ link.title }}
+          </a>
+          <div class="dropdown-menu" aria-labelledby="Dropdown">
+            {% for childlink in menus[child_list_handle].links %}
+            <a class="dropdown-item" href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
+            {% endfor %}
+          </div>
+        </li>
         {% else %}
-          <li class="nav-item{% if link.active %} active{% endif %}">
-            <a href="{{ link.url }}" class="nav-link">{{ link.title }}</a>
-          </li>
-        {% endif %}
-      {% endfor %}
+        <li class="nav-item{% if link.active %} active{% endif %}">
+          <a href="{{ link.url }}" class="nav-link">{{ link.title }}</a>
+        </li>
+        {% endif %} {% endfor %}
       </ul>
       {% if shop.customer_accounts_enabled %}
         <div class="dropdown-divider"></div>
-
-
-
-        <div class="btn-group btn-group-justified">
+        <div class="shopify-section-header__buttons" role="group" aria-label="Navigation buttons">
         {% if customer  %}
-          <a href="" class="btn btn-secondary">Your account</a>
-          {% else %}
-          {{ 'Log in' | customer_login_link | replace: 'href', 'class="btn btn-xs-block" id="login-btn" href' }}
+          <button id="account-btn" type="button" class="btn btn-primary">My account</button>
+        {% else %}
+          <button id="login-btn" type="button" class="btn btn-primary">Login</button>
           {% if shop.customer_accounts_optional %}
-            {{ 'Register' | customer_register_link | replace: 'href', 'class="btn btn-xs-block" id="register-btn" href' }}
+            <button id="register-btn" type="button" class="btn btn-primary">Register</button>
           {% endif %}
-          {% endif %}
-
-          {%- comment -%}Shopping cart icon{%- endcomment -%}
           {% unless cart.item_count == 0 %}
-          <a href="/cart"
-            class="btn btn-xs-block"
-            id="cart-btn">
-            <i class="fas fa-shopping-cart"></i>
-            <span id="cartCount" class="badge badge-pill badge-info">
-              {{ cart.item_count }}
-            </span>
-          </a>
+            <button id="cart-btn" type="button" class="btn btn-primary">Cart</button>
           {% endunless %}
-          {%- comment -%}Shopping cart icon (END){%- endcomment -%}
-        </div>
-
-
-
-
-
+          </div>
+        {% endif %}
       {% endif %}
     </div>
   </div>
 </nav>
-  
 
 {% schema %}
   {
@@ -118,7 +90,12 @@
   }
 {% endschema %}
 
+
+
 {% javascript %}
+  $(".navbar-toggler").click(function () {
+    $("#shopify-section-header").toggleClass("mobile-nav-bottom-border");
+  });
 {% endjavascript %}
 
 {% stylesheet %}
@@ -133,4 +110,5 @@
   .btn-group > a {
     font-size: {{ section.settings.nav_font_size }}px;
   }
+  
 {% endstylesheet %}
