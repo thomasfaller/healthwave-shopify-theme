@@ -2,84 +2,78 @@
 //***          3 STEPS - SECTION     ***
 // ******************************************
 
+// Mobile
 
 #shopify-section-3-steps {
-  .shopify-section-3-steps {
+  .wrapper {
     padding-top: 1em;
     height: 450px;
     .shopify-section-3-steps__main__wrapper__heading {
       @include text-heading-mobile(2rem);
+      text-align: center;
     }
     .shopify-section-3-steps__main__wrapper__text {
       @include text-regular-mobile;
+      text-align: center;
     }
     .shopify-section-3-steps__secondary {
-      #img-1 {
-        @include center-block;
-        width: 230px;
-        content: url('https://res.cloudinary.com/djr6sgsbd/image/upload/v1524059692/sms-transparent.png');
-      }
-      #img-2 {
-        @include center-block;
-        width: 230px;
-      }
+      #img-1,
+      #img-2,
       #img-3 {
         @include center-block;
-        width: 230px;
+        max-width: 180px;
       }
     }
   }
 }
 
+// Tablet
 
 @media only screen and (min-width: 500px) {
   #shopify-section-3-steps {
-    .shopify-section-3-steps__secondary {
-      #img-1 {
-        @include center-block;
-        width: 230px;
-        content: normal;
+    .wrapper {
+      padding-top: 1em;
+      height: 450px;
+      .shopify-section-3-steps__main__wrapper {
+        .shopify-section-3-steps__main__wrapper__heading {
+          @include text-heading-mobile(2.25rem);
+        }
+        .shopify-section-3-steps__main__wrapper__text {
+          @include text-regular-mobile;
+        }
+      }
+      .shopify-section-3-steps__secondary {
+        padding: 5% 0;
       }
     }
   }
 }
 
+// Phone
 
-
-
-
-
-// .shopify-section-3-steps {
-//   height: 450px;
-//   .shopify-section-3-steps__main {
-//     display: flex;
-//     align-items: center;
-//     .shopify-section-3-steps__main__wrapper {
-//       .shopify-section-3-steps__main__wrapper__heading {
-//         @include text-heading;
-//       }
-//       .shopify-section-3-steps__main__wrapper__text {
-//         @include text-regular;
-//       }
-//     }
-//   }
-//   .shopify-section-3-steps__secondary {
-//     display: none;
-//   }
-// }
-
-
-// @media only screen and (min-width: 993px) {
-//   .shopify-section-3-steps {
-//     height: 550px;
-//     .shopify-section-3-steps__secondary {
-//       display: flex;
-//       .shopify-section-3-steps__secondary__image {
-//         max-height: 480px;
-//         width: auto;
-//         display: block;
-//         margin: auto;
-//       }
-//     }
-//   }
-// }
+@media only screen and (min-width: 992px) {
+  #shopify-section-3-steps {
+    .wrapper {
+      padding-top: 0;
+      height: 790px;
+    .shopify-section-3-steps__main__wrapper {
+        padding: 45% 0;
+        .shopify-section-3-steps__main__wrapper__heading {
+          @include text-heading;
+        }
+        .shopify-section-3-steps__main__wrapper__text {
+          @include text-regular;
+        }
+      }
+      .shopify-section-3-steps__secondary {
+        line-height: 790px; padding: 0;
+        #img-1,
+        #img-2,
+        #img-3 {
+          display: inline;
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+}

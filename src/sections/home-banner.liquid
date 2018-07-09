@@ -73,7 +73,7 @@
       <img
         id="hand"
         class="{{ section.id }}__secondary__image"
-        src="https://res.cloudinary.com/djr6sgsbd/image/upload/f_auto/v1523883163/pill-bottle-in-hand.jpg"
+        src={{ 'pill-bottle-in-hand.jpg' | asset_img_url: '500x', scale: 3 }}
         width={{ section.settings.banner_image_width }}
       />
     </div>
