@@ -72,8 +72,9 @@
     <div class="{{ section.id }}__secondary col-lg-5">
       <img
         id="hand"
-        class="{{ section.id }}__secondary__image"
-        src={{ 'pill-bottle-in-hand.jpg' | asset_img_url: '500x', scale: 3 }}
+        class="{{ section.id }}__secondary__image lazyload"
+        data-src={{ 'pill-bottle-in-hand.jpg' | asset_img_url: '500x', scale: 3 }}
+        src={{ 'pill-bottle-in-hand.jpg' | asset_img_url: '500x', scale: 1 }}
         width={{ section.settings.banner_image_width }}
       />
     </div>

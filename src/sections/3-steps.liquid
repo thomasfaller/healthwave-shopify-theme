@@ -2,22 +2,54 @@
   <div class="container">
     <div class="row">
       <div class="shopify-section-{{ section.id }}__secondary col-lg-5">
-        <picture id="img-1" class="shopify-section-{{ section.id }}__secondary__image">
+        <picture id="img-1" class="shopify-section-{{ section.id }}__secondary__image lazyload">
           {% if section.settings.b1_img != nil %}
           <!--[if IE 9]><video style="display: none;"><![endif]-->
-          <source srcset="{{ section.settings.b1_img | img_url: '350x', scale: 3 }}" media="(min-width: 992px)" alt="telephone sending text message"
-            style="max-width: 250px">
-          <source srcset="{{ 'sms-transparent.png' | asset_img_url: '50x', scale: 3 }}" media="(min-width: 500px)" alt="telephone sending text message">
-          <source srcset="{{ 'sms-transparent.png' | asset_img_url: 'medium', scale: 2 }}" media="(max-width: 499px)" alt="telephone sending text message">
+          <source 
+            srcset="{{ section.settings.b1_img | img_url: '350x', scale: 3 }}"
+            srcset="{{ section.settings.b1_img | img_url: '350x', scale: 1 }}"
+            media="(min-width: 992px)" alt="telephone sending text message"
+            style="max-width: 250px"
+          >
+          <source
+            data-srcset="{{ 'sms-transparent.png' | asset_img_url: '50x', scale: 3 }}"
+            media="(min-width: 500px)" alt="telephone sending text message"
+          >
+          <source
+            class="layload" 
+            data-srcset="{{ 'sms-transparent.png' | asset_img_url: 'medium', scale: 3 }}"
+            srcset="{{ 'sms-transparent.png' | asset_img_url: 'medium', scale: 1 }}"
+            media="(max-width: 499px)" alt="telephone sending text message"
+          >
           <!--[if IE 9]></video><![endif]-->
-          <img src="{{ 'sms-transparent.png' | asset_img_url: 'medium', scale: 3 }}" alt="telephone sending text message">
+          <img 
+            class="lazyload"
+            data-src="{{ 'sms-transparent.png' | asset_img_url: 'medium', scale: 3 }}"
+            src="{{ 'sms-transparent.png' | asset_img_url: 'medium', scale: 1 }}"
+            alt="telephone sending text message"
+          >
           {% else %}
-          <source srcset="{{ 'iphone-text-ordering.png' | asset_img_url: '350x', scale: 3 }}" media="(min-width: 992px)" alt="telephone sending text message"
-            style="max-width: 250px">
-          <source srcset="{{ 'sms-transparent.png' | asset_img_url: '50x', scale: 3 }}" media="(min-width: 500px)" alt="telephone sending text message">
-          <source srcset="{{ 'sms-transparent.png' | asset_img_url: 'medium', scale: 2 }}" media="(max-width: 499px)" alt="telephone sending text message">
+          <source 
+            data-srcset="{{ 'iphone-text-ordering.png' | asset_img_url: '350x', scale: 3 }}"
+            media="(min-width: 992px)"
+            alt="telephone sending text message"
+            style="max-width: 250px"
+          >
+          <source 
+            data-srcset="{{ 'sms-transparent.png' | asset_img_url: '50x', scale: 3 }}"
+            media="(min-width: 500px)"
+            alt="telephone sending text message"
+          >
+          <source
+            data-srcset="{{ 'sms-transparent.png' | asset_img_url: 'medium', scale: 2 }}"
+            media="(max-width: 499px)"
+            alt="telephone sending text message"
+          >
           <!--[if IE 9]></video><![endif]-->
-          <img src="{{ 'sms-transparent.png' | asset_img_url: 'medium', scale: 3 }}" alt="telephone sending text message">
+          <img 
+            data-src="{{ 'sms-transparent.png' | asset_img_url: 'medium', scale: 3 }}"
+            alt="telephone sending text message"
+          >
           {% endif %}
         </picture>
       </div>
@@ -49,11 +81,11 @@
       </div>
       <div class="shopify-section-{{ section.id }}__secondary col-lg-5 order-1 order-md-2">
         <picture id="img-2" class="shopify-section-{{ section.id }}__secondary__image">
-          {% if section.settings.b2_img == nil %}
+          {% if section.settings.b2_img != nil %}
           <!--[if IE 9]><video style="display: none;"><![endif]-->
-          <source srcset="{{ section.settings.b2_img | asset_img_url: '400x', scale: 3 }}" media="(min-width: 992px)" alt="telephone sending text message">
-          <source srcset="{{ section.settings.b2_img | asset_img_url: '200x', scale: 3 }}" media="(min-width: 500px)" alt="telephone sending text message">
-          <source srcset="{{ section.settings.b2_img | asset_img_url: 'medium', scale: 2 }}" media="(max-width: 499px)" alt="telephone sending text message">
+          <source srcset="{{ section.settings.b2_img | img_url: '400x', scale: 3 }}" media="(min-width: 992px)" alt="telephone sending text message">
+          <source srcset="{{ section.settings.b2_img | img_url: '200x', scale: 3 }}" media="(min-width: 500px)" alt="telephone sending text message">
+          <source srcset="{{ section.settings.b2_img | img_url: 'medium', scale: 2 }}" media="(max-width: 499px)" alt="telephone sending text message">
           <!--[if IE 9]></video><![endif]-->
           <img src="{{ section.settings.b1_img | asset_img_url: 'medium', scale: 3 }}" alt="telephone sending text message"> {% else %}
           <!--[if IE 9]><video style="display: none;"><![endif]-->
@@ -72,19 +104,19 @@
     <div class="row">
       <div class="shopify-section-{{ section.id }}__secondary col-lg-5">
         <picture id="img-3" class="shopify-section-{{ section.id }}__secondary__image">
-          {% if section.settings.b3_img == nil %}
+          {% if section.settings.b3_img != nil %}
+          <!--[if IE 9]><video style="display: none;"><![endif]-->
+          <source srcset="{{ section.settings.b3_img | img_url: '400x', scale: 3 }}" media="(min-width: 992px)" alt="telephone sending text message">
+          <source srcset="{{ section.settings.b3_img | img_url: '200x', scale: 3 }}" media="(min-width: 500px)" alt="telephone sending text message">
+          <source srcset="{{ section.settings.b3_img | img_url: 'medium', scale: 2 }}" media="(max-width: 499px)" alt="telephone sending text message">
+          <!--[if IE 9]></video><![endif]-->
+          <img src="{{ section.settings.b1_img | asset_img_url: 'medium', scale: 3 }}" alt="telephone sending text message"> {% else %}
           <!--[if IE 9]><video style="display: none;"><![endif]-->
           <source srcset="{{ 'delivery.png' | asset_img_url: '400x', scale: 3 }}" media="(min-width: 992px)" alt="telephone sending text message">
           <source srcset="{{ 'delivery.png' | asset_img_url: '200x', scale: 3 }}" media="(min-width: 500px)" alt="telephone sending text message">
           <source srcset="{{ 'delivery.png' | asset_img_url: 'medium', scale: 2 }}" media="(max-width: 499px)" alt="telephone sending text message">
           <!--[if IE 9]></video><![endif]-->
-          <img src={{ 'delivery.png' | asset_img_url: 'medium', scale: 3 }} alt="telephone sending text message"> {% else %}
-          <!--[if IE 9]><video style="display: none;"><![endif]-->
-          <source srcset="{{ section.settings.b3_img | asset_img_url: '400x', scale: 3 }}" media="(min-width: 992px)" alt="telephone sending text message">
-          <source srcset="{{ section.settings.b3_img | asset_img_url: '200x', scale: 3 }}" media="(min-width: 500px)" alt="telephone sending text message">
-          <source srcset="{{ section.settings.b3_img | asset_img_url: 'medium', scale: 2 }}" media="(max-width: 499px)" alt="telephone sending text message">
-          <!--[if IE 9]></video><![endif]-->
-          <img src="{{ section.settings.b1_img | asset_img_url: 'medium', scale: 3 }}" alt="telephone sending text message"> {% endif %}
+          <img src={{ 'delivery.png' | asset_img_url: 'medium', scale: 3 }} alt="telephone sending text message"> {% endif %}
         </picture>
       </div>
       <div class="shopify-section-{{ section.id }}__main col-lg-7">
