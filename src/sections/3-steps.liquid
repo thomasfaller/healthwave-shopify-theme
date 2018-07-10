@@ -2,54 +2,48 @@
   <div class="container">
     <div class="row">
       <div class="shopify-section-{{ section.id }}__secondary col-lg-5">
-        <picture id="img-1" class="shopify-section-{{ section.id }}__secondary__image lazyload">
+        <picture id="img-1" class="shopify-section-{{ section.id }}__secondary__image">
           {% if section.settings.b1_img != nil %}
           <!--[if IE 9]><video style="display: none;"><![endif]-->
-          <source 
-            srcset="{{ section.settings.b1_img | img_url: '350x', scale: 3 }}"
+          <source
+            class="lazyload"
+            data-srcset="{{ section.settings.b1_img | img_url: '350x', scale: 3 }}"
             srcset="{{ section.settings.b1_img | img_url: '350x', scale: 1 }}"
             media="(min-width: 992px)" alt="telephone sending text message"
             style="max-width: 250px"
           >
           <source
+            class="layload"
             data-srcset="{{ 'sms-transparent.png' | asset_img_url: '50x', scale: 3 }}"
+            srcset="{{ 'sms-transparent.png' | asset_img_url: '50x', scale: 1 }}"
             media="(min-width: 500px)" alt="telephone sending text message"
           >
           <source
-            class="layload" 
+            class="layload"
             data-srcset="{{ 'sms-transparent.png' | asset_img_url: 'medium', scale: 3 }}"
             srcset="{{ 'sms-transparent.png' | asset_img_url: 'medium', scale: 1 }}"
             media="(max-width: 499px)" alt="telephone sending text message"
           >
           <!--[if IE 9]></video><![endif]-->
-          <img 
+          <img
             class="lazyload"
             data-src="{{ 'sms-transparent.png' | asset_img_url: 'medium', scale: 3 }}"
             src="{{ 'sms-transparent.png' | asset_img_url: 'medium', scale: 1 }}"
             alt="telephone sending text message"
           >
           {% else %}
-          <source 
-            data-srcset="{{ 'iphone-text-ordering.png' | asset_img_url: '350x', scale: 3 }}"
-            media="(min-width: 992px)"
-            alt="telephone sending text message"
-            style="max-width: 250px"
-          >
-          <source 
-            data-srcset="{{ 'sms-transparent.png' | asset_img_url: '50x', scale: 3 }}"
-            media="(min-width: 500px)"
-            alt="telephone sending text message"
-          >
-          <source
-            data-srcset="{{ 'sms-transparent.png' | asset_img_url: 'medium', scale: 2 }}"
-            media="(max-width: 499px)"
-            alt="telephone sending text message"
-          >
-          <!--[if IE 9]></video><![endif]-->
-          <img 
-            data-src="{{ 'sms-transparent.png' | asset_img_url: 'medium', scale: 3 }}"
-            alt="telephone sending text message"
-          >
+          <img
+            id="hand"
+            class="{{ section.id }}__secondary__image"
+            sizes="(min-width: 992px) 990px, (min-width: 500px) 490px, 200px"
+            srcet="https://res.cloudinary.com/healthwave/image/upload/f_auto,w_256/dpr_auto/v1531216983/Healthwave.ie/iphone-text-ordering.png 256w,
+                  https://res.cloudinary.com/healthwave/image/upload/f_auto,w_512/dpr_auto/v1531216983/Healthwave.ie/iphone-text-ordering.png 512w,
+                  https://res.cloudinary.com/healthwave/image/upload/f_auto,w_768/dpr_auto/v1531216983/Healthwave.ie/iphone-text-ordering.png 768w,
+                  https://res.cloudinary.com/healthwave/image/upload/f_auto,w_1024/dpr_auto/v1531216983/Healthwave.ie/iphone-text-ordering.png 1024w,
+                  https://res.cloudinary.com/healthwave/image/upload/f_auto,w_1280/dpr_auto/v1531216983/Healthwave.ie/iphone-text-ordering.png 1280w"
+            src="https://res.cloudinary.com/healthwave/image/upload/f_auto,w_512/dpr_auto/v1531216983/Healthwave.ie/iphone-text-ordering.png 512w"
+            alt="iPhone ordering medicine via SMS"
+          />
           {% endif %}
         </picture>
       </div>

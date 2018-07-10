@@ -1,10 +1,8 @@
-{% include 'spacer' %}
-
 <div class="form-success hide" id="ResetSuccess">
   {{ 'customer.recover_password.success' | t }}
 </div>
 
-<div id="CustomerLoginForm" style="background-image:url('{{ 'healthwave_background.png' | asset_img_url: '1280x' }}')">
+<div id="CustomerLoginForm">
   {% form 'customer_login' %}
 
     {{ form.errors | default_errors }}
@@ -14,7 +12,7 @@
     </label>
 
 
-<div class="text-center wrapper" style="background:white;border-radius: 4px;margin:150px auto;width:450px;border:.5px solid #f2f2f2;padding: 50px;">
+<div class="text-center wrapper">
   <form class="form-signin">
     <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
     <label for="inputEmail" class="sr-only">Email address</label>

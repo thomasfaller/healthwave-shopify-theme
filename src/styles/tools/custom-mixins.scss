@@ -58,22 +58,23 @@ $heading-font-size: 3.125rem;
 
 // Buttons
 
-@mixin button-regular($bg-color: $color-main-green, $text-color: white) {
-  background-color: $bg-color;
-  color: $text-color;
+@mixin button-sizing {                // Basic mixin for button sizing
   font-size: $regular-font-size;
   font-weight: 300;
   padding: 15px 30px;
   width: 250px;
 }
+
+@mixin button-regular($bg-color: $color-main-green, $text-color: white) {
+  @include button-sizing;
+  background-color: $bg-color;
+  color: $text-color;
+}
 @mixin button-regular-outlined($bg-color: white, $text-color: $color-main-green) {
+  @include button-sizing;
   background-color: $bg-color;
   border: 1.75px solid $text-color;
   color: $text-color;
-  font-size: $regular-font-size;
-  font-weight: 300;
-  padding: 15px 30px;
-  width: 250px;
 }
 
 @mixin button-regular-mobile($bg-color: $color-main-green, $text-color: white) {
@@ -110,7 +111,16 @@ $heading-font-size: 3.125rem;
   height: 50px;
   padding: 0;
 }
+@mixin button-navigation-tablet--outlined {
+  width: 120px;
+  height: 50px;
+  padding: 0;
+}
 
+@mixin button-navigation-desktop {
+  padding: 5px 15px;
+  font-weight: 500;
+}
 @mixin button-navigation-desktop {
   padding: 5px 15px;
   font-weight: 500;

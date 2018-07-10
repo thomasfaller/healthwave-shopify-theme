@@ -19,8 +19,10 @@
         }
       }
     }
-    #collapsed-content > div.dropdown-divider {
-      display: none;
+    #collapsed-content {
+      div.dropdown-divider {
+        display: none;
+      }
     }
   }
 }
@@ -29,11 +31,47 @@
   @include button-navigation-mobile--outlined;
   margin-bottom: 8px;
 }
-#login-btn, #cart-btn {
+#login-btn, #cart-btn, #logout-btn {
   @include button-navigation-mobile--outlined;
   margin-bottom: 8px;
+  a {
+    color: $color-main-green;
+  }
 }
 #register-btn {
   @include button-navigation-mobile--regular;
   margin-top: 8px;
+  a {
+    color: white;
+  }
+}
+
+
+@media only screen and (min-width: 992px) {
+  div.shopify-section-header__buttons {
+    display: flex;
+    align-items: baseline;
+    #account-btn {
+      @include button-navigation-desktop;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+    #login-btn {
+      @include button-navigation-desktop;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+    #logout-btn {
+      @include button-navigation-desktop;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      border-color: coral;
+      color: coral !important;
+    }
+    #register-btn {
+      @include button-navigation-desktop;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
 }

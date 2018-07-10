@@ -57,6 +57,9 @@
   {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
   {{ 'bc-sf-filter.css' | asset_url | stylesheet_tag }}
 
+  <!--[if (gt IE 9)|!(IE)]><!--><script src="{{ 'lazysizes.min.js' | asset_url }}" async="async"></script><!--<![endif]-->
+  <!--[if lte IE 9]><script src="{{ 'lazysizes.min.js' | asset_url }}"></script><![endif]-->
+
 </head>
 
 <body id="{{ page_title | handle }}" class="template-{{ template.name | handle }}">
@@ -70,23 +73,12 @@
   </main>
 
   {% section 'footer' %}
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
-  <script>
-    if (!window.jQuery) {
-      document.write('<script src="/assets/jquery.slim.min.js" type="text/javascript">');
-    }
-  </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-  <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
-
-  {%- comment -%} animations{%- endcomment -%}
   {% include 'bc-sf-filter' %}
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.min.js"></script>
-
-{{ 'lazysizes.min.js' | asset_url | script_tag }}
+{{ '//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js' | script_tag }}
+{{ '//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js' | script_tag }}
+{{ '//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.min.js' | script_tag }}
+{{ '//cdnjs.cloudflare.com/ajax/libs/scrollReveal.js/3.4.0/scrollreveal.min.js' | script_tag }}
 
 </body>
-
 </html>

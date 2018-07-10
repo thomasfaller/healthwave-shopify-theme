@@ -35,11 +35,12 @@
         <div class="dropdown-divider"></div>
         <div class="shopify-section-header__buttons" role="group" aria-label="Navigation buttons">
         {% if customer  %}
-          <button id="account-btn" type="button" class="btn btn-primary">My account</button>
+          <button id="account-btn" type="button" class="btn btn-primary">{{ 'My account' | customer_account_link }}</button>
+          <button id="logout-btn" type="button" class="btn btn-danger">{{ 'Log out' | customer_logout_link }}</button>
         {% else %}
-          <button id="login-btn" type="button" class="btn btn-primary">Login</button>
+          <button id="login-btn" type="button" class="btn btn-primary">{{ 'Log in' | customer_login_link }}</button>
           {% if shop.customer_accounts_optional %}
-            <button id="register-btn" type="button" class="btn btn-primary">Register</button>
+            <button id="register-btn" type="button" class="btn btn-primary">{{ 'Register' | customer_register_link }}</button>
           {% endif %}
           {% unless cart.item_count == 0 %}
             <button id="cart-btn" type="button" class="btn btn-primary">Cart</button>
