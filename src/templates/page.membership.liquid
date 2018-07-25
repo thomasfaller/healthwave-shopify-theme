@@ -21,7 +21,62 @@
           </div>
         </div>
         <div class="grid__item one-half">
-          <img src="{{ 'family-group.png' | asset_img_url: '350x', scale: 3 }}" />
+
+
+
+          <img class="lazyload" src="{{ 'family-group.png' | asset_img_url: '500x', scale: 3 }}" alt="Family group"
+            data-src="{{ 'family-group.png' | asset_img_url: '500x', scale: 3 }}"
+            data-widths="[540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048]"
+            data-sizes="auto">
+
+          <picture id="img-1" class="shopify-section-{{ section.id }}__secondary__image">
+          {% if section.settings.b1_img != nil %}
+          <!--[if IE 9]><video style="display: none;"><![endif]-->
+          <source
+            class="lazyload"
+            data-srcset="{{ section.settings.b1_img | img_url: '350x', scale: 3 }}"
+            srcset="{{ section.settings.b1_img | img_url: '350x', scale: 1 }}"
+            media="(min-width: 992px)" alt="telephone sending text message"
+            style="max-width: 250px"
+          >
+          <source
+            class="lazyload"
+            data-srcset="{{ 'sms-transparent.png' | asset_img_url: '50x', scale: 3 }}"
+            srcset="{{ 'sms-transparent.png' | asset_img_url: '50x', scale: 1 }}"
+            media="(min-width: 500px)" alt="telephone sending text message"
+          >
+          <source
+            class="lazyload"
+            data-srcset="{{ 'sms-transparent.png' | asset_img_url: 'medium', scale: 3 }}"
+            srcset="{{ 'sms-transparent.png' | asset_img_url: 'medium', scale: 1 }}"
+            media="(max-width: 499px)" alt="telephone sending text message"
+          >
+          <!--[if IE 9]></video><![endif]-->
+          <img
+            class="lazyload"
+            data-src="{{ 'sms-transparent.png' | asset_img_url: 'medium', scale: 3 }}"
+            src="{{ 'sms-transparent.png' | asset_img_url: 'medium', scale: 1 }}"
+            alt="telephone sending text message"
+          >
+          {% else %}
+          <img
+            id="hand"
+            class="{{ section.id }}__secondary__image"
+            sizes="(min-width: 992px) 990px, (min-width: 500px) 490px, 200px"
+            srcet="https://res.cloudinary.com/healthwave/image/upload/f_auto,w_256/dpr_auto/v1531216983/Healthwave.ie/iphone-text-ordering.png 256w,
+                  https://res.cloudinary.com/healthwave/image/upload/f_auto,w_512/dpr_auto/v1531216983/Healthwave.ie/iphone-text-ordering.png 512w,
+                  https://res.cloudinary.com/healthwave/image/upload/f_auto,w_768/dpr_auto/v1531216983/Healthwave.ie/iphone-text-ordering.png 768w,
+                  https://res.cloudinary.com/healthwave/image/upload/f_auto,w_1024/dpr_auto/v1531216983/Healthwave.ie/iphone-text-ordering.png 1024w,
+                  https://res.cloudinary.com/healthwave/image/upload/f_auto,w_1280/dpr_auto/v1531216983/Healthwave.ie/iphone-text-ordering.png 1280w"
+            src="https://res.cloudinary.com/healthwave/image/upload/f_auto,w_512/dpr_auto/v1531216983/Healthwave.ie/iphone-text-ordering.png 512w"
+            alt="iPhone ordering medicine via SMS"
+          />
+          {% endif %}
+        </picture>
+
+
+
+
         </div>
       </div>
     </div>
@@ -30,7 +85,11 @@
     <div class="container">
       <div class="grid">
         <div class="grid__item one-half">
-          <img src="{{ 'bp-monitoring.png' | asset_img_url: '550x', scale: 3 }}" />
+          <img class="lazyload"
+            src="{{ 'bp-monitoring.png' | asset_img_url: '550x', scale: 3 }}"
+            data-src="{{ img_url }}"
+            data-widths="[540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048]"
+            data-sizes="auto">
         </div>
         <div class="grid__item one-half">
           <div class="membership-page__section__text-wrapper">
@@ -81,7 +140,11 @@
           </div>
         </div>
         <div class="grid__item one-half">
-          <img src="{{ 'family-group.png' | asset_img_url: '550x', scale: 3 }}" />
+          <img class="lazyload"
+            src="{{ 'family-group.png' | asset_img_url: '350x', scale: 3 }}"
+            data-src="{{ img_url }}"
+            data-widths="[540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048]"
+            data-sizes="auto">
         </div>
       </div>
     </div>
@@ -90,7 +153,11 @@
     <div class="container">
       <div class="grid">
         <div class="grid__item one-half">
-          <img src="{{ 'pharmacist-shelf.png' | asset_img_url: '350x', scale: 3 }}" />
+          <img class="lazyload"
+            src="{{ 'pharmacist-shelf.png' | asset_img_url: '250x', scale: 3 }}"
+            data-src="{{ img_url }}"
+            data-widths="[540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048]"
+            data-sizes="auto">
         </div>
         <div class="grid__item one-half">
           <div class="membership-page__section__text-wrapper">

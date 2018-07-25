@@ -1,6 +1,70 @@
+<section class="membership-page__section">
+  <div class="container">
+    <div class="grid">
+      {% if section.settings.img_placement !== 'right' %}
+      <div class="grid__item one-half">
+        {% if section.settings.b1_img != nil %}
+        <img sizes="(min-width: 992px) 990px, (min-width: 500px) 490px,200px"
+            srcset="{{ 'placeholder.png' | asset_img_url: '512x', scale: 3 }} 256w,
+                    {{ 'placeholder.png' | asset_img_url: '512x', scale: 3 }} 512w,
+                    {{ 'placeholder.png' | asset_img_url: '768x', scale: 3 }} 768w,
+                    {{ 'placeholder.png' | asset_img_url: '1024x', scale: 3 }} 1024w,
+                    {{ 'placeholder.png' | asset_img_url: '1280x', scale: 3 }} 1280w"
+            src="{{ 'placeholder.png' | asset_img_url: '512x', scale: 3 }} 512w"
+            alt="responsive image"></img>
+        {% else %}
+        <img sizes="(min-width: 992px) 990px,
+                  (min-width: 500px) 490px,
+                  200px" srcset="{{ 'placeholder.png' | asset_img_url: '512x', scale: 3 }} 256w,
+                    {{ 'placeholder.png' | asset_img_url: '512x', scale: 3 }} 512w,
+                    {{ 'placeholder.png' | asset_img_url: '768x', scale: 3 }} 768w,
+                    {{ 'placeholder.png' | asset_img_url: '1024x', scale: 3 }} 1024w,
+                    {{ 'placeholder.png' | asset_img_url: '1280x', scale: 3 }} 1280w" src="{{ 'placeholder.png' | asset_img_url: '512x', scale: 3 }} 512w"
+          alt="responsive image"></img>
+        {% endif %}
+      </div>
+      <div class="grid__item one-half">
+        <div class="membership-page__section__text-wrapper">
+          {{ section.settings.text }}
+        </div>
+      </div>
+      {% else %}
+      <div class="grid__item one-half">
+        <div class="membership-page__section__text-wrapper">
+          {{ section.settings.text }}
+        </div>
+      </div>
+      <div class="grid__item one-half">
+        {% if section.settings.b1_img != nil %}
+        <img sizes="(min-width: 992px) 990px,
+                  (min-width: 500px) 490px,
+                  200px" srcset="{{ section.settings.image | asset_img_url: '512x', scale: 3 }} 256w,
+                    {{ section.settings.image | asset_img_url: '512x', scale: 3 }} 512w,
+                    {{ section.settings.image | asset_img_url: '768x', scale: 3 }} 768w,
+                    {{ section.settings.image | asset_img_url: '1024x', scale: 3 }} 1024w,
+                    {{ section.settings.image | asset_img_url: '1280x', scale: 3 }} 1280w" src="{{ 'placeholder.png' | asset_img_url: '512x', scale: 3 }} 512w"
+          alt="responsive image"></img>
+        {% else %}
+        <img sizes="(min-width: 992px) 990px,
+                  (min-width: 500px) 490px,
+                  200px" srcset="{{ 'placeholder.png' | asset_img_url: '512x', scale: 3 }} 256w,
+                    {{ 'placeholder.png' | asset_img_url: '512x', scale: 3 }} 512w,
+                    {{ 'placeholder.png' | asset_img_url: '768x', scale: 3 }} 768w,
+                    {{ 'placeholder.png' | asset_img_url: '1024x', scale: 3 }} 1024w,
+                    {{ 'placeholder.png' | asset_img_url: '1280x', scale: 3 }} 1280w" src="{{ 'placeholder.png' | asset_img_url: '512x', scale: 3 }} 512w"
+          alt="responsive image"></img>
+        {% endif %}
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+
+
 {% schema %}
   {
-    "name": "Membership section",
+    "name": "Text/Image section",
     "class": "member",
     "settings": [
       {
@@ -19,58 +83,16 @@
         ]
       },
       {
-        "type": "richtext",
+        "type": "html",
         "id": "text",
-        "label": "Text content"
+        "label": "Text content",
+        "default": ""
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
       }
     ]
   }
 {% endschema %}
-
-<section class={{ section.id }}>
-  <div class="container">
-    <div class="grid">
-      <div class="grid__item one-half">
-        
-      </div>
-      <div class="grid__item one-half">
-
-      </div>
-    </div>
-  </div>
-</section>
-
-{%- comment -%}
-
-<section class="membership-page__section">
-  <div class="container">
-    <div class="grid">
-      <div class="grid__item one-half">
-        <div class="membership-page__section__text-wrapper">
-          {% if condition %}
-            {{ section.settings.text }}
-          {% else %}
-            <h1>Benefits for Members</h1>
-            <ul>
-              <li>The primary benefit of joining is reduced prescription prices</li>
-              <li>As a member, you have access to 50% cheaper medications on average</li>
-              <li>Free home delivery anywhere in Ireland*</li>
-              <li>24 hour Blood Pressure monitoring service</li>
-            </ul>
-            <br>
-            <h3>What kind of savings can I make?</h3>
-            <p>A typical member saves between €200 and €500 per year.</p>
-            <p>Some members have even saved up to €100 per month (€1200 per year).</p>
-            <p>Savings depend on the type and number of medications you take. We will happily price your prescriptions via phone
-              at 016853086 or email.</p>    
-          {% endif %}
-        </div>
-      </div>
-      <div class="grid__item one-half">
-        <img src="{{ 'family-group.png' | asset_img_url: '350x', scale: 3 }}" />
-      </div>
-    </div>
-  </div>
-</section>
-
-{%- endcomment -%}

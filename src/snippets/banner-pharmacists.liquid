@@ -9,12 +9,32 @@
         </div>
       </div>
       <div class="banner-pharmacists__secondary col-lg-5">
-        <img
-            id="pharmacists"
-            class="banner-pharmacists__secondary__image"
-            src="{{ 'pharmacists.png' | asset_img_url: '250x' }}"
-            />
+      <div class="banner-pharmacists__secondary col-lg-5 order-md-2">
+        <picture id="pharmacists" class="banner-pharmacists__secondary__image">
+          <!--[if IE 9]><video style="display: none;"><![endif]-->
+          <source
+            srcset="{{ 'pharmacists.png' | asset_img_url: '400x', scale: 3 }}"
+            media="(min-width: 992px)"
+            alt="Pharmacists"
+          >
+          <source
+            srcset="{{ 'pharmacists.png' | asset_img_url: '200x', scale: 3 }}"
+            media="(min-width: 500px)"
+            alt="Pharmacists">
+          <source
+            srcset="{{ 'pharmacists.png' | asset_img_url: 'medium', scale: 2 }}"
+            media="(max-width: 499px)"
+            alt="Pharmacists"
+          >
+          <!--[if IE 9]></video><![endif]-->
+          <img
+          src={{ 'pharmacists.png' | asset_img_url: 'medium', scale: 3 }}
+          alt="Pharmacists"
+          >
+        </picture>
       </div>
     </div>
   </div>
 </div>
+
+

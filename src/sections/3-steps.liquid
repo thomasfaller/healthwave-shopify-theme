@@ -13,13 +13,13 @@
             style="max-width: 250px"
           >
           <source
-            class="layload"
+            class="lazyload"
             data-srcset="{{ 'sms-transparent.png' | asset_img_url: '50x', scale: 3 }}"
             srcset="{{ 'sms-transparent.png' | asset_img_url: '50x', scale: 1 }}"
             media="(min-width: 500px)" alt="telephone sending text message"
           >
           <source
-            class="layload"
+            class="lazyload"
             data-srcset="{{ 'sms-transparent.png' | asset_img_url: 'medium', scale: 3 }}"
             srcset="{{ 'sms-transparent.png' | asset_img_url: 'medium', scale: 1 }}"
             media="(max-width: 499px)" alt="telephone sending text message"
@@ -73,13 +73,13 @@
           </p>
         </div>
       </div>
-      <div class="shopify-section-{{ section.id }}__secondary col-lg-5 order-1 order-md-2">
+      <div class="shopify-section-{{ section.id }}__secondary col-lg-5 order-md-2">
         <picture id="img-2" class="shopify-section-{{ section.id }}__secondary__image">
           {% if section.settings.b2_img != nil %}
           <!--[if IE 9]><video style="display: none;"><![endif]-->
           <source srcset="{{ section.settings.b2_img | img_url: '400x', scale: 3 }}" media="(min-width: 992px)" alt="telephone sending text message">
-          <source srcset="{{ section.settings.b2_img | img_url: '200x', scale: 3 }}" media="(min-width: 500px)" alt="telephone sending text message">
-          <source srcset="{{ section.settings.b2_img | img_url: 'medium', scale: 2 }}" media="(max-width: 499px)" alt="telephone sending text message">
+          <source srcset="{{ section.settings.b2_img | img_url: '300x', scale: 3 }}" media="(min-width: 500px)" alt="telephone sending text message">
+          <source srcset="{{ section.settings.b2_img | img_url: '200x', scale: 2 }}" media="(max-width: 499px)" alt="telephone sending text message">
           <!--[if IE 9]></video><![endif]-->
           <img src="{{ section.settings.b1_img | asset_img_url: 'medium', scale: 3 }}" alt="telephone sending text message"> {% else %}
           <!--[if IE 9]><video style="display: none;"><![endif]-->
