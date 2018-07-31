@@ -1,7 +1,7 @@
 <footer class="shopify-section-{{ section.id }}">
   <div class="container">
   <div class="row">
-    <section class="shopify-section-{{ section.id }}__column-contact col-lg-4">
+    <section class="shopify-section-{{ section.id }}__column-contact col-md-6 col-lg-4">
       <ul>
         <li>
           <img
@@ -12,18 +12,14 @@
         </li>
         <li><br></li>
         <li>
-          <a
-            class="contact-link"
-            href="tel:+35316853086"
-          >
+          <a class="contact-link"
+            href="tel:+35316853086">
             <i class="icon fa fa-phone fa-fw"></i> (01) 685 3086
           </a>
         </li>
         <li>
-          <a
-            class="contact-link"
-            href="mailto:info@healthwave.ie"
-          >
+          <a class="contact-link"
+            href="mailto:info@healthwave.ie">
             <i
               class="icon far fa-envelope fa-fw"
               aria-hidden="true"
@@ -34,9 +30,9 @@
           <br>
         </li>
       </ul>
-      <hr>
+      <div class="divider d-md-none">
     </section>
-    <section class="shopify-section-{{ section.id }}__column-opening col-lg-3">
+    <section class="shopify-section-{{ section.id }}__column-opening col-md-6 col-lg-3">
       <ul>
         <li>
           <span class="column-title">Opening Hours</span>
@@ -49,41 +45,47 @@
         <li class="column-item">Sunday: 12pm – 6pm</li>
       </ul>
     </section>
-    <section class="shopify-section-{{ section.id }}__column-social col-lg-2">
+    <section class="shopify-section-{{ section.id }}__column-social col-md-6 col-lg-2">
       <ul>
         <li>
           <span class="column-title">Social</span>
         </li>
-        <li>
+        <li class="d-none d-md-inline">
           <br>
         </li>
         <li>
           <a href="">
-            <p class="d-none d-md-inline">Facebook</p>
+            <p class="d-none d-lg-inline">Facebook</p>
           </a>
         </li>
         <li>
           <a href="">
-            <p class="d-none d-md-inline">Twitter</p>
+            <p class="d-none d-lg-inline">Twitter</p>
           </a>
         </li>
         <li>
-          <div class="row d-md-none">
-            <div class="col-6">
-              <button class="btn btn-lg btn-outline-light btn-block">
-                <i class="fab fa-twitter fa-2x"></i>
-              </button>
-            </div>
-            <div class="col-6">
-              <button class="btn btn-lg btn-outline-light btn-block">
-                <i class="fab fa-facebook-f fa-2x"></i>
-              </button>
-            </div>
+          <div class="d-lg-none">
+            <span class="social-links">
+              <a class="d-md-block"
+                href="https://www.facebook.com/shopify"
+                title="Follow us on Facebook"
+                target="_blank">
+                  <span class="shopify-social-icon-facebook-rounded">
+                  </span>
+              </a>
+              <a class="d-md-block"
+                href="https://twitter.com/shopify"
+                title="Follow us on Twitter"
+                target="_blank">
+                  <span class="shopify-social-icon-twitter-rounded">
+                  </span>
+              </a>
+            </span>
           </div>
         </li>
       </ul>
     </section>
-    <section class="shopify-section-{{ section.id }}__column-legal col-lg-3">
+    <section class="shopify-section-{{ section.id }}__column-legal col-md-6 col-lg-3">
       {%- assign footer_linklist = section.settings.footer_linklist -%}
       {% if linklists[footer_linklist].links.size > 0 %}
         <ul>

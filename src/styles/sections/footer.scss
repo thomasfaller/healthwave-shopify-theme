@@ -1,8 +1,8 @@
-// ******************************************
-// *           FOOTER BANNER - SECTION      *
-// ******************************************
+// ************************************
+// *     FOOTER BANNER - SECTION      *
+// ************************************
 #shopify-section-footer {
-  background-color: #5b5b5b;
+  background-color: $color-footer-bg-grey;
   footer.shopify-section-footer {
     padding-bottom: 3rem;
     padding-top: 3rem;
@@ -13,52 +13,76 @@
       margin: 0;
     }
     span.column-title {
+      font-size: 24px;
+      font-weight: 200;
       color: $color-main-green;
     }
     li.column-item,
     li.column-item>a {
-      color: #d0dcd7;
+      color: $color-footer-text-grey;
     }
-    section.shopify-section-footer__column-contact {
+    .shopify-section-footer__column-contact {
       margin-bottom: 20x;
       margin-top: 20x;
       padding: 0;
       text-align: center;
       a {
+        font-size: 22px;
         color: $color-main-green;
       }
       .logo {
-        width: 220px;
+        width: 180px;
+      }
+      .divider {
+        border: .25px solid $color-footer-text-alt-grey;
+        margin: 20px auto 0 auto;
+        width: 75%;
       }
     }
-    section.shopify-section-footer__column-opening {
+    .shopify-section-footer__column-opening {
+      font-size: 20px;
       margin-bottom: 20px;
       margin-top: 20px;
       padding: 0;
       text-align: center;
     }
-    section.shopify-section-footer__column-social {
+    .shopify-section-footer__column-social {
+      margin-bottom: 0;
+      margin-top: 20px;
+      padding: 0;
+      text-align: center;
+      .social-links a {
+        display: -moz-inline-stack;
+        display: inline-block;
+        zoom: 1;
+        *display: inline;
+        margin: 0;
+        padding: 0.05em;
+        font-size: 75px !important;
+        .shopify-social-icon-facebook-rounded,
+        .shopify-social-icon-twitter-rounded {
+          color: $color-footer-text-alt-grey !important;
+        }
+      }
+    }
+    .shopify-section-footer__column-legal {
+      font-size: 20px;
       margin-bottom: 20px;
       margin-top: 20px;
       padding: 0;
       text-align: center;
     }
-    section.shopify-section-footer__column-legal {
-      margin-bottom: 20px;
-      margin-top: 20px;
-      padding: 0;
-      text-align: center;
-    }
-    section.shopify-section-footer__bottom {
-      color: #d0dcd7;
+    .shopify-section-footer__bottom {
+      color: $color-footer-text-grey;
       margin-bottom: 20px;
       margin-top: 20px;
       text-align: center;
       a {
-        color: #d0dcd7;
+        color: $color-footer-text-grey;
       }
       .payment-icons {
         text-align: center;
+        margin-bottom: 1rem;
         .methods-of-payment img {
           padding: 0.2em;
         }
@@ -72,7 +96,22 @@
   }
 }
 
-// --main-green: #00bfb3;
-// --main-grey: #5b5b5b;
-// --text-grey: #d0dcd7;
-// --alternative-grey: #9b9b9b;
+
+@media only screen and (min-width: 500px) {
+  #shopify-section-footer {
+    footer.shopify-section-footer {
+      span.column-title {
+        font-size: 26px;
+        font-weight: 200;
+        color: $color-main-green;
+      }
+      .shopify-section-footer__column-social {
+        .social-links {
+          a {
+            height: 90px;
+          }
+        }
+      }
+    }
+  }
+}

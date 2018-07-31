@@ -1,7 +1,7 @@
 <section class="membership-page__section">
   <div class="container">
     <div class="grid">
-      {% if section.settings.img_placement !== 'right' %}
+      {% if section.settings.img_placement != 'right' %}
       <div class="grid__item one-half">
         {% if section.settings.b1_img != nil %}
         <img sizes="(min-width: 992px) 990px, (min-width: 500px) 490px,200px"
@@ -86,7 +86,7 @@
         "type": "html",
         "id": "text",
         "label": "Text content",
-        "default": ""
+        "default": "<p></p>"
       },
       {
         "type": "image_picker",
