@@ -7,6 +7,11 @@
     padding-bottom: 3rem;
     padding-top: 3rem;
     width: 100vw;
+    section {
+      margin-bottom: 20px;
+      margin-top: 20px;
+      text-align: center;
+    }
     ul {
       list-style: none;
       padding: 0;
@@ -22,10 +27,6 @@
       color: $color-footer-text-grey;
     }
     .shopify-section-footer__column-contact {
-      margin-bottom: 20x;
-      margin-top: 20x;
-      padding: 0;
-      text-align: center;
       a {
         font-size: 22px;
         color: $color-main-green;
@@ -51,6 +52,13 @@
       margin-top: 20px;
       padding: 0;
       text-align: center;
+      li:nth-child(2) {
+        line-height: 30px;
+      }
+      p {
+        font-size: 20px;
+        color: $color-footer-text-grey;
+      }
       .social-links a {
         display: -moz-inline-stack;
         display: inline-block;
@@ -96,7 +104,6 @@
   }
 }
 
-
 @media only screen and (min-width: 500px) {
   #shopify-section-footer {
     footer.shopify-section-footer {
@@ -112,6 +119,28 @@
           }
         }
       }
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  #shopify-section-footer {
+    section:not(.shopify-section-footer__bottom) {
+      text-align: left !important;
+    }
+    .shopify-section-footer__column-contact {
+      border-right: .25px solid #6b6b6b;
+      font-weight: 200;
+      text-align: left;
+      i {
+        margin-right: 10px;
+      }
+    }
+    section:first-child {
+      padding-right: 30px;
+    }
+    section:nth-child(2) {
+      margin-left: 30px;
     }
   }
 }
