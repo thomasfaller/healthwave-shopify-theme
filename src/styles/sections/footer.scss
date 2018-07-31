@@ -1,7 +1,78 @@
-//*******************************************
-//***          CTA BANNER - SECTION     ***
 // ******************************************
-#shopify-section-footer>footer {
-  background-color: #666;
-  height: 250px;
+// *           FOOTER BANNER - SECTION      *
+// ******************************************
+#shopify-section-footer {
+  background-color: #5b5b5b;
+  footer.shopify-section-footer {
+    padding-bottom: 3rem;
+    padding-top: 3rem;
+    width: 100vw;
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    span.column-title {
+      color: $color-main-green;
+    }
+    li.column-item,
+    li.column-item>a {
+      color: #d0dcd7;
+    }
+    section.shopify-section-footer__column-contact {
+      margin-bottom: 20x;
+      margin-top: 20x;
+      padding: 0;
+      text-align: center;
+      a {
+        color: $color-main-green;
+      }
+      .logo {
+        width: 220px;
+      }
+    }
+    section.shopify-section-footer__column-opening {
+      margin-bottom: 20px;
+      margin-top: 20px;
+      padding: 0;
+      text-align: center;
+    }
+    section.shopify-section-footer__column-social {
+      margin-bottom: 20px;
+      margin-top: 20px;
+      padding: 0;
+      text-align: center;
+    }
+    section.shopify-section-footer__column-legal {
+      margin-bottom: 20px;
+      margin-top: 20px;
+      padding: 0;
+      text-align: center;
+    }
+    section.shopify-section-footer__bottom {
+      color: #d0dcd7;
+      margin-bottom: 20px;
+      margin-top: 20px;
+      text-align: center;
+      a {
+        color: #d0dcd7;
+      }
+      .payment-icons {
+        text-align: center;
+        .methods-of-payment img {
+          padding: 0.2em;
+        }
+        .lt-ie9 .methods-of-payment,
+        .ie8 .methods-of-payment,
+        .oldie .methods-of-payment {
+          display: none;
+        }
+      }
+    }
+  }
 }
+
+// --main-green: #00bfb3;
+// --main-grey: #5b5b5b;
+// --text-grey: #d0dcd7;
+// --alternative-grey: #9b9b9b;

@@ -1,47 +1,123 @@
-<footer>
+<footer class="shopify-section-{{ section.id }}">
   <div class="container">
-    {%- assign social_accounts = 'Facebook, Twitter, Pinterest, Instagram, Snapchat, Tumblr, YouTube, Vimeo,' | split: ', ' -%}
-    <ul>
-      {% for social in social_accounts %} {%- assign social_handle = social | handleize -%} {% capture social_link %}social_{{
-      social_handle }}_link{% endcapture %} {% capture social_icon %}icon-{{ social_handle }}{% endcapture %} {% if settings[social_link]
-      != blank %}
-      <li>
-        <a href="{{ settings[social_link] }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}">
-          {% include social_icon %}
-          <span class="icon-fallback-text">{{ social }}</span>
-        </a>
-      </li>
-      {% endif %} {% endfor %}
-    </ul>
-
-    {% if section.settings.show_payment_icons %} {% unless shop.enabled_payment_types == empty %} {%- assign payment_icons_available
-    = 'amazon_payments,american_express,apple_pay,bitcoin,cirrus,dankort,diners_club,discover,dogecoin,dwolla,forbrugsforeningen,interac,jcb,litecoin,maestro,master,paypal,visa'
-    | split: ',' -%}
-
-    <span class="visually-hidden">{{ 'layout.footer.payment_methods' | t }}</span>
-    <ul class="payment-icons">
-      {% for type in shop.enabled_payment_types %} {% if payment_icons_available contains type %}
-      <li>
-        {%- assign icon_name = type | prepend: 'icon-' -%} {% include icon_name %}
-        <span class="visually-hidden">{{ type | capitalize | replace: '_', ' ' }}</span>
-      </li>
-      {% endif %} {% endfor %}
-    </ul>
-    {% endunless %} {% endif %} {%- assign footer_linklist = section.settings.footer_linklist -%} {% if linklists[footer_linklist].links.size
-    > 0 %}
-    <ul>
-      {% for link in linklists[footer_linklist].links %}
-      <li>
-        <a href="{{ link.url }}">{{ link.title }}</a>
-      </li>
-      {% endfor %}
-    </ul>
-    {% endif %}
-
-    <div>
-      <small>{{ 'layout.footer.copyright' | t }} &copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: '/' }}. {{ powered_by_link
+  <div class="row">
+    <section class="shopify-section-{{ section.id }}__column-contact col-lg-4">
+      <ul>
+        <li>
+          <img
+            class="logo"
+            src="{{ 'logo.png' | asset_img_url: 'large' | scale: 3 }}"
+            alt="Healthwave Ltd logo"
+          >
+        </li>
+        <li><br></li>
+        <li>
+          <a
+            class="contact-link"
+            href="tel:+35316853086"
+          >
+            <i class="icon fa fa-phone fa-fw"></i> (01) 685 3086
+          </a>
+        </li>
+        <li>
+          <a
+            class="contact-link"
+            href="mailto:info@healthwave.ie"
+          >
+            <i
+              class="icon far fa-envelope fa-fw"
+              aria-hidden="true"
+            ></i> info@healthwave.ie
+          </a>
+        </li>
+        <li>
+          <br>
+        </li>
+      </ul>
+      <hr>
+    </section>
+    <section class="shopify-section-{{ section.id }}__column-opening col-lg-3">
+      <ul>
+        <li>
+          <span class="column-title">Opening Hours</span>
+        </li>
+        <li>
+          <br>
+        </li>
+        <li class="column-item">Monday – Friday: 8am – 7pm</li>
+        <li class="column-item">Saturday: 9am – 6pm</li>
+        <li class="column-item">Sunday: 12pm – 6pm</li>
+      </ul>
+    </section>
+    <section class="shopify-section-{{ section.id }}__column-social col-lg-2">
+      <ul>
+        <li>
+          <span class="column-title">Social</span>
+        </li>
+        <li>
+          <br>
+        </li>
+        <li>
+          <a href="">
+            <p class="d-none d-md-inline">Facebook</p>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <p class="d-none d-md-inline">Twitter</p>
+          </a>
+        </li>
+        <li>
+          <div class="row d-md-none">
+            <div class="col-6">
+              <button class="btn btn-lg btn-outline-light btn-block">
+                <i class="fab fa-twitter fa-2x"></i>
+              </button>
+            </div>
+            <div class="col-6">
+              <button class="btn btn-lg btn-outline-light btn-block">
+                <i class="fab fa-facebook-f fa-2x"></i>
+              </button>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </section>
+    <section class="shopify-section-{{ section.id }}__column-legal col-lg-3">
+      {%- assign footer_linklist = section.settings.footer_linklist -%}
+      {% if linklists[footer_linklist].links.size > 0 %}
+        <ul>
+          <li>
+            <span class="column-title">Legal</span>
+          </li>
+          <li>
+            <br>
+          </li>
+          {% for link in linklists[footer_linklist].links %}
+          <li class="column-item">
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </section>
+  </div>
+    <section class="shopify-section-{{ section.id }}__bottom">
+    {% if section.settings.show_payment_icons %}
+      {% unless shop.enabled_payment_types == empty %}
+        <div class="payment-icons">
+          <span class="methods-of-payment">
+            <img src="{{ 'american_express' | payment_type_img_url }}" height="35" alt="american express" />
+            <img src="{{ 'maestro' | payment_type_img_url }}" height="35" alt="maestro" />
+            <img src="{{ 'master' | payment_type_img_url }}" height="35" alt="master" />
+            <img src="{{ 'visa' | payment_type_img_url }}" height="35" alt="visa" />
+          </span>
+        </div>
+      {% endunless %}
+      {% endif %}
+      <small>{{ 'layout.footer.copyright' | t }} &copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: '/' }}.<br> {{ powered_by_link
         }}</small>
-    </div>
+    </section>
   </div>
 </footer>
 
@@ -59,7 +135,7 @@
         "type": "checkbox",
         "id": "show_payment_icons",
         "label": "Show payment icons",
-        "default": false
+        "default": true
       }
     ]
   }

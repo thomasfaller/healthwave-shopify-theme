@@ -16,3 +16,27 @@
     margin: 45px auto 20px;
   }
 }
+
+@media only screen and (min-width: 500px) {
+  #snippet-banner-pharmacists {
+    height: 650px;
+    padding-bottom: 50px;
+    padding-top: 50px;
+    .banner-pharmacists__main__wrapper {
+      .banner-pharmacists__main__wrapper__heading {
+        @include text-heading;
+        color: $color-main-gray;
+      }
+    }
+    .banner-pharmacists__button {
+      @include button-regular(white, $color-main-green);
+      display: inline;
+      margin: 0;
+    }
+    .banner-pharmacists__secondary__image {
+      display: block;
+      margin: 45px auto 20px;
+      width: 220px;
+    }
+  }
+}

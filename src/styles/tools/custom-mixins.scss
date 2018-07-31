@@ -1,23 +1,49 @@
-// Utilities
+// * Custom Mixins for Healthwave Shopify Theme
+// ------------------------------------------
+
+// * Table of contents:
+//
+//   1. Utilities (centering, manipulating)
+//
+//   2. Spacing (for applying site-wide margins ie.)
+//
+//   3. Typography
+//   -  Desk
+//   -  Mobile
+//
+//   4. Buttons
+//   -  Desk
+//   -  Mobile
+//
+//   5. Links / Nav
+//   -  Buttons
+//   -    Desk
+//   -    Mobile
+
+// *******************************************
+// *            1. Utilities                 *
+// *******************************************
+
 @mixin center-block {
   display: block;
   margin: 0 auto;
 }
+// *******************************************
+// *             2. Spacing                  *
+// *******************************************
 
-// Spacing
 @mixin regular-bottom-margin {
   margin-bottom: 16px;
 }
 
-// Typography mixins
+// *******************************************
+// *        3. Typography mixins             *
+// *******************************************
 
-// default font-sizes
 $regular-font-size: 1.625rem;
 $heading-font-size: 3.125rem;
 
-// * HEADINGS
-
-// Regular
+//    Typography Desk
 
 @mixin text-heading($font-size: $heading-font-size, $font-weight: 300) {
   font-size: $font-size;
@@ -32,7 +58,7 @@ $heading-font-size: 3.125rem;
   color: $color-main-gray;
 }
 
-// Mobile
+//    Typography Mobile
 
 @mixin text-heading-mobile($font-size: 2.5rem, $font-weight: 700) {
   font-size: $font-size;
@@ -49,18 +75,12 @@ $heading-font-size: 3.125rem;
   color: $color-main-gray;
 }
 
-// Links / Nav
-
-@mixin text-regular-nav-link($color: $color-main-gray, $font-size: 1.3rem) {
-  color: $color;
-  font-size: $font-size;
-}
-
-// Buttons
+// *******************************************
+// *              4. Buttons                 *
+// *******************************************
 
 @mixin button-sizing {                // Basic mixin for button sizing
   font-size: $regular-font-size;
-  font-weight: 300;
   padding: 15px 30px;
   width: 250px;
 }
@@ -69,12 +89,14 @@ $heading-font-size: 3.125rem;
   @include button-sizing;
   background-color: $bg-color;
   color: $text-color;
+  font-weight: 500;
 }
 @mixin button-regular-outlined($bg-color: white, $text-color: $color-main-green) {
   @include button-sizing;
   background-color: $bg-color;
   border: 1.75px solid $text-color;
   color: $text-color;
+  font-weight: 500;
 }
 
 @mixin button-regular-mobile($bg-color: $color-main-green, $text-color: white) {
@@ -88,8 +110,16 @@ $heading-font-size: 3.125rem;
   text-decoration: none;
   width: 100%;
 }
+// *******************************************
+// *            5. Links / Nav               *
+// *******************************************
 
-// Navigation Buttons
+@mixin text-regular-nav-link($color: $color-main-gray, $font-size: 1.3rem) {
+  color: $color;
+  font-size: $font-size;
+}
+
+//    Navigation Buttons
 
 @mixin button-navigation-mobile--regular($bg-color: $color-main-green, $text-color: white) {
   @include button-regular-mobile;

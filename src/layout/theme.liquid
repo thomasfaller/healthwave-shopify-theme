@@ -53,7 +53,7 @@
   {{ content_for_header }}
 
   {{ '//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.min.css' | stylesheet_tag }}
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+  {{ 'https://use.fontawesome.com/releases/v5.2.0/css/all.css' | stylesheet_tag }}
   {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
   {{ 'bc-sf-filter.css' | asset_url | stylesheet_tag }}
 
