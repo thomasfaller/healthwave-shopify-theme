@@ -74,13 +74,14 @@
         id="hand"
         class="{{ section.id }}__secondary__image"
         sizes="(min-width: 992px) 990px, (min-width: 500px) 490px, 200px"
-        srcet="https://res.cloudinary.com/healthwave/image/upload/f_auto,q_70,w_256/dpr_auto/v1531216159/Healthwave.ie/hand-holding-pills.jpg 256w,
-              https://res.cloudinary.com/healthwave/image/upload/f_auto,q_70,w_512/dpr_3.0/v1531216159/Healthwave.ie/hand-holding-pills.jpg 512w,
-              https://res.cloudinary.com/healthwave/image/upload/f_auto,q_70,w_768/dpr_3.0/v1531216159/Healthwave.ie/hand-holding-pills.jpg 768w,
-              https://res.cloudinary.com/healthwave/image/upload/f_auto,q_70,w_1024/dpr_3.0/v1531216159/Healthwave.ie/hand-holding-pills.jpg 1024w,
-              https://res.cloudinary.com/healthwave/image/upload/f_auto,q_70,w_1280/dpr_3.0/v1531216159/Healthwave.ie/hand-holding-pills.jpg 1280w"
-        src="https://res.cloudinary.com/healthwave/image/upload/f_auto,q_70,w_512/dpr_3.0/v1531216159/Healthwave.ie/hand-holding-pills.jpg"
+        srcet="{{ 'pill-bottle-in-hand.jpg' | asset_img_url: '256x', scale: 3 }} 256w,
+               {{ 'pill-bottle-in-hand.jpg' | asset_img_url: '768x', scale: 3 }} 768w,
+               {{ 'pill-bottle-in-hand.jpg' | asset_img_url: '512x', scale: 3 }} 512w,
+               {{ 'pill-bottle-in-hand.jpg' | asset_img_url: '1024x', scale: 3 }} 1024w,
+               {{ 'pill-bottle-in-hand.jpg' | asset_img_url: '1280x', scale: 3 }} 1280w"
+        src="{{ 'pill-bottle-in-hand.jpg' | asset_img_url: '512x', scale: 3 }}"
       />
     </div>
   </div>
 </div>
+
