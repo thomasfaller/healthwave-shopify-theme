@@ -18,9 +18,9 @@
       asset_url: "{{ 'bc-sf-filter.js' | asset_url }}",
       collection_id: {{ collection.id | default: 0 }},
       collection_handle: "{{ collection.handle }}",
-      {% for tag in collection.tags %} 
+      {% for tag in collection.tags %}
         {% assign tag_handle = tag | handle %}
-        {% for current_tag in current_tags %} 
+        {% for current_tag in current_tags %}
           {% assign current_tag_handle = current_tag | handle %}
           {% if current_tag_handle == tag_handle %}
             {% assign current_tag_text = tag %}
@@ -58,9 +58,9 @@
     return obj3;
   }
   if (typeof bcSfFilterConfig !== 'undefined') {
-    var bcSfFilterConfig = mergeObject(bcSfFilterConfig, bcSfFilterMainConfig); 
+    var bcSfFilterConfig = mergeObject(bcSfFilterConfig, bcSfFilterMainConfig);
   } else {
-    var bcSfFilterConfig = mergeObject({}, bcSfFilterMainConfig); 
+    var bcSfFilterConfig = mergeObject({}, bcSfFilterMainConfig);
   }
 </script>
 

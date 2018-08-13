@@ -8,11 +8,11 @@
         {%- if product.variants.size > 1 -%}
         <div class="form-group">
           <label for="product-select">Select your {{ product.title | downcase }}</label>
-          <select id="product-select" 
-                  name="id" 
+          <select id="product-select"
+                  name="id"
                   class="form-control">
             {%- for variant in product.variants -%}
-            <option {% if variant == product.selected_or_first_available_variant %} 
+            <option {% if variant == product.selected_or_first_available_variant %}
                     selected="selected" {% endif %}
                     value="{{ variant.id }}">
               {{ variant.title | escape }} - {{ variant.price | money }}
@@ -72,7 +72,7 @@
                       name="id"
                       class="form-control">
                 {%- for variant in product.variants -%}
-                <option 
+                <option
                         {% if variant == product.selected_or_first_available_variant %}
                         selected="selected"
                         {% endif %}
