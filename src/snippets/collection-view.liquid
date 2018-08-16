@@ -1,36 +1,60 @@
-<main id="collection-main">
-  <form id="collection-form"
-    method="get" action="{{ collection.url }}{% if current_tags %}/{{ current_tags | join: '+' }}{% endif %}"
+<div id="collection-main">
+  <form
+    action="{{ collection.url }}{% if current_tags %}/{{ current_tags | join: '+' }}{% endif %}" 
+    id="collection-form"
     data-submit-load="#collection-main"
-    rel="noopener noreferrer">
-    {% section 'page-title' %} {% section 'collection-filter-toolbar' %}
+    rel="noopener noreferrer"
+  >
+    {%- section 'page-title' -%}
+    {%- section 'collection-filter-toolbar' -%}
     <div class="container">
-      <div class="mt-4 grid">
-        <aside class="grid__item medium-up--one-quarter large--one-fifth">
-          {% comment %} {% section 'collection-sidebar-plugin' %} {% endcomment %}
-          {% section 'collection-sidebar' %}
+      <div class="mt-4 row">
+        <aside class="col-md-3">
+          {% comment %} {% section 'collection-sidebar' %} {% endcomment %}
+          {% section 'collection-sidebar-plugin' %}
         </aside>
-        {%- paginate collection.products by 12 -%}
-        <div class="grid__item medium-up--three-quarters large--four-fifths">
-          {%- if collection-view == 'grid' -%}
-            <div id="bc-sf-filter-products" class="grid">
-              {%- for product in collection.products -%}
-              {%- include 'product' -%}
-              {%- endfor -%}
-            </div>
-            {%- else -%}
-            {%- for product in collection.products -%}
-            {%- include 'product-list' -%}
-            {%- endfor -%}
-          {%- endif -%}
-          {%- if paginate.pages > 1 -%}
-          <div class="text-center">
-            <div id="bc-sf-filter-bottom-pagination"></div>
-              {{ paginate | default_pagination | replace: '&laquo; Previous', '&larr;' | replace: 'Next &raquo;', '&rarr;' }}
+        <main class="col-md-9">
+          <div class="container">
+            <section id="bc-sf-filter-products" class="row">
+              {% paginate collection.products by 12 %}
+                {% for product in collection.products %}
+                  <div class="col-3">
+                    <div class="product-thumbnail">
+                      <a href="{{ product.url | within: collection }}">
+                      {% unless product.featured_image == blank %}
+                        {% include 'image-styles' with image: product.featured_image, width: max_height, height: max_height, small_style: true, wrapper_id: wrapper_id, img_id: img_id %}
+                      {% endunless %}
+                        <img
+                          class="lazyload"
+                          src="{{ product.featured_image | img_url: '300x300' }}"
+                          data-src="{{ img_url }}"
+                          data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                          data-aspectratio="{{ featured.featured_image.aspect_ratio }}"
+                          data-sizes="auto"
+                          alt="{{ product.featured_image.alt | escape }}">
+                      </a>
+                      <h6 class="mt-2">{{ product.title | escape }}</h6>
+                      <p class="text-muted">{{ product.price | money }}</p>
+                      <form
+                        action="/cart/add"
+                        method="post"
+                        class="clearfix product_form">
+                        <input type="hidden" name="id" value="1101905772">
+                        <div class="purchase clearfix inline_purchase">
+                          <button type="submit" name="add" class="action_button add_to_cart" data-label="Add to Cart">
+                            <span class="text">Add to Cart</span>
+                          </button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                {% endfor %}
+              {% endpaginate }
+              <div id="bc-sf-filter-bottom-pagination"></div>
+            </section>
           </div>
-          {%- endif -%}
-        </div>
-        {%- endpaginate -%}
+        </main>
       </div>
     </div>
-  </form>https://linwoodshealthfoods.com/
+  </form>
+</div>

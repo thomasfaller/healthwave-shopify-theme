@@ -1,0 +1,40 @@
+// This is the styling for the BoostCommerce sidebar
+// !The css file in assets should not be modified
+#bc-sf-filter-options-wrapper>div.bc-sf-filter-option-block.bc-sf-filter-option-block-list.bc-sf-filter-option-block-type>div.bc-sf-filter-block-title>h3,
+#bc-sf-filter-options-wrapper>div.bc-sf-filter-option-block.bc-sf-filter-option-block-list.bc-sf-filter-option-block-category>div.bc-sf-filter-block-title>h3,
+#bc-sf-filter-options-wrapper>div.bc-sf-filter-option-block.bc-sf-filter-option-block-range.bc-sf-filter-option-block-price>div.bc-sf-filter-block-title>h3,
+#bc-sf-filter-options-wrapper>div.bc-sf-filter-option-block.bc-sf-filter-option-block-list.bc-sf-filter-option-block-brand>div.bc-sf-filter-block-title>h3 {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  span {
+    color: $color-main-green;
+  }
+  span::before {
+    border-top-color: $color-main-green;
+  }
+  span.up::before {
+    border-bottom-color: $color-main-green;
+  }
+}
+
+// #bc-sf-filter-options-wrapper>div.bc-sf-filter-option-block.bc-sf-filter-option-block-list.bc-sf-filter-option-block-category>div.bc-sf-filter-block-title>h3>span::before {border-top-color: $color-main-green;}
+// #bc-sf-filter-options-wrapper>div.bc-sf-filter-option-block.bc-sf-filter-option-block-list.bc-sf-filter-option-block-category>div.bc-sf-filter-block-title>h3>span.up::before {border-bottom-color: $color-main-green;}
+#bc-sf-filter-tree>div.bc-sf-filter-selection-wrapper>div.bc-sf-filter-block-title>a {
+  background-color: $color-main-green;
+  border-radius: 3px;
+  width: 75px;
+  color: white;
+}
+
+// Drag element
+#bc-sf-filter-options-wrapper>div.bc-sf-filter-option-block.bc-sf-filter-option-block-list.bc-sf-filter-option-block-type>div.bc-sf-filter-block-content.jspScrollable>div>div.jspVerticalBar>div.jspTrack,
+#bc-sf-filter-options-wrapper>div.bc-sf-filter-option-block.bc-sf-filter-option-block-list.bc-sf-filter-option-block-category>div.bc-sf-filter-block-content.jspScrollable>div>div.jspVerticalBar>div.jspTrack,
+#bc-sf-filter-options-wrapper>div.bc-sf-filter-option-block.bc-sf-filter-option-block-range.bc-sf-filter-option-block-price>div.bc-sf-filter-block-content.jspScrollable>div>div.jspVerticalBar>div.jspTrack,
+#bc-sf-filter-options-wrapper>div.bc-sf-filter-option-block.bc-sf-filter-option-block-list.bc-sf-filter-option-block-brand>div.bc-sf-filter-block-content.jspScrollable>div>div.jspVerticalBar>div.jspTrack,
+ {
+  background: #7fdfd9;
+  div.jspDrag {
+    background: $color-main-green;
+  }
+}

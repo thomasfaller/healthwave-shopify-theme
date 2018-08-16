@@ -16,19 +16,19 @@ var bcSfFilterTemplate = {
     'vendorHtml': '<div>{{itemVendorLabel}}</div>',
 
     // Grid Template
-    'productGridItemHtml': '<div class="grid__item wide--one-fifth large--one-quarter medium-down--one-half">' +
-                                '<div class="{{soldOutClass}} {{saleClass}}">' +
-                                    '<a href="{{itemUrl}}" class="grid-link">' +
-                                        '<span class="grid-link__image grid-link__image--product">' +
-                                            '{{itemSaleLabel}}' +
-                                            '{{itemSoldOutLabel}}' +
-                                            '<span class="grid-link__image-centered"><img src="{{itemThumbUrl}}" alt="{{itemTitle}}" /></span>' +
-                                        '</span>' +
-                                        '<p class="grid-link__title">{{itemTitle}}</p>' +
-                                        '{{itemVendor}}' +
-                                        '{{itemPrice}}' +
-                                    '</a>' +
-                                '</div>' +
+    'productGridItemHtml': '<div class="col-3">' +
+                              '<div class="">' +
+                                '<a href="{{itemUrl}}" class="grid-link">' +
+                                  '<span class="grid-link__image grid-link__image--product">' +
+                                      '{{itemSaleLabel}}' +
+                                      '{{itemSoldOutLabel}}' +
+                                      '<span class="grid-link__image-centered"><img src="{{itemThumbUrl}}" alt="{{itemTitle}}" /></span>' +
+                                  '</span>' +
+                                  '<p class="grid-link__title">{{itemTitle}}</p>' +
+                                  '{{itemVendor}}' +
+                                  '{{itemPrice}}' +
+                                '</a>' +
+                              '</div>' +
                             '</div>',
 
     // Pagination Template
