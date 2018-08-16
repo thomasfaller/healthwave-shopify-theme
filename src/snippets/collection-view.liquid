@@ -7,8 +7,8 @@
     <div class="container">
       <div class="mt-4 grid">
         <aside class="grid__item medium-up--one-quarter large--one-fifth">
-          {% section 'collection-sidebar-plugin' %}
-          <noscript>{% section 'collection-sidebar' %}</noscript>
+          {% comment %} {% section 'collection-sidebar-plugin' %} {% endcomment %}
+          {% section 'collection-sidebar' %}
         </aside>
         {%- paginate collection.products by 12 -%}
         <div class="grid__item medium-up--three-quarters large--four-fifths">
@@ -33,5 +33,4 @@
         {%- endpaginate -%}
       </div>
     </div>
-  </form>
-</main>
+  </form>https://linwoodshealthfoods.com/
