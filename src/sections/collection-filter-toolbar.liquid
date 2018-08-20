@@ -2,13 +2,7 @@
     <div class="container">
         <div class="ml-2">
             <form action="">
-                <span class="visually-hidden">View as</span>
-                <a href="?view=grid">
-                    <i class="icon-view ml-2 fas fa-th-large{% if collection-view == 'grid' %} selected{% endif %}"></i>
-                </a>
-                <a href="?view=list">
-                    <i class="icon-view ml-3 fas fa-list-ul{% if collection-view == 'list' %} selected{% endif %}"></i>
-                </a>
+              <div id="bc-sf-filter-top-show-limit"></div>
             </form>
         </div>
         <div>
@@ -22,6 +16,8 @@
         </div>
     </div>
 </nav>
+
+
 
 <style>
   .icon-view {

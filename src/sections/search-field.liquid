@@ -1,0 +1,46 @@
+<div class="shopify-section-{{ section.id }} search-field page-width">
+  <div class="container">
+    <form class="search" action="/search">
+      <input
+        id="searchInputField"
+        type="hidden"
+        placeholder="Search"
+        name="q"
+        value="{{ search.terms | escape }}"
+      />
+      <noscript>
+        <button class="btn btn-primary" type="submit" value="Search">Search</button>
+      </noscript>
+    </form>
+  </div>
+</div>
+
+{% schema %}
+{
+  "presets": [
+    {
+      "category": "Search",
+      "name": "Search field",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet 'scss' %}
+
+#shopify-section-search-field {
+  .shopify-section-search-field {
+    #bc-sf-search-box-0 {
+      border-radius: 4px;
+      border: solid 1px #00bfb3;
+      display: block;
+      height: 50px;
+      margin: 20px auto;
+      width: 75%;
+    }
+  }
+}
+
+{% endstylesheet %}
+

@@ -66,7 +66,8 @@
 
 <!-- Include Resources -->
 {{ 'bc-sf-filter-lib.js' | asset_url | script_tag }}
-{% if template contains 'collection' %}
+{{ 'bc-sf-search.js' | asset_url | script_tag }}
+{% if template contains 'collection' or template contains 'search' %}
 {{ 'bc-sf-filter.js' | asset_url | script_tag }}
 {% endif %}
 
@@ -77,6 +78,9 @@
 </script>
 
 <!-- Initialize & Customize Filter -->
-{% if template contains 'collection' %}
+{% if template contains 'collection' or template contains 'search' %}
 <script>bcsffilter.initFilter();</script>
 {% endif %}
+
+<!-- Initialize & Customize Search -->
+<script>bcsffilter.initSearchBox();</script>
