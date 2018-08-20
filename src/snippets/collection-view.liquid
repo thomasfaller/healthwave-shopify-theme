@@ -1,3 +1,5 @@
+{% paginate collection.products by 12 %}
+
 <div id="collection-main">
   <form
     action="{{ collection.url }}{% if current_tags %}/{{ current_tags | join: '+' }}{% endif %}" 
@@ -6,24 +8,21 @@
     rel="noopener noreferrer"
   >
     {%- section 'page-title' -%}
-    {%- section 'collection-filter-toolbar' -%}
     <div class="container">
       <div class="mt-4 row">
         <aside class="col-md-3">
-          {% comment %} {% section 'collection-sidebar' %} {% endcomment %}
+        <noscript>
+          {% section 'collection-sidebar' %}
+        </noscript>
           {% section 'collection-sidebar-plugin' %}
         </aside>
         <main class="col-md-9">
           <div class="container">
-            <section id="bc-sf-filter-products" class="row">
-              {% paginate collection.products by 12 %}
+            <section class="row">
                 {% for product in collection.products %}
-                  <div class="col-3">
+                  <div class="col-6 col-md-4 col-lg-3">
                     <div class="product-thumbnail">
                       <a href="{{ product.url | within: collection }}">
-                      {% unless product.featured_image == blank %}
-                        {% include 'image-styles' with image: product.featured_image, width: max_height, height: max_height, small_style: true, wrapper_id: wrapper_id, img_id: img_id %}
-                      {% endunless %}
                         <img
                           class="lazyload"
                           src="{{ product.featured_image | img_url: '300x300' }}"
@@ -35,21 +34,9 @@
                       </a>
                       <h6 class="mt-2">{{ product.title | escape }}</h6>
                       <p class="text-muted">{{ product.price | money }}</p>
-                      <form
-                        action="/cart/add"
-                        method="post"
-                        class="clearfix product_form">
-                        <input type="hidden" name="id" value="1101905772">
-                        <div class="purchase clearfix inline_purchase">
-                          <button type="submit" name="add" class="action_button add_to_cart" data-label="Add to Cart">
-                            <span class="text">Add to Cart</span>
-                          </button>
-                        </div>
-                      </form>
                     </div>
                   </div>
                 {% endfor %}
-              {% endpaginate }
               <div id="bc-sf-filter-bottom-pagination"></div>
             </section>
           </div>
@@ -58,3 +45,8 @@
     </div>
   </form>
 </div>
+
+{% endpaginate %}
+
+
+

@@ -1,0 +1,333 @@
+{% case section.settings.grid %}
+  {% when '2' %}
+    {%- assign max_height = 530 -%}
+  {% when '3' %}
+    {%- assign max_height = 345 -%}
+  {% when '4' %}
+    {%- assign max_height = 250 -%}
+  {% when '5' %}
+    {%- assign max_height = 195 -%}
+{% endcase %}
+
+{% if section.settings.layout == 'grid' %}
+  {%- assign limit = section.settings.grid | times: section.settings.rows -%}
+{% else %}
+  {%- assign limit = 16 -%}
+{% endif %}
+
+{% paginate collection.products by limit %}
+
+<div data-section-id="{{ section.id }}" data-section-type="collection-template">
+  <header class="collection-header">
+
+    {% if section.settings.show_collection_image and collection.image %}
+      <div class="collection-hero">
+        <div class="collection-hero__image ratio-container lazyload js"
+             data-bgset="{% include 'bgset', image: collection.image %}"
+             data-sizes="auto"
+             data-parent-fit="cover"
+             style="background-image: url('{{ collection.image | img_url: '300x300' }});"></div>
+        <noscript>
+          <div class="collection-hero__image" style="background-image: url({{ collection.image | img_url: '2048x600', crop: 'top' }});"></div>
+        </noscript>
+        <div class="collection-hero__title-wrapper">
+          <h1 id="bc-sf-filter-collection-header" class="collection-hero__title page-width">{{ collection.title }}</h1>
+        </div>
+      </div>
+
+      {% if collection.description != blank %}
+        <div id="bc-sf-filter-collection-description" class="rte collection-description page-width">
+          {{ collection.description }}
+        </div>
+      {% endif %}
+    {% else %}
+      <div class="page-width">
+        <div class="section-header text-center">
+          <h1 id="bc-sf-filter-collection-header">{{ collection.title }}</h1>
+          {% if collection.description != blank %}
+            <div id="bc-sf-filter-collection-description" class="rte">
+              {{ collection.description }}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+
+    <div class="filters-toolbar-wrapper">
+      <div class="page-width">
+        <div class="filters-toolbar">
+          <div class="filters-toolbar__item">
+            <div id="bc-sf-filter-top-display-type"></div>
+          </div>
+
+          <div class="filters-toolbar__item filters-toolbar__item--count">
+            <span class="filters-toolbar__product-count" id="bc-sf-filter-total-product"></span>
+          </div>
+
+          {% if section.settings.sort_enable %}
+          <div class="filters-toolbar__item text-right" id="bc-sf-filter-top-sorting"></div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="page-width" id="Collection">
+    <div id="bc-sf-filter-tree-mobile"></div>
+    <div id="bc-sf-filter-wrapper">
+      <div id="bc-sf-filter-tree"></div>
+      <div id="bc-sf-filter-right">
+        {% if section.settings.layout == 'grid' %}
+          {% case section.settings.grid %}
+          {% when '2' %}
+            {%- assign grid_item_width = 'medium-up--one-half' -%}
+          {% when '3' %}
+            {%- assign grid_item_width = 'small--one-half medium-up--one-third' -%}
+          {% when '4' %}
+            {%- assign grid_item_width = 'small--one-half medium-up--one-quarter' -%}
+          {% when '5' %}
+            {%- assign grid_item_width = 'small--one-half medium-up--one-fifth' -%}
+          {% endcase %}
+
+          <div id="bc-sf-filter-products" class="grid grid--uniform{% if collection.products_count > 0 %} grid--view-items{% endif %}">
+            {% for product in collection.products %}
+              <div class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
+                {% include 'product-card-grid', max_height: max_height %}
+              </div>
+            {% else %}
+              {% comment %}
+              Add default products to help with onboarding for collections/all only.
+
+              The onboarding styles and products are only loaded if the
+              store has no products.
+              {% endcomment %}
+              {% if collection.handle == 'all' and collection.all_vendors.size == 0 and collection.all_types.size == 0 %}
+                <div class="grid__item">
+                  <div class="grid grid--uniform">
+                    {% for i in (1..limit) %}
+                      <div class="grid__item {{ grid_item_width }}">
+                        <div class="grid-view-item">
+                          <a href="#" class="grid-view-item__link">
+                            <div class="grid-view-item__image">
+                              {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
+                              {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+                            </div>
+                            <div class="h4 grid-view-item__title">{{ 'homepage.onboarding.product_title' | t }}</div>
+                            <div class="grid-view-item__meta">
+                              <span class="product-price__price">$19.99</span>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+                    {% endfor %}
+                  </div>
+                </div>
+              {% else %}
+                {%- assign is_empty_collection = true -%}
+              {% endif %}
+            {% endfor %}
+          </div>
+        {% else %}
+          <div id="bc-sf-filter-products" class="list-view-items">
+            {% for product in collection.products %}
+              <a href="{{ product.url | within: collection }}" class="list-view-item">
+                {% include 'product-card-list', product: product %}
+              </a>
+            {% else %}
+
+              {% comment %}
+              Add default products to help with onboarding for collections/all only.
+
+              The onboarding styles and products are only loaded if the
+              store has no products.
+              {% endcomment %}
+              {% if collection.handle == 'all' and collection.all_vendors.size == 0 and collection.all_types.size == 0%}
+                {% for i in (1..4) %}
+                  <a href="#" class="list-view-item">
+                    <div class="list-view-item__image-column">
+                      <div class="list-view-item__image-wrapper">
+                        <div class="list-view-item__image">
+                          {%- assign placeholder = 'placeholder-product-' | append: i -%}
+                          {% include placeholder %}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="list-view-item__title-column">
+                      <div class="list-view-item__title">{{ 'homepage.onboarding.product_title' | t }}</div>
+                    </div>
+
+                    <div class="list-view-item__price-column">
+                      <span class="product-price__price">$19.99</span>
+                    </div>
+                  </a>
+                {% endfor %}
+              {% else %}
+                {%- assign is_empty_collection = true -%}
+              {% endif %}
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        {% if is_empty_collection %}
+          <div class="grid__item small--text-center">
+            <p class="text-center">{{ 'collections.general.no_matches' | t }}</p>
+          </div>
+        {% endif %}
+
+        <div id="bc-sf-filter-bottom-pagination"></div>
+        <div id="bc-sf-filter-load-more"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endpaginate %}
+
+<script>
+  // Declare bcSfFilterConfig variable
+  var bcSfFilterConfig = {
+    label: {
+      refine: "{{ 'product_filter_search.refine' | t }}",
+      refine_mobile: "{{ 'product_filter_search.refine_mobile' | t }}",
+      clear: "{{ 'product_filter_search.clear' | t }}",
+      clear_all: "{{ 'product_filter_search.clear_all' | t }}",
+      apply: "{{ 'product_filter_search.apply' | t }}",
+      breadcrumb_home: {% if product_filter_search.breadcrumb_home != blank %} {{ 'product_filter_search.breadcrumb_home' | t }}" {% else %} "Home" {% endif %},
+      load_more: {% assign temp = 'product_filter_search.load_more' | t %} {% unless temp contains 'translation missing'  %} "{{ temp }}" {% else %} "Load more Products" {% endunless %},
+      show_limit: {% assign temp = 'product_filter_search.show_limit' | t %} {% unless temp contains 'translation missing'  %} "{{ temp }}" {% else %} "Show" {% endunless %},
+      sorting: {% assign temp = 'collections.sorting.title' | t  %} {% unless temp contains 'translation missing'  %} "{{ temp }}" {% else %} "Sorting" {% endunless %},
+      sorting_best_selling: {% assign temp = 'collections.sorting.best_selling' | t %} {% unless temp contains 'translation missing'  %} "{{ temp }}" {% else %} "Best Selling" {% endunless %},
+      sorting_featured: {% assign temp = 'collections.sorting.featured' | t %} {% unless temp contains 'translation missing'  %} "{{ temp }}" {% else %} "Featured" {% endunless %},
+      sorting_title_ascending: {% assign temp = 'collections.sorting.az' | t %} {% unless temp contains 'translation missing'  %} "{{ temp }}" {% else %} "Alphabetically, A-Z" {% endunless %},
+      sorting_title_descending: {% assign temp = 'collections.sorting.za' | t %} {% unless temp contains 'translation missing'  %} "{{ temp }}" {% else %} "Alphabetically, Z-A" {% endunless %},
+      sorting_price_ascending: {% assign temp = 'collections.sorting.price_ascending' | t %} {% unless temp contains 'translation missing'  %} "{{ temp }}" {% else %} "Lowest Price" {% endunless %},
+      sorting_price_descending: {% assign temp = 'collections.sorting.price_descending' | t %} {% unless temp contains 'translation missing'  %} "{{ temp }}" {% else %} "Highest Price" {% endunless %},
+      sorting_date_ascending: {% assign temp = 'collections.sorting.date_ascending' | t %} {% unless temp contains 'translation missing'  %} "{{ temp }}" {% else %} "Date, Old to New" {% endunless %},
+      sorting_date_descending: {% assign temp = 'collections.sorting.date_descending' | t %} {% unless temp contains 'translation missing'  %} "{{ temp }}" {% else %} "Date, New to Old" {% endunless %},
+      sorting_sale_descending: {% assign temp = 'collections.sorting.sale_descending' | t %} {% unless temp contains 'translation missing'  %} "{{ temp }}" {% else %} "% Off" {% endunless %},
+      sorting_relevance: {% assign temp = 'collections.sorting.relevance' | t %} {% unless temp contains 'translation missing'  %} "{{ temp }}" {% else %} "Relevance" {% endunless %},
+
+      sale: "{{ 'products.product.on_sale' | t }}",
+      sold_out: "{{ 'products.product.sold_out' | t }}",
+      regular_price: "{{ 'products.product.regular_price' | t }}",
+      items_with_count_one: "{{ 'collections.general.items_with_count.one' | t }}",
+      items_with_count_other: "{{ 'collections.general.items_with_count.other' | t }}",
+    },
+    custom: {
+      products_per_page: {{ limit }},
+      products_per_row: {{ section.settings.grid }},
+      max_height: {{ max_height }},
+      vendor_enable: {{ section.settings.show_vendor }},
+    }
+  };
+</script>
+
+{% schema %}
+
+  {
+    "name": "Collection pages",
+    "settings": [
+      {
+        "type": "select",
+        "id": "layout",
+        "label": "Layout",
+        "default": "grid",
+        "options": [
+          {
+            "value": "grid",
+            "label": "Grid"
+          },
+          {
+            "value": "list",
+            "label": "List"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "grid",
+        "label": "Products per row (grid only)",
+        "default": "4",
+        "options": [
+          {
+            "value": "2",
+            "label": "2"
+          },
+          {
+            "value": "3",
+            "label": "3"
+          },
+          {
+            "value": "4",
+            "label": "4"
+          },
+          {
+            "value": "5",
+            "label": "5"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "rows",
+        "label": "Rows per page (grid only)",
+        "default": "2",
+        "options": [
+          {
+            "value": "2",
+            "label": "2"
+          },
+          {
+            "value": "3",
+            "label": "3"
+          },
+          {
+            "value": "4",
+            "label": "4"
+          },
+          {
+            "value": "5",
+            "label": "5"
+          },
+          {
+            "value": "6",
+            "label": "6"
+          },
+          {
+            "value": "7",
+            "label": "7"
+          },
+          {
+            "value": "8",
+            "label": "8"
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "id": "show_collection_image",
+        "label": "Show collection image",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_vendor",
+        "label": "Show product vendors",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "sort_enable",
+        "label": "Enable sorting",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "tags_enable",
+        "label": "Enable tag filtering",
+        "default": true
+      }
+    ]
+  }
+{% endschema %}
