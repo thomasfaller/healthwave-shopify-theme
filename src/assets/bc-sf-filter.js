@@ -16,7 +16,7 @@ var bcSfFilterTemplate = {
     'vendorHtml': '<div>{{itemVendorLabel}}</div>',
 
     // Grid Template
-    'productGridItemHtml': '<div class="col-6 col-md-4 col-lg-3">' +
+    'productGridItemHtml': '<div class="grid__item wide--one-fifth large--one-quarter medium-down--one-half">' +
                                 '<div class="{{soldOutClass}} {{saleClass}}">' +
                                     '<a href="{{itemUrl}}" class="grid-link">' +
                                         '<span class="grid-link__image grid-link__image--product">' +
@@ -40,13 +40,9 @@ var bcSfFilterTemplate = {
     'pageItemSelectedHtml': '<li><span class="active">{{itemTitle}}</span></li>',
     'pageItemRemainHtml': '<li><span>{{itemTitle}}</span></li>',
     'paginateHtml': '<ul class="pagination-custom">{{previous}}{{pageItems}}{{next}}</ul>',
-
+  
     // Sorting Template
     'sortingHtml': '<label class="label--hidden">' + bcSfFilterConfig.label.sorting + '</label><select class="collection-sort__input">{{sortingItems}}</select>',
-
-    // Pagination Amount Template
-
-    'showLimitHtml': '<label>Show</label><select>{{showLimitItems}}</select>',
 };
 
 /************************** BUILD PRODUCT LIST **************************/
@@ -100,11 +96,11 @@ BCSfFilter.prototype.buildProductGridItem = function(data, index) {
     // Add soldOut class
     var soldOutClass = soldOut ? bcSfFilterTemplate.soldOutClass : '';
     itemHtml = itemHtml.replace(/{{soldOutClass}}/g, soldOutClass);
-
+  
     // Add onSale class
     var saleClass = onSale ? bcSfFilterTemplate.saleClass : '';
     itemHtml = itemHtml.replace(/{{saleClass}}/g, saleClass);
-
+  
     // Add soldOut Label
     var itemSoldOutLabelHtml = soldOut ? bcSfFilterTemplate.soldOutLabelHtml : '';
     itemHtml = itemHtml.replace(/{{itemSoldOutLabel}}/g, itemSoldOutLabelHtml);
@@ -260,7 +256,7 @@ BCSfFilter.prototype.buildFilterSorting = function() {
 
         var sortingArr = this.getSortingList();
         if (sortingArr) {
-            // Build content
+            // Build content 
             var sortingItemsHtml = '';
             for (var k in sortingArr) {
                 sortingItemsHtml += '<option value="' + k +'">' + sortingArr[k] + '</option>';
@@ -297,26 +293,3 @@ BCSfFilter.prototype.buildExtrasProductList = function(data, eventType) {};
 
 // Build additional elements
 BCSfFilter.prototype.buildAdditionalElements = function(data, eventType) {};
-
-// Showing Filter amount
-BCSfFilter.prototype.buildFilterShowLimit = function() {
-  if (bcSfFilterTemplate.hasOwnProperty('showLimitHtml')) {
-      jQ('#bc-sf-filter-top-show-limit').html('');
-
-      var numberList = '12,24,32,48';
-      if (numberList != '') {
-          // Build content
-          var showLimitItemsHtml = '';
-          var arr = numberList.split(',');
-          for (var k = 0; k < arr.length; k++) {
-              var label = arr[k];
-              showLimitItemsHtml += '<option value="' + arr[k] +'">' + label + '</option>';
-          }
-          var html = bcSfFilterTemplate.showLimitHtml.replace(/{{showLimitItems}}/g, showLimitItemsHtml);
-          jQ('#bc-sf-filter-top-show-limit').html(html);
-
-          // Set value
-          jQ('#bc-sf-filter-top-show-limit select').val(this.queryParams.limit);
-      }
-  }
-};

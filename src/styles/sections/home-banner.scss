@@ -1,63 +1,79 @@
 //*******************************************
 //***           HOME BANNER - SECTION     ***
 // ******************************************
+
+// mobile 1st
 #shopify-section-home-banner {
-  height: 650px;
-  background-color: white;
-  .col-lg-7 {
-    position: relative;
-    .shopify-section-banner__main {
-      position: absolute;
-      top: 40%;
-      left: 50%;
-      height: 30%;
-      width: 90%;
-      margin: -15% 0 0 -45%;
-      * {
-        margin-top: 20px;
-        margin-bottom: 20px;
-      }
-      .shopify-section-banner__main__heading {
-        @include text-heading;
-        white-space: nowrap;
-        color: $color-main-gray;
-      }
-      .shopify-section-banner__main__text {
-        @include text-regular;
-        color: $color-main-gray;
-      }
-      .shopify-section-banner__main__button {
-        @include text-regular;
-        @include button-regular(white, $color-main-green);
-        border: 2.5px solid $color-main-green;
-        @media only screen and (max-width: 550px) {
-          width: 100%;
-          font-size: 2.25em;
-        }
-      }
+  height: 390px;
+  background-color: #fff;
+  .home-banner__main {
+    width: 100%;
+    .home-banner__main__heading {
+      @include text-heading-mobile;
+      @include regular-bottom-margin;
+      color: $color-main-gray;
+    }
+    .home-banner__main__text {
+      @include text-regular-mobile;
+      @include regular-bottom-margin;
+      color: $color-main-gray;
+    }
+    .home-banner__main__button {
+      @include button-regular-mobile;
+      @include regular-bottom-margin;
     }
   }
-  .shopify-section-banner__secondary {
-    // image
-    line-height: 650px;
-    .shopify-section-banner__secondary__image {
-      z-index: -1;
-      vertical-align: bottom;
-      @media only screen and (max-width: 987px) {
-        display: none;
+  .home-banner__secondary {
+    .home-banner__secondary__image {
+      display: none;
+      @media only screen and (min-width: 992px) {
+        margin-left: 2px; // This is to avoid main__heading being covered by the image
+        display: inline;
+        z-index: -1;
+        vertical-align: bottom;
       }
     }
-  }
-  @media only screen and (max-width: 987px) {
-    margin-top: 13em;
-    height: 450px;
   }
 }
 
-#custom-button { // located on the "pharmacists snippet"
-  @include text-regular;
-  padding: 10px 30px;
-  background-color: $color-main-green;
-  color: white;
-  border: 2.5px solid white;
+// tablet - medium screen
+@media only screen and (min-width: 500px) {
+  #shopify-section-home-banner {
+    height: 400px;
+    .home-banner__main {
+      .home-banner__main__heading {
+        padding-top: 7rem;
+        margin-bottom: 20px;
+      }
+      .home-banner__main__text {
+        margin-bottom: 20px;
+      }
+      .home-banner__main__button {
+        margin-bottom: 20px;
+        width: 400px;
+      }
+    }
+  }
+}
+
+// lg+ screens
+@media only screen and (min-width: 992px) {
+  #shopify-section-home-banner {
+    height: 650px;
+    .home-banner__main {
+      .home-banner__main__heading {
+        @include text-heading(4.5rem);
+        white-space: nowrap;
+      }
+      .home-banner__main__text {
+        @include text-regular;
+      }
+      .home-banner__main__button {
+        @include button-regular-outlined;
+      }
+    }
+    .home-banner__secondary {
+      line-height: 650px;
+    }
+  }
 }

@@ -36,7 +36,7 @@
 
 @import url('sections/bc-sf-filter-sidebar.scss'); // stylesheet for BoostCommerce filter sidebar
 @import url('sections/header.scss');
-// @import url('sections/home-banner.scss');
+@import url('sections/home-banner.scss');
 @import url('sections/banner.scss');
 // @import url('sections/3-steps.scss');
 // @import url('sections/cta-banner.scss');
@@ -54,7 +54,6 @@
 @import url('pages/register.scss');
 
 // Mobile-First transition
-@import url('sections/home-banner-mobileFirst.scss');
 @import url('sections/3-steps-mobileFirst.scss');
 @import url('sections/cta-banner-mobileFirst.scss');
 
