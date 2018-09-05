@@ -1,51 +1,119 @@
 <nav class="shopify-section-{{ section.id }} navbar navbar-expand-lg navbar-light bg-light sticky-top">
   <div class="container">
-    <a href="/" itemprop="url" class="navbar-brand site-logo{% if section.settings.logo != blank %} site-header__logo-image{% endif %}">
-      {% if section.settings.logo != blank %} {% capture image_size %}{{ section.settings.logo_max_width }}x{% endcapture %}
-      <img id="logo" src="{{ section.settings.logo | img_url: image_size }}" srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
-        alt="{{ section.settings.logo.alt | default: shop.name }}" itemprop="logo"> {% else %}
-      <img id="logo" src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}" itemprop="logo"> {% endif %}
+    <a
+      class="navbar-brand site-logo{% if section.settings.logo != blank %} site-header__logo-image{% endif %}"
+      href="/"
+      itemprop="url"
+    >
+      {% if section.settings.logo != blank %}
+        {% capture image_size %}
+        {{ section.settings.logo_max_width }}x{% endcapture %}
+        <img
+          alt="{{ section.settings.logo.alt | default: shop.name }}"
+          id="logo"
+          itemprop="logo">
+          src="{{ section.settings.logo | img_url: image_size }}"
+          srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
+      {% else %}
+        <img
+          alt="{{ shop.name }}"
+          id="logo"
+          itemprop="logo"
+          src="{{ 'logo.png' | asset_url }}"
+        >
+      {% endif %}
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsed-content" aria-controls="collapsed-content"
-      aria-expanded="false" aria-label="Toggle navigation">
+    <button
+      aria-controls="collapsed-content"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+      class="navbar-toggler"
+      data-target="#collapsed-content"
+      data-toggle="collapse"
+      type="button"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="collapsed-content">
+    <div
+      class="collapse navbar-collapse"
+      id="collapsed-content"
+    >
       <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
-        {% for link in linklists[section.settings.main_linklist].links %} {% assign child_list_handle = link.title | handleize %}
-        {% if menus[child_list_handle].links != blank %}
-        <li class="nav-item dropdown">
-          <a href="{{ link.url }}" class="nav-link dropdown-toggle{% if link.active %} active{% endif %}" id="Dropdown" role="button"
-            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            {{ link.title }}
-          </a>
-          <div class="dropdown-menu" aria-labelledby="Dropdown">
-            {% for childlink in menus[child_list_handle].links %}
-            <a class="dropdown-item" href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
-            {% endfor %}
-          </div>
-        </li>
-        {% else %}
-        <li class="nav-item{% if link.active %} active{% endif %}">
-          <a href="{{ link.url }}" class="nav-link">{{ link.title }}</a>
-        </li>
-        {% endif %} {% endfor %}
+        {% for link in linklists[section.settings.main_linklist].links %}
+          {% assign child_list_handle = link.title | handleize %}
+          {% if menus[child_list_handle].links != blank %}
+            <li class="nav-item dropdown">
+              <a
+                aria-expanded="false"
+                aria-haspopup="true"
+                class="nav-link dropdown-toggle{% if link.active %} active{% endif %}"
+                data-toggle="dropdown"
+                href="{{ link.url }}"
+                id="Dropdown"
+                role="button"
+              >
+                {{ link.title }}
+              </a>
+              <div
+                aria-labelledby="Dropdown"
+                class="dropdown-menu"
+              >
+                {% for childlink in menus[child_list_handle].links %}
+                  <a
+                    class="dropdown-item"
+                    href="{{ childlink.url }}"
+                  >{{ childlink.title | escape }}</a>
+                {% endfor %}
+              </div>
+            </li>
+          {% else %}
+            <li class="nav-item{% if link.active %} active{% endif %}">
+              <a
+                href="{{ link.url }}"
+                class="nav-link">{{ link.title }}</a>
+            </li>
+          {% endif %}
+        {% endfor %}
       </ul>
       {% if shop.customer_accounts_enabled %}
         <div class="dropdown-divider"></div>
-        <div class="shopify-section-header__buttons" role="group" aria-label="Navigation buttons">
+        <div
+          aria-label="Navigation buttons"
+          class="shopify-section-header__buttons"
+          role="group"
+        >
         {% if customer  %}
-          <button id="account-btn" type="button" class="btn btn-primary">{{ 'My account' | customer_account_link }}</button>
-          <button id="logout-btn" type="button" class="btn btn-danger">{{ 'Log out' | customer_logout_link }}</button>
+          <button
+            class="btn btn-primary"
+            id="account-btn"
+            type="button"
+          >{{ 'My account' | customer_account_link }}</button>
+          <button
+            class="btn btn-danger"
+            id="logout-btn"
+            type="button"
+          >{{ 'Log out' | customer_logout_link }}</button>
         {% else %}
-          <button id="login-btn" type="button" class="btn btn-primary">{{ 'Log in' | customer_login_link }}</button>
+          <button
+            class="btn btn-primary"
+            id="login-btn"
+            type="button"
+          >{{ 'Log in' | customer_login_link }}</button>
           {% if shop.customer_accounts_optional %}
-            <button id="register-btn" type="button" class="btn btn-primary">{{ 'Register' | customer_register_link }}</button>
+            <button
+              class="btn btn-primary"
+              id="register-btn"
+              type="button"
+            >{{ 'Register' | customer_register_link }}</button>
           {% endif %}
           {% unless cart.item_count == 0 %}
-            <button id="cart-btn" type="button" class="btn btn-primary">Cart</button>
+            <button
+              class="btn btn-primary"
+              id="cart-btn"
+              type="button"
+            >Cart</button>
           {% endunless %}
-          </div>
+        </div>
         {% endif %}
       {% endif %}
     </div>
@@ -111,5 +179,5 @@
   .btn-group > a {
     font-size: {{ section.settings.nav_font_size }}px;
   }
-  
+
 {% endstylesheet %}

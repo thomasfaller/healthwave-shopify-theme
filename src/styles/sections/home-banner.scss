@@ -27,7 +27,7 @@
     .home-banner__secondary__image {
       display: none;
       @media only screen and (min-width: 992px) {
-        margin-left: 2px; // This is to avoid main__heading being covered by the image
+        margin-left: 10px; // This is to avoid main__heading being covered by the image
         display: inline;
         z-index: -1;
         vertical-align: bottom;

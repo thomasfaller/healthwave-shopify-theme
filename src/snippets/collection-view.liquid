@@ -8,20 +8,20 @@
     {%- section 'page-title' -%}
     {%- section 'search-field' -%}
     {% section 'collection-filter-toolbar' %}
-    <div class="container">
-    <div class="mt-4 row">
-        <aside class="col-md-3">
+    <div class="page-width">
+    <div class="mt-4 grid">
+        <aside class="grid__item medium-up--one-quarter">
           <noscript>
             {% section 'collection-sidebar' %}
           </noscript>
             {% section 'collection-sidebar-plugin' %}
         </aside>
-        <main class="col-md-9">
-          <div class="container">
-            <section id="bc-sf-filter-products" class="row">
+        <main class="grid__item medium-up--three-quarters">
+          <div class="page-width">
+            <section class="grid">
               {% paginate collection.products by 12 %}
                 {% for product in collection.products %}
-                  <div class="col-6 col-md-4 col-lg-3">
+                  <div class="grid__item wide--one-fifth large--one-quarter medium-down--one-half">
                     <div class="product-thumbnail">
                       <a href="{{ product.url | within: collection }}">
                         <img
@@ -52,14 +52,6 @@
   // Declare bcSfFilterConfig variable
   var bcSfFilterConfig = {
     label: {
-      refine: "{{ 'product_filter_search.refine' | t }}",
-      refine_mobile: "{{ 'product_filter_search.refine_mobile' | t }}",
-      clear: "{{ 'product_filter_search.clear' | t }}",
-      clear_all: "{{ 'product_filter_search.clear_all' | t }}",
-      apply: "{{ 'product_filter_search.apply' | t }}",
-      breadcrumb_home: {% if product_filter_search.breadcrumb_home != blank %} {{ 'product_filter_search.breadcrumb_home' | t }}" {% else %} "Home" {% endif %},
-      load_more: {% assign temp = 'product_filter_search.load_more' | t %} {% unless temp contains 'translation missing'  %} "{{ temp }}" {% else %} "Load more Products" {% endunless %},
-      show_limit: {% assign temp = 'product_filter_search.show_limit' | t %} {% unless temp contains 'translation missing'  %} "{{ temp }}" {% else %} "Show" {% endunless %},
       sorting: {% assign temp = 'collections.sorting.title' | t  %} {% unless temp contains 'translation missing'  %} "{{ temp }}" {% else %} "Sorting" {% endunless %},
       sorting_best_selling: {% assign temp = 'collections.sorting.best_selling' | t %} {% unless temp contains 'translation missing'  %} "{{ temp }}" {% else %} "Best Selling" {% endunless %},
       sorting_featured: {% assign temp = 'collections.sorting.featured' | t %} {% unless temp contains 'translation missing'  %} "{{ temp }}" {% else %} "Featured" {% endunless %},

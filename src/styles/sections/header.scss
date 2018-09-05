@@ -51,6 +51,11 @@
   div.shopify-section-header__buttons {
     display: flex;
     align-items: baseline;
+    #search-link {
+      color: $color-main-green;
+      font-size: 20px;
+      margin-right: 20px;
+    }
     #account-btn {
       @include button-navigation-desktop;
       border-top-right-radius: 0;

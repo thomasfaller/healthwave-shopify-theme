@@ -1,0 +1,21 @@
+<i id="search-icon" class="fas fa-search">
+  <form id="search-form" method="get" action="/search">
+    <input id="search-field" type="text" name="q" onblur="showIcon()"/>
+  </form>
+</i>
+
+<script>
+  const searchIcon = document.querySelector("#search-icon");
+  const searchField = document.querySelector("#search-field");
+  const searchForm = document.querySelector("#search-form");
+  searchForm.style.visibility = "hidden";
+  searchIcon.addEventListener("click", () => {
+    searchIcon.style.visibility = "hidden";
+    searchForm.style.visibility = "visible";
+    searchField.focus();
+  })
+  const showIcon = () => {
+    searchIcon.style.visibility = "visible";
+  }
+
+</script>

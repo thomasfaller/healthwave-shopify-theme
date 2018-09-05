@@ -1,30 +1,86 @@
-<div id="collection-main">
-  <form
-    action="{{ collection.url }}{% if current_tags %}/{{ current_tags | join: '+' }}{% endif %}"
-    id="collection-form"
-    data-submit-load="#collection-main"
-    rel="noopener noreferrer"
-  >
-    {%- section 'page-title' -%}
-    <div class="container">
-      <div class="mt-4 row">
-        <aside class="col-md-3">
-        <noscript>
-          {% section 'collection-sidebar' %}
-        </noscript>
-          {% section 'collection-sidebar-plugin' %}
-        </aside>
-        <main class="col-md-9">
-          <div class="container">
-            <section class="row">
-              {% comment %} <p class="bc-sf-search-result-number"></p> {% endcomment %}
-              {% for item in search.results %}
-                {{ item.content | highlight: search.terms }}
-              {% endfor %}
-            </section>
-          </div>
-        </main>
+<div class="page-width">
+    <div class="text-center">
+      <h1 class="bc-sf-search-result-header h2">{{ 'general.search.title' | t }}</h1>
+      <div class="grid">
+        <div class="grid__item medium-up--two-fifths medium-up--push-three-tenths">
+          <form action="/search" method="get" role="search" class="search">
+            <div class="input-group">
+              <input type="search"
+                     id="SearchInput"
+                     class="input-group__field search__input"
+                     name="q"
+                     value="{{ search.terms | escape }}"
+                     placeholder="{{ 'general.search.placeholder' | t }}"
+                     aria-label="{{ 'general.search.placeholder' | t }}"
+                     autofocus>
+              <span class="input-group__btn">
+                <button class="btn search__submit" type="submit">{{ 'general.search.submit' | t }}</button>
+              </span>
+            </div>
+          </form>
+        </div>
       </div>
-    </div>
-  </form>
+
+      <hr class="hr--small hr--invisible">
+      <p class="bc-sf-search-result-number"></p>
+  </div>
 </div>
+
+<hr>
+
+<div class="page-width">
+  <div id="bc-sf-filter-tree-mobile"></div>
+  <div id="bc-sf-filter-wrapper">
+    <div id="bc-sf-filter-tree"></div>
+    <div id="bc-sf-filter-right">
+      <div id="bc-sf-filter-products" class="grid grid--uniform grid--view-items"></div>
+
+      <div id="bc-sf-filter-bottom-pagination"></div>
+      <div id="bc-sf-filter-load-more"></div>
+    </div>
+  </div>
+</div>
+    
+<script>
+  // Declare bcSfFilterConfig variable
+  var bcSfFilterConfig = {
+    label: {
+      refine: "{{ 'product_filter_search.refine' | t }}",
+      refine_mobile: "{{ 'product_filter_search.refine_mobile' | t }}",
+      clear: "{{ 'product_filter_search.clear' | t }}",
+      clear_all: "{{ 'product_filter_search.clear_all' | t }}",
+      apply: "{{ 'product_filter_search.apply' | t }}",
+      breadcrumb_home: {% if product_filter_search.breadcrumb_home != blank %} {{ 'product_filter_search.breadcrumb_home' | t }}" {% else %} "Home" {% endif %},
+      load_more: {% assign temp = 'product_filter_search.load_more' | t %} {% unless temp contains 'translation missing'  %} "{{ temp }}" {% else %} "Load more Products" {% endunless %},
+      show_limit: {% assign temp = 'product_filter_search.show_limit' | t %} {% unless temp contains 'translation missing'  %} "{{ temp }}" {% else %} "Show" {% endunless %},
+      sorting: {% assign temp = 'collections.sorting.title' | t  %} {% unless temp contains 'translation missing'  %} "{{ temp }}" {% else %} "Sorting" {% endunless %},
+      sorting_best_selling: {% assign temp = 'collections.sorting.best_selling' | t %} {% unless temp contains 'translation missing'  %} "{{ temp }}" {% else %} "Best Selling" {% endunless %},
+      sorting_featured: {% assign temp = 'collections.sorting.featured' | t %} {% unless temp contains 'translation missing'  %} "{{ temp }}" {% else %} "Featured" {% endunless %},
+      sorting_title_ascending: {% assign temp = 'collections.sorting.az' | t %} {% unless temp contains 'translation missing'  %} "{{ temp }}" {% else %} "Alphabetically, A-Z" {% endunless %},
+      sorting_title_descending: {% assign temp = 'collections.sorting.za' | t %} {% unless temp contains 'translation missing'  %} "{{ temp }}" {% else %} "Alphabetically, Z-A" {% endunless %},
+      sorting_price_ascending: {% assign temp = 'collections.sorting.price_ascending' | t %} {% unless temp contains 'translation missing'  %} "{{ temp }}" {% else %} "Lowest Price" {% endunless %},
+      sorting_price_descending: {% assign temp = 'collections.sorting.price_descending' | t %} {% unless temp contains 'translation missing'  %} "{{ temp }}" {% else %} "Highest Price" {% endunless %},
+      sorting_date_ascending: {% assign temp = 'collections.sorting.date_ascending' | t %} {% unless temp contains 'translation missing'  %} "{{ temp }}" {% else %} "Date, Old to New" {% endunless %},
+      sorting_date_descending: {% assign temp = 'collections.sorting.date_descending' | t %} {% unless temp contains 'translation missing'  %} "{{ temp }}" {% else %} "Date, New to Old" {% endunless %},
+      sorting_sale_descending: {% assign temp = 'collections.sorting.sale_descending' | t %} {% unless temp contains 'translation missing'  %} "{{ temp }}" {% else %} "% Off" {% endunless %},
+      sorting_relevance: {% assign temp = 'collections.sorting.relevance' | t %} {% unless temp contains 'translation missing'  %} "{{ temp }}" {% else %} "Relevance" {% endunless %},
+      search_general_title: "{{ 'general.search.title' | t }}",
+      search_result_header: {% assign temp = 'product_filter_search.search_result_header' | t %} {% unless temp contains 'translation missing'  %} "{{ temp }}" {% else %} {% raw %}'Search Results for "{{ terms }}"'{% endraw %} {% endunless %},
+      search_result_empty: '{{ 'general.search.no_results_html' | t }}',
+      search_result_number_one: '{{ 'general.search.results_with_count.one' | t }}',
+      search_result_number_other: '{{ 'general.search.results_with_count.other' | t }}',
+
+      sale: "{{ 'products.product.on_sale' | t }}",
+      sold_out: "{{ 'products.product.sold_out' | t }}",
+      regular_price: "{{ 'products.product.regular_price' | t }}",
+      items_with_count_one: "{{ 'collections.general.items_with_count.one' | t }}",
+      items_with_count_other: "{{ 'collections.general.items_with_count.other' | t }}",
+    },
+    custom: {
+      products_per_page: 24,
+      products_per_row: 4,
+      max_height: 250,
+      vendor_enable: true,
+    }
+  };
+</script>

@@ -18,18 +18,10 @@
       asset_url: "{{ 'bc-sf-filter.js' | asset_url }}",
       collection_id: {{ collection.id | default: 0 }},
       collection_handle: "{{ collection.handle }}",
-      {% for tag in collection.tags %} 
-        {% assign tag_handle = tag | handle %}
-        {% for current_tag in current_tags %} 
-          {% assign current_tag_handle = current_tag | handle %}
-          {% if current_tag_handle == tag_handle %}
-            {% assign current_tag_text = tag %}
-          {% endif %}
-        {% endfor %}
-      {% endfor %}
-      {% if current_tag_text != blank %}
-        collection_tags: ["{{ current_tag_text }}"],
+      {% if template contains 'collection' and collection.handle %}
+      collection_count: {{ collection.products_count  }},
       {% endif %}
+      collection_tags: {{ current_tags | json }},
       current_tags: {{ current_tags | json }},
       default_sort_by: "{{ collection.default_sort_by }}",
       swatch_extension: "png",
@@ -40,16 +32,6 @@
     {% if shop.metafields.bc-sf-filter.settings != blank %}
     settings: {{ shop.metafields.bc-sf-filter.settings }},
     {% endif %}
-    label_suggestion: {
-      suggestion_popular_header: {% assign temp = 'product_filter_search.suggestion_popular_header' | t %} {% unless temp contains 'translation missing'  %} "{{ temp }}" {% else %} 'Popular Suggestions' {% endunless %},
-      suggestion_product_header: {% assign temp = 'product_filter_search.suggestion_product_header' | t %} {% unless temp contains 'translation missing'  %} "{{ temp }}" {% else %} 'Products' {% endunless %},
-      suggestion_did_you_mean_header: {% assign temp = 'product_filter_search.suggestion_did_you_mean_header' | t %} {% unless temp contains 'translation missing'  %} "{{ temp }}" {% else %} 'Did you mean' {% endunless %},
-      suggestion_view_all: {% assign temp = 'product_filter_search.suggestion_view_all' | t %} {% unless temp contains 'translation missing'  %} "{{ temp }}" {% else %} 'View all results' {% endunless %},
-    },
-    label_error: {
-      error_no_filter_result: {% assign temp = 'product_filter_search.error_no_filter_result' | t %} {% unless temp contains 'translation missing'  %} "{{ temp }}" {% else %} 'Sorry, no products matched your selection' {% endunless %},
-      error_no_products: {% assign temp = 'product_filter_search.error_no_products' | t %} {% unless temp contains 'translation missing'  %} "{{ temp }}" {% else %} 'No products found in this collection' {% endunless %},
-    }
   };
   function mergeObject(obj1, obj2){
     var obj3 = {};
@@ -67,7 +49,9 @@
 <!-- Include Resources -->
 {{ 'bc-sf-filter-lib.js' | asset_url | script_tag }}
 {% if template contains 'collection' %}
+{% unless template contains 'bc-original' %}
 {{ 'bc-sf-filter.js' | asset_url | script_tag }}
+{% endunless %}
 {% endif %}
 
 <!-- Initialize App -->
@@ -78,5 +62,7 @@
 
 <!-- Initialize & Customize Filter -->
 {% if template contains 'collection' %}
+{% unless template contains 'bc-original' %}
 <script>bcsffilter.initFilter();</script>
+{% endunless %}
 {% endif %}
