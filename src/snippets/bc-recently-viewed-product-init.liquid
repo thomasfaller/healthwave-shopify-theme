@@ -1,0 +1,44 @@
+<!--start-bc-recently-viewed-init-->
+<!-- VERSION 1.0.0 -->
+{%- if template contains 'collection' or template contains 'product' -%}
+  {%- assign bc_settings = shop.metafields.bc-sf-filter.settings -%}
+    {%- comment -%} Check enable {%- endcomment -%}
+    {%- assign bc_rv_enable = bc_settings | split: 'recentlyViewedEnable":' | last | split: ',' | first | strip -%}    
+    {%- if bc_rv_enable == 'true' -%}
+      {{ 'bc-recently-viewed-product-lib.min.js' | asset_url | script_tag }}
+      {{ 'api.jquery.js' | shopify_asset_url |  script_tag }}
+      {{ 'bc-recently-viewed-product.min.js' | asset_url | script_tag }}
+
+      {% if template contains 'collection' %}
+      <script defer="defer">
+        var bcRvParams = {
+          settings: {
+            isCollectionPage: true,
+            showOnCollectionPage: true
+          }
+
+        }
+      </script>
+      {% endif %}
+
+      {% if template contains 'product' %}
+      <script defer="defer">
+        var bcRvParams = {
+          settings: {
+            isProductPage: true,
+            showOnProductPage: false
+          }
+
+        }
+      </script>
+      {% endif %}
+
+      <script defer="defer">
+        var bcSfFilterParams = {{ bc_settings }};
+        var bcRecentProduct = new BCRecentProduct();
+        bcRecentProduct.init(bcSfFilterParams,bcRvParams);
+      </script>
+    {%- endif -%}
+  {%- endif -%}
+
+<!--end-bc-recently-viewed-init-->

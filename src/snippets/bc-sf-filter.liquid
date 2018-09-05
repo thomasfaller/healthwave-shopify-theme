@@ -48,10 +48,16 @@
 
 <!-- Include Resources -->
 {{ 'bc-sf-filter-lib.js' | asset_url | script_tag }}
+{{ 'bc-sf-search.js' | asset_url | script_tag }}
+
 {% if template contains 'collection' %}
-{% unless template contains 'bc-original' %}
-{{ 'bc-sf-filter.js' | asset_url | script_tag }}
-{% endunless %}
+ {% unless template contains 'bc-original' %}
+ {{ 'bc-sf-filter.js' | asset_url | script_tag }}
+ {% endunless %}
+{% endif %}
+
+{% if template contains 'search' %}
+ {{ 'bc-sf-filter.js' | asset_url | script_tag }}
 {% endif %}
 
 <!-- Initialize App -->
@@ -66,3 +72,10 @@
 <script>bcsffilter.initFilter();</script>
 {% endunless %}
 {% endif %}
+
+{% if template contains 'search' %}
+<script>bcsffilter.initFilter();</script>
+{% endif %}
+
+<!-- Initialize & Customize Search -->
+<script>bcsffilter.initSearchBox();</script>

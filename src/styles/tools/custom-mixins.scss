@@ -79,8 +79,9 @@ $heading-font-size: 3.125rem;
 // *              4. Buttons                 *
 // *******************************************
 
-@mixin button-sizing {                // Basic mixin for button sizing
-  font-size: $regular-font-size;
+@mixin button-sizing($font-size: $regular-font-size) {
+  // Basic mixin for button sizing
+  font-size: $font-size;
   padding: 15px 30px;
   width: 250px;
 }
@@ -98,6 +99,22 @@ $heading-font-size: 3.125rem;
   color: $text-color;
   font-weight: 500;
 }
+@mixin button-regular-tablet($bg-color: $color-main-green, $text-color: white) {
+  @include button-sizing(1rem);
+  background-color: $bg-color;
+  color: $text-color;
+  font-weight: 500;
+}
+@mixin button-regular-outlined-tablet($bg-color: white, $text-color: $color-main-green) {
+  @include button-sizing(1rem);
+  background-color: $bg-color;
+  border: 1.75px solid $text-color;
+  color: $text-color;
+  font-weight: 500;
+}
+
+
+
 
 @mixin button-regular-mobile($bg-color: $color-main-green, $text-color: white) {
   background-color: $bg-color;

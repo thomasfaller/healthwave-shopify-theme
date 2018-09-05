@@ -2,14 +2,17 @@
 #snippet-banner-pharmacists {
   padding-top: 30px;
   padding-bottom: 30px;
+
   h1.banner-pharmacists__main__wrapper__heading {
     @include text-heading-mobile(2rem);
   }
+
   .banner-pharmacists__button {
     @include center-block;
     @include text-regular-mobile;
     @include button-regular-mobile(white, $color-main-green);
   }
+
   .banner-pharmacists__secondary__image {
     display: block;
     width: 120px;
@@ -17,22 +20,41 @@
   }
 }
 
-@media only screen and (min-width: 500px) {
+@media only screen and (min-width: 500px) {                                       // ipad in portrait
+  #snippet-banner-pharmacists {
+    padding-top: 120px;
+    padding-bottom: 120px;
+
+    .banner-pharmacists__main__wrapper {
+      .banner-pharmacists__main__wrapper__heading {
+        @include text-heading(2.9rem);
+        color: $color-main-gray;
+      }
+
+      .banner-pharmacists__button {
+        @include button-regular(white, $color-main-green);
+        display: inline;
+        margin: 0;
+      }
+    }
+  }
+}
+
+@media only screen and (min-height:500px) and (orientation:landscape) {           // ipad in landscape
+  #snippet-banner-pharmacists {
+    .banner-pharmacists__main {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) {
   #snippet-banner-pharmacists {
     height: 650px;
     padding-bottom: 50px;
     padding-top: 50px;
-    .banner-pharmacists__main__wrapper {
-      .banner-pharmacists__main__wrapper__heading {
-        @include text-heading;
-        color: $color-main-gray;
-      }
-    }
-    .banner-pharmacists__button {
-      @include button-regular(white, $color-main-green);
-      display: inline;
-      margin: 0;
-    }
+
     .banner-pharmacists__secondary__image {
       display: block;
       margin: 45px auto 20px;
