@@ -59,3 +59,5 @@ _site
 secrets.json
 .jekyll-metadata
 .ruby-version
+localhost.crt
+localhost.key

@@ -7,41 +7,23 @@
   >
     {%- section 'page-title' -%}
     {%- section 'search-field' -%}
-    {% section 'collection-filter-toolbar' %}
-    <div class="page-width">
-    <div class="mt-4 grid">
-        <aside class="grid__item medium-up--one-quarter">
-          <noscript>
-            {% section 'collection-sidebar' %}
-          </noscript>
-            {% section 'collection-sidebar-plugin' %}
-        </aside>
-        <main class="grid__item medium-up--three-quarters">
-          <div class="page-width">
-            <section class="grid">
-              {% paginate collection.products by 12 %}
-                {% for product in collection.products %}
-                  <div class="grid__item wide--one-fifth large--one-quarter medium-down--one-half">
-                    <div class="product-thumbnail">
-                      <a href="{{ product.url | within: collection }}">
-                        <img
-                          class="lazyload"
-                          src="{{ product.featured_image | img_url: '300x300' }}"
-                          data-src="{{ img_url }}"
-                          data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-                          data-aspectratio="{{ featured.featured_image.aspect_ratio }}"
-                          data-sizes="auto"
-                          alt="{{ product.featured_image.alt | escape }}">
-                      </a>
-                      <h6 class="mt-2">{{ product.title | escape }}</h6>
-                      <p class="text-muted">{{ product.price | money }}</p>
-                    </div>
-                  </div>
-                {% endfor %}
-              {% endpaginate %}
-              <div id="bc-sf-filter-bottom-pagination"></div>
-            </section>
-          </div>
+    {%- section 'collection-filter-toolbar' -%}
+    <div class="container">
+    <div class="mt-4 row">
+      <aside class="col-md-4 col-lg-3 col-xl-2">
+        <noscript>
+          {%- section 'collection-sidebar' -%}
+        </noscript>
+        {%- section 'collection-sidebar-plugin' -%}
+      </aside>
+        <main class="col-md-8 col-lg-9 col-xl-10">
+          <section class="row" id="bc-sf-filter-products">
+            <div id="bc-sf-filter-bottom-pagination">
+              {%- for product in collection.products -%}
+                {%- include 'product' -%}
+              {%- endfor -%}
+            </div>
+          </section>
         </main>
       </div>
     </div>
@@ -68,7 +50,21 @@
       search_result_empty: {% assign temp = 'product_filter_search.search_result_empty' | t %} {% unless temp contains 'translation missing'  %} "{{ temp }}" {% else %} {% raw %}'Your search for "{{ terms }}"" didn\'t match any results'{% endraw %} {% endunless %},
       search_result_number: {% assign temp = 'product_filter_search.search_result_number' | t %} {% unless temp contains 'translation missing'  %} "{{ temp }}" {% else %} {% raw %}'Showing {{ count }} results for "{{ terms }}"'{% endraw %} {% endunless %},
     },
+    label_basic: {
+      sale: "Sale",
+      sold_out: "Sold out",
+      from: "from",
+    },
     custom: {
+      products_per_page: {% if products_per_page %} {{ products_per_page | json }} {% else %} 12 {% endif %},
+      products_per_row: {% if section.settings.products_per_row %} {{ section.settings.products_per_row }} {% else %} 4 {% endif %},
+      products_per_row_mobile: {% if section.settings.products_per_row_mobile %} {{ section.settings.products_per_row_mobile }} {% else %} 2 {% endif %},
+      show_vendor: {% if section.settings.show_vendor %} {{ section.settings.show_vendor | json }} {% else %} false {% endif %},
+      show_price: {% if section.settings.show_price %} {{ section.settings.show_price | json }} {% else %} false {% endif %},
+      show_sale_label: {% if section.settings.show_sale_label %} {{ section.settings.show_sale_label | json }} {% else %} false {% endif %},
+      show_sold_out_label: {% if section.settings.show_sold_out_label %} {{ section.settings.show_sold_out_label | json }} {% else %} false {% endif %},
+      active_image_swap: {% if section.settings.active_image_swap %} {{ section.settings.active_image_swap | json }} {% else %} false {% endif %},
+      show_sorting: {% if section.settings.show_sorting %} {{ section.settings.show_sorting | json }} {% else %} false {% endif %},
     }
   };
 </script>

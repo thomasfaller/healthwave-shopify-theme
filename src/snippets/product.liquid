@@ -1,19 +1,16 @@
-<div class="grid__item medium-up--one-quarter text-center">
-  <a href="{{ product.url }}">
-  {%- assign img_url = product.featured_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-  {% unless product.featured_image == blank %}
-    {% include 'image-styles' with image: product.featured_image, width: max_height, height: max_height, small_style: true, wrapper_id: wrapper_id, img_id: img_id %}
-  {% endunless %}
-  <img
-    class="img-fluid"
-    src="{{ product.featured_image | img_url: '300x300' }}"
-    data-src="{{ img_url }}"
-    data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-    data-aspectratio="{{ product.featured_image.aspect_ratio }}"
-    data-sizes="auto"
-    alt="{{ product.featured_image.alt | escape }}"
-  />
-  </a>
-  <h6 class="mt-2">{{ product.title | escape }}</h6>
-  <p class="text-muted">{{ product.price | money }}</p>
+<div class="col-6 col-md-4 col-lg-3">
+  <div class="product-thumbnail">
+    <a href="{{ product.url | within: collection }}">
+      <img
+        class="lazyload"
+        data-aspectratio="{{ featured.featured_image.aspect_ratio }}"
+        data-sizes="auto" alt="{{ product.featured_image.alt | escape }}"
+        data-src="{{ img_url }}"
+        data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+        src="{{ product.featured_image | img_url: '300x300' }}"
+      >
+    </a>
+    <h6 class="mt-2">{{ product.title | escape }}</h6>
+    <p class="text-muted">{{ product.price | money }}</p>
+  </div>
 </div>

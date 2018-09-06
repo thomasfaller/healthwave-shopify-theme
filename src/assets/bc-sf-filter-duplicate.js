@@ -20,13 +20,13 @@ var bcSfFilterTemplate = {
     'tagLabelHtml': '<span class="tag bc-sf-filter-label {{labelTag}}" >{{labelTag}}</span>',
     'vendorHtml': '<p class="bc-sf-filter-product-item-vendor">{{itemVendorLabel}}</p>',
     // Grid Template
-    'productGridItemHtml': '<div class="col-6 col-md-4 col-lg-3">' +
-                              '<script class="bc-sf-filter-product-script" data-id="bc-product-json-{{itemId}}" type="application/json">{{itemJson}}</script>' +
-                              '<div class="product-thumbnail">' +
-                                '<a href="{{itemUrl}}">{{itemImages}}</a>' +
-                                '<h6 class="mt-2">{{itemTitle}}</h6>' +
-                                '<p class="text-muted">{{itemPrice}}</p>' +
-                              '</div>' +
+    'productGridItemHtml': '<div class="grid__item wide--one-fifth large--one-quarter medium-down--one-half">' +
+                                '<script class="bc-sf-filter-product-script" data-id="bc-product-json-{{itemId}}" type="application/json">{{itemJson}}</script>' +
+                                '<div class="product-thumbnail">' +
+                                    '<a href="{{itemUrl}}">{{itemImages}}</a>' +
+  									'<h6 class="mt-2">{{itemTitle}}</h6>' +
+                      				'<p class="text-muted">{{itemPrice}}</p>' +
+                                '</div>' +
                             '</div>',
     // For List View
     // List Template
