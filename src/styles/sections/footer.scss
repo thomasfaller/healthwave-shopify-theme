@@ -1,6 +1,3 @@
-// ************************************
-// *     FOOTER BANNER - SECTION      *
-// ************************************
 #shopify-section-footer {
   background-color: $color-footer-bg-grey;
   footer.shopify-section-footer {
@@ -38,6 +35,12 @@
         border: .25px solid $color-footer-text-alt-grey;
         margin: 20px auto 0 auto;
         width: 75%;
+      }
+      .psi-logo {
+        display: block;
+        max-width: 110px;
+        margin: 0 auto;
+        margin-top: 20px;
       }
     }
     .shopify-section-footer__column-opening {
