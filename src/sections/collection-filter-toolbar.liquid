@@ -1,20 +1,19 @@
 <nav class="toolbar-filters navbar navbar-expand-lg">
-    <div class="container">
-        <div class="ml-2">
-            <form action="">
-              <div id="bc-sf-filter-top-show-limit"></div>
-            </form>
-        </div>
-        <div id="bc-sf-filter-total-product">
-            <span>
-                {{ collection.products_count }} products in {% if current_tags == blank %}total{% else %}{{ collection.title | escape }}{%
-                endif %}.
-            </span>
-        </div>
-        <div class="toolbar-filters__sort-by__wrapper">
-          <div id="bc-sf-filter-top-sorting"></div>
-        </div>
+  <div class="container">
+    <div class="ml-2">
+      <form action="">
+        <div id="bc-sf-filter-top-show-limit"></div>
+      </form>
     </div>
+    <div id="bc-sf-filter-total-product">
+      <span>
+        {{ collection.products_count }} products in {% if current_tags == blank %}total{% else %}{{ collection.title | escape }}{% endif %}.
+      </span>
+    </div>
+    <div class="toolbar-filters__sort-by__wrapper">
+      <div id="bc-sf-filter-top-sorting"></div>
+    </div>
+  </div>
 </nav>
 
 
