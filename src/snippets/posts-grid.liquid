@@ -1,31 +1,48 @@
-{%- assign blog_title = blog.title -%} {% if current_tags %} {% capture blog_title %}{{ blog.title | link_to: blog.url }}
-&mdash; {{ current_tags.first }}{% endcapture %} {% endif %} {% paginate blog.articles by 4 %} {% for article in blog.articles
-%} {% capture date %}{{ article.published_at | time_tag: format: 'month_day_year' }}{% endcapture %}
-<div class="col-lg-6 mb-2">
-    <div class="card">
-        {% if article.image %}
+{%- assign blog_title = blog.title -%}
+{% if current_tags %}
+  {% capture blog_title %}
+  {{ blog.title | link_to: blog.url }}&mdash; {{ current_tags.first }}
+  {% endcapture %}
+{% endif %}
+
+{% paginate blog.articles by 4 %}
+  {% for article in blog.articles%}
+    {% capture date %}
+    {{ article.published_at | time_tag: format: 'month_day_year' }}
+    {% endcapture %}
+    <div class="col-lg-6 mb-2">
+      <div class="card">
+      {% if article.image %}
         <a href="{{ article.url }}">
-            {{ article | img_url: '1024x' | img_tag: article.title | replace: 'alt=', 'class="card-img-top" alt=' }}
+          {{ article | img_url: '1024x' | img_tag: article.title | replace: 'alt=', 'class="card-img-top" alt=' }}
         </a>
-        {% endif %}
-        <div class="card-body">
-            <div class="date-circle">
-                <p>{{ article.published_at | date: "%b %d" }}</p>
-            </div>
-            <h5 class="card-title">
-                <a href="{{ article.url }}">{{ article.title }}</a>
-            </h5>
-            <p class="card-text">
-                {% if article.excerpt.size > 0 %} {{ article.excerpt }} {% else %} {{ article.content | strip_html | truncatewords: 70 }}
-                {% endif %}
-            </p>
-            <p>{{ 'blogs.article.author_on_date_html' | t: author: article.author, date: date }}</p>
-            <a href="{{ article.url }}" class="btn btn-primary">{{ 'blogs.article.read_more' | t }} &rarr;</a>
+      {% endif %}
+      <div class="card-body">
+        <div class="date-circle">
+          <p>{{ article.published_at | date: "%b %d" }}</p>
         </div>
+        <h5 class="card-title">
+        <a href="{{ article.url }}">{{ article.title }}</a>
+          </h5>
+          <p class="card-text">
+            {% if article.excerpt.size > 0 %}
+              {{ article.excerpt }}
+            {% else %}
+              {{ article.content | strip_html | truncatewords: 70 }}
+            {% endif %}
+          </p>
+          <p>{{ 'blogs.article.author_on_date_html' | t: author: article.author, date: date }}</p>
+          <a
+            href="{{ article.url }}"
+            class="btn btn-primary"
+          >{{ 'blogs.article.read_more' | t }} &rarr;
+          </a>
+        </div>
+      </div>
     </div>
-</div>
-{% endfor %} {% include 'paginate-navigation' %} {% endpaginate %}
-    
+    {% endfor %}
+{% endpaginate %}
+
 
 <style>
   .date-circle {

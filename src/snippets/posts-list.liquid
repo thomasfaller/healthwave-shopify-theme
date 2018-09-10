@@ -1,0 +1,42 @@
+{%- assign blog_title = blog.title -%}
+{% if current_tags %}
+  {% capture blog_title %}
+  {{ blog.title | link_to: blog.url }}&mdash; {{ current_tags.first }}
+  {% endcapture %}
+{% endif %}
+<div class="container">
+  {% paginate blog.articles by 12 %}
+  <div class="mt-5 row">
+      {% for article in blog.articles%}
+      {% capture date %}
+        {{ article.published_at | time_tag: format: 'month_day_year' }}
+      {% endcapture %}
+        <div class="thumb-wrapper col-lg-3">
+          <a href="{{ article.url }}">
+            {{ article | img_url: '1024x' | img_tag: article.title | replace: 'alt=', 'class="img-fluid" alt=' }}
+          </a>
+        </div>
+        <div class="post-excerpt col-lg-9">
+          <h5>
+            <a href="{{ article.url }}">{{ article.title }}
+            </a>
+          </h5>
+          <h6>{{ article.published_at | date: "%b %d" }}</h6>
+          <p class="clearfix">
+            {% if article.excerpt.size > 0 %}
+              {{ article.excerpt }}
+            {% else %}
+              {{ article.content | strip_html | truncatewords: 70 }}
+            {% endif %}
+          </p>
+        </div>
+      {% endfor %}
+  </div>
+  {% if paginate.previous.is_link %}
+    <a href="{{ paginate.previous.url }}">{{ paginate.previous.title }}</a>
+  {% endif %} 
+    {% if paginate.next.is_link %}
+    <a href="{{ paginate.next.url }}">{{ paginate.next.title }}</a>
+  {% endif %}
+  {% endpaginate %}
+</div>

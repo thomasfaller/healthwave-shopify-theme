@@ -1,0 +1,17 @@
+<div class="mt-3">
+  <h3 class="mb-3">Recent Posts</h3>
+  {% for article in blogs.health-hub.articles limit: 4 %}
+    <div class="mb-1 card">
+      {% if article.image %}
+        <a href="{{ article.url }}">
+          {{ article | img_url: '512x' | img_tag: article.title | replace: 'alt=', 'class="card-img-top" alt=' }}
+        </a>
+      {% endif %}
+      <div class="card-body">
+        <h6 class="card-title">
+          <a href="{{ article.url }}">{{ article.title }}</a>
+        </h6>
+      </div>
+    </div>
+  {% endfor %}
+</div>

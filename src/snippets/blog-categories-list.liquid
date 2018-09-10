@@ -1,0 +1,13 @@
+{% if blog.all_tags.size > 0 %}
+  <h2 class="mb-3">{{ 'blogs.general.categories' | t }}</h2>
+  <div class="list-group">
+    <a href="/blogs/health-hub" class="list-group-item list-group-item-action{% if current_url == canonical_url %} active{% endif %}">All</a>
+    {% for tag in blog.all_tags %}
+      {% if current_tags contains tag %}
+        {{ tag | capitalize | link_to_tag: tag | replace: 'title=', 'class="list-group-item list-group-item-action active" title=' }}
+      {% else %}
+        {{ tag | capitalize | link_to_tag: tag | replace: 'title=', 'class="list-group-item list-group-item-action" title=' }}
+      {% endif %}
+    {% endfor %}
+  </div>
+{% endif %}
