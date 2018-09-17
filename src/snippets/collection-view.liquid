@@ -6,7 +6,7 @@
     rel="noopener noreferrer"
   >
     {%- section 'page-title' -%}
-    {%- section 'search-field' -%}
+    {%- include 'search-form' -%}
     {%- section 'collection-filter-toolbar' -%}
     <div class="container">
     <div class="mt-4 row">
@@ -19,11 +19,10 @@
         <main class="col-md-8 col-lg-9 col-xl-10">
           <section class="row" id="bc-sf-filter-products">
             {%- for product in collection.products -%}
-                {%- include 'product' -%}
-              {%- endfor -%}
-            
+              {%- include 'product' -%}
+            {%- endfor -%}
           </section>
-          <div id="bc-sf-filter-bottom-pagination"></div>
+          <nav aria-label="Page navigation example" id="bc-sf-filter-bottom-pagination"></nav>
         </main>
       </div>
     </div>

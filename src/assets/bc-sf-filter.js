@@ -48,18 +48,18 @@ var bcSfFilterTemplate = {
                             '</div>',
     // End For List View
     // Pagination Template
-    'previousActiveHtml': '<li><a href="{{itemUrl}}">&larr;</a></li>',
-    'previousDisabledHtml': '<li class="disabled"><span>&larr;</span></li>',
-    'nextActiveHtml': '<li><a href="{{itemUrl}}">&rarr;</a></li>',
-    'nextDisabledHtml': '<li class="disabled"><span>&rarr;</span></li>',
-    'pageItemHtml': '<li><a href="{{itemUrl}}">{{itemTitle}}</a></li>',
-    'pageItemSelectedHtml': '<li><span class="active">{{itemTitle}}</span></li>',
-    'pageItemRemainHtml': '<li><span>{{itemTitle}}</span></li>',
-    'paginateHtml': '<ul>{{previous}}{{pageItems}}{{next}}</ul>',
+    'previousActiveHtml': '<li class="page-item"><a class="page-link" href="{{itemUrl}}">Previous</a></li>',
+    'previousDisabledHtml': '<li class="page-item disabled"><a class="page-link" href="#" tabindex="-1">Previous</a></li>',
+    'nextActiveHtml': '<li class="page-item"><a class="page-link" href="{{itemUrl}}">Next</a></li>',
+    'nextDisabledHtml': '<li class="page-item disabled"><a class="page-link" href="#" tabindex="-1">Next</a></li>',
+    'pageItemHtml': '<li class="page-item"><a class="page-link" href="{{itemUrl}}">{{itemTitle}}</a></li>',
+    'pageItemSelectedHtml': '<li class="page-item"><a class="page-link disabled">{{itemTitle}}</a></li>',
+    'pageItemRemainHtml': '<li class="page-item"><a class="page-link">{{itemTitle}}</a></li>',
+    'paginateHtml': '<ul class="pagination justify-content-center">{{previous}}{{pageItems}}{{next}}</ul>',
     // Sorting Template
-    'sortingHtml': '<label>' + bcSfFilterConfig.label.sorting + '</label><select class="bc-sf-filter-filter-dropdown">{{sortingItems}}</select>',
+    'sortingHtml': '<label class="d-none d-md-block">' + bcSfFilterConfig.label.sorting + '</label><select class="custom-select bc-sf-filter-filter-dropdown">{{sortingItems}}</select>',
     // Show Limit Template
-    'showLimitHtml': '<label>' + bcSfFilterConfig.label.show_limit + '</label><select class="bc-sf-filter-filter-dropdown">{{showLimitItems}}</select>',
+    'showLimitHtml': '<label class="d-none d-md-block">' + bcSfFilterConfig.label.show_limit + '</label><select class="custom-select bc-sf-filter-filter-dropdown">{{showLimitItems}}</select>',
     // Breadcrumb Template
     'breadcrumbHtml': '<a href="/">' + bcSfFilterConfig.label.breadcrumb_home + '</a> {{breadcrumbDivider}} {{breadcrumbItems}}',
     'breadcrumbDivider': '<span class="divider">/</span>',
@@ -396,7 +396,7 @@ BCSfFilter.prototype.buildPagination = function(totalProduct) {
 };
 // Build Sorting
 BCSfFilter.prototype.buildFilterSorting = function() {
-  if (bcSfFilterConfig.custom.show_sorting && bcSfFilterTemplate.hasOwnProperty('sortingHtml')) {
+  if (bcSfFilterTemplate.hasOwnProperty('sortingHtml')) {
     jQ(this.selector.topSorting).html('');
     var sortingArr = this.getSortingList();
     if (sortingArr) {
@@ -406,6 +406,7 @@ BCSfFilter.prototype.buildFilterSorting = function() {
         sortingItemsHtml += '<option value="' + k + '">' + sortingArr[k] + '</option>';
       }
       var html = bcSfFilterTemplate.sortingHtml.replace(/{{sortingItems}}/g, sortingItemsHtml);
+      
       jQ(this.selector.topSorting).html(html);
       // Set current value
       jQ(this.selector.topSorting + ' select').val(this.queryParams.sort);
@@ -530,9 +531,9 @@ BCSfFilter.prototype.buildExtrasProductList = function(data, eventType) {
 // Build additional elements
 BCSfFilter.prototype.buildAdditionalElements = function(data, eventType) {
   var _this = this;
-  var totalProduct = data.total_product + '<span> ' + bcSfFilterConfig.label.items_with_count_other + '</span>';
+  var totalProduct = data.total_product + '<span> products in total.</span>';
   if (data.total_product == 1) {
-    totalProduct = data.total_product + '<span> ' + bcSfFilterConfig.label.items_with_count_one + '</span>';
+    totalProduct = data.total_product + '<span> product in total.</span>';
   }
   jQ('#bc-sf-filter-total-product').html(totalProduct);
   matchHeightImage();
