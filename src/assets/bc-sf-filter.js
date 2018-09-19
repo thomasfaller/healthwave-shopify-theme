@@ -57,7 +57,8 @@ var bcSfFilterTemplate = {
     'pageItemRemainHtml': '<li class="page-item"><a class="page-link">{{itemTitle}}</a></li>',
     'paginateHtml': '<ul class="pagination justify-content-center">{{previous}}{{pageItems}}{{next}}</ul>',
     // Sorting Template
-    'sortingHtml': '<label class="d-none d-md-block">' + bcSfFilterConfig.label.sorting + '</label><select class="custom-select bc-sf-filter-filter-dropdown">{{sortingItems}}</select>',
+    // 'sortingHtml': '<label class="d-none d-md-block">' + bcSfFilterConfig.label.sorting + '</label><select class="custom-select bc-sf-filter-filter-dropdown">{{sortingItems}}</select>',
+    'sortingHtml':'<select class="custom-select bc-sf-filter-filter-dropdown">{{sortingItems}}</select>',
     // Show Limit Template
     'showLimitHtml': '<label class="d-none d-md-block">' + bcSfFilterConfig.label.show_limit + '</label><select class="custom-select bc-sf-filter-filter-dropdown">{{showLimitItems}}</select>',
     // Breadcrumb Template
