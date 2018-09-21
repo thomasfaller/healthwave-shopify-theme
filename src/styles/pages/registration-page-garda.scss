@@ -1,0 +1,74 @@
+#registration-page-garda {
+  background-color: #fff;
+
+  .wrapper {
+    margin-top: 35px;
+    margin-bottom: 35px;
+    width: 750px;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  aside.sidebar {
+    padding: 35px 5px;
+    background-color: #00bfb3;
+    background: url("https://res.cloudinary.com/djr6sgsbd/image/upload/v1537193876/Group_Copy.png");
+    background-position: top-left;
+    background-size: cover;
+
+    #garda-logo {
+      opacity: 0.5;
+    }
+
+    .welcome-text {
+      color: white;
+      font-size: 16px;
+    }
+  }
+
+  main.form-wrapper {
+    padding: 25px 0;
+    background-color: #fff;
+
+    h1.title {
+      @include text-heading;
+      text-align: center;
+    }
+
+    /* Hide all steps by default: */
+    .tab {
+      display: none;
+    }
+
+
+
+
+
+
+
+    .steps-wrapper {
+      margin-top: 35px;
+    }
+
+    /* Make circles that indicate the steps of the form: */
+    .step {
+      height: 15px;
+      width: 15px;
+      margin: 0 2px;
+      background-color: #bbbbbb;
+      border: none;
+      border-radius: 50%;
+      display: inline-block;
+      opacity: 0.5;
+    }
+
+    /* Mark the active step: */
+    .step.active {
+      opacity: 1;
+    }
+
+    /* Mark the steps that are finished and valid: */
+    .step.finish {
+      background-color: #4caf50;
+    }
+  }
+}
