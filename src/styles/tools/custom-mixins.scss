@@ -51,11 +51,11 @@ $heading-font-size: 3.125rem;
   color: $color-main-gray;
 }
 
-@mixin text-regular($font-size: $regular-font-size) {
+@mixin text-regular($font-size: $regular-font-size, $color: $color-main-gray) {
   font-size: $font-size;
   font-weight: 300;
   letter-spacing: .02em;
-  color: $color-main-gray;
+  color: $color;
 }
 
 //    Typography Mobile
@@ -86,6 +86,14 @@ $heading-font-size: 3.125rem;
   width: 250px;
 }
 
+@mixin button-regular-form($bg-color: $color-main-green, $text-color: white) {
+  font-size: 1.225rem;
+  padding: 10px 20px;
+  width: 200px;
+  background-color: $bg-color;
+  color: $text-color;
+  font-weight: 300;
+}
 @mixin button-regular($bg-color: $color-main-green, $text-color: white) {
   @include button-sizing;
   background-color: $bg-color;

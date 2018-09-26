@@ -1,0 +1,124 @@
+<script>
+
+let currentTab = 0;
+let valid = true;
+
+const form = document.querySelector("#garda-registration-form");
+const tabs = document.getElementsByClassName("tab");
+const inputs = tabs[currentTab].getElementsByTagName("input");
+const prevBtn = document.querySelector("#prevBtn");
+const nextBtn = document.querySelector("#nextBtn");
+const steps = document.getElementsByClassName("step");
+
+showTab(currentTab);
+
+function showTab(tab) {
+  tabs[tab].style.display = "block";
+  if (tab === 0) {
+    prevBtn.style.display = "none";
+  } else {
+    prevBtn.style.display = "inline";
+  }
+  if (tab === (tabs.length - 1)) {
+    nextBtn.innerHTML = "Submit";
+  } else {
+    nextBtn.innerHTML = "Next";
+  }
+  displayStepIncator(tab);
+}
+
+function nextPrev(tab) {
+  if (tab == 1 && !validateForm()) return false;
+  tabs[currentTab].style.display = "none";
+  currentTab += tab;
+  if (currentTab >= tabs.length) {
+    form.submi();
+    return false;
+  }
+  showTab(currentTab);
+}
+
+function validateForm() {
+  for (let i = 0; i < inputs.length; i++) {
+    if (inputs[i].value == "") {
+      inputs[i].classList.add("invalid");
+      valid = false;
+    }
+  }
+  if (valid) {
+    steps[currentTab].classList.add("finish");
+  }
+  return valid;
+}
+
+function displayStepIncator(tab) {
+  for (let i = 0; i < steps.length; i++) {
+    steps[i].classList.remove("active");
+  }
+  steps[tab].classList.add("active");
+}
+
+
+// MEMBER PAGE
+
+const memberInputForms = document.querySelector(".memberInputForms");
+const addMemberButton = document.querySelector(".addMemberButton");
+const removeMemberButton = document.querySelector(".removeMemberButton");
+let extraMembers = 1;
+
+addMemberButton.addEventListener("click", e => {
+  extraMembers += 1;
+  const newMemberForm = document.createElement("LI");
+  const newMemberTitle = document.createElement("P");
+  const newMemberTitleText = document.createTextNode(
+    "Extra member " + extraMembers
+  );
+  newMemberTitle.appendChild(newMemberTitleText);
+  const fnContainer = document.createElement("P");
+  const lnContainer = document.createElement("P");
+  const dobContainer = document.createElement("P");
+  const newFirstNameInput = document.createElement("INPUT");
+  const newLastNameInput = document.createElement("INPUT");
+  const newDateOfBirthInput = document.createElement("INPUT");
+  newFirstNameInput.classList.add("form-control");
+  newLastNameInput.classList.add("form-control");
+  newDateOfBirthInput.classList.add("form-control");
+  newFirstNameInput.setAttribute("placeholder", "First name...");
+  newLastNameInput.setAttribute("placeholder", "Last name...");
+  newDateOfBirthInput.setAttribute("placeholder", "Date of birth...");
+  fnContainer.appendChild(newFirstNameInput);
+  lnContainer.appendChild(newLastNameInput);
+  dobContainer.appendChild(newDateOfBirthInput);
+  newMemberForm.appendChild(newMemberTitle);
+  newMemberForm.appendChild(fnContainer);
+  newMemberForm.appendChild(lnContainer);
+  newMemberForm.appendChild(dobContainer);
+  memberInputForms.appendChild(newMemberForm);
+  if (memberInputForms.children.length > 5) {
+    addMemberButton.style.display = "none";
+  }
+  if (extraMembers > 1) {
+    removeMemberButton.style.display = "inline";
+  }
+  if (extraMembers < 2) {
+    removeMemberButton.style.display = "none";
+  }
+});
+
+removeMemberButton.addEventListener("click", () => {
+  if (extraMembers > 1) {
+    extraMembers -= 1;
+  }
+  if (extraMembers > 1) {
+    removeMemberButton.style.display = "inline";
+  }
+  if (extraMembers < 2) {
+    removeMemberButton.style.display = "none";
+  }
+  if (extraMembers < 5) {
+    addMemberButton.style.display = "inline";
+  }
+  $(".memberInputForms li:last").remove();
+});
+
+</script>
