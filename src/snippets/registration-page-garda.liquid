@@ -1,34 +1,20 @@
 <div id="registration-page-garda">
-  <!-- Page container -->
   <div class="container">
-    <!--   main row -->
-    <div class="wrapper mx-auto">
-      <div class="row">
-        <!--     Sidebar displaying full screen on mobiles, 3/12 on tablets, 2/12 on large screens -->
-        <aside class="sidebar col-md-4 col-lg-3">
-          <div class="container">
-            <img class="img-fluid" id="garda-logo" src="https://res.cloudinary.com/djr6sgsbd/image/upload/v1536673778/garda-vetting.png"
-              alt="">
-            <div class="welcome-text">
-              <p>Welcome to the Healthwave Garda Medical Aid portal.</p>
-              <p>Register your family using the form on this page and enjoy the benefits of the Healthwave service.</p>
-              <p>Once we have verified your plan you can start ordering prescriptions for home delivery.</p>
+    <main class="form-wrapper mx-auto">
+      <div class="container">
+        <div class="logos-wrapper mx-auto">
+          <div class="row align-items-center">
+            <div class="col">
+              <img alt="" class="img-fluid" id="logo" src="https://res.cloudinary.com/djr6sgsbd/image/upload/v1524129625/Logo-2016-web-2x.png">
+            </div>
+            <div class="col">
+              <img alt="" class="img-fluid" src="https://res.cloudinary.com/djr6sgsbd/image/upload/o_85/v1536673778/garda-vetting.png"
+                style="height:50px;">
             </div>
           </div>
-        </aside>
-        <!-- main form wrapper column -->
-        <main class="form-wrapper col-md-8 col-lg-9">
-          <!-- Form -->
-          <div class="container">
-
-            {% include 'garda-registration-form' %}
-            <!--     END main form wrapper column -->
-
-          </div>
-        </main>
-        <!--   END main row -->
+        </div>
+        {% include 'garda-registration-form' %}
       </div>
-    </div>
+    </main>
   </div>
-  <!--  END Page container -->
 </div>
