@@ -92,6 +92,15 @@
         @include button-regular-form;
       }
 
+      // DataTable for add extra member at regsitration time
+      [id^="table_id_"]:not(#table_id_wrapper) {
+        display: none;
+      }
+
+      .sorting {
+        background-image: none !important;
+      }
+
     }
   }
 }

@@ -13,14 +13,35 @@
       <div class="form-row">
         <div class="col">
           <label for="inputFn">First name</label>
-          <input autocomplete autofocus class="form-control" id="inputFirstName" name="firstname" onchange="checkFirstName(this)"
-            oninput="this.className = 'form-control'" pattern="[A-Za-z]{2,}" placeholder="First name..." required type="text">
+          <input
+            autocomplete
+            autofocus
+            class="form-control"
+            id="inputFirstName"
+            name="firstname"
+            onchange="checkFirstName(this)"
+            oninput="this.className = 'form-control'"
+            pattern="[A-Za-z]{2,}"
+            placeholder="First name..."
+            required
+            type="text"
+          >
           <span id="firstNameErrorMessage">Please, enter your first name.</span>
         </div>
         <div class="col">
           <label for="inputLn">Last name</label>
-          <input autocomplete class="form-control" id="inputLastName" name="lastname" onchange="checkLastName(this)"
-            oninput="this.className = 'form-control'" pattern="[A-Za-z]{2,}" placeholder="Last name..." required type="text">
+          <input
+            autocomplete
+            class="form-control"
+            id="inputLastName"
+            name="lastname"
+            onchange="checkLastName(this)"
+            oninput="this.className = 'form-control'"
+            pattern="[A-Za-z]{2,}"
+            placeholder="Last name..."
+            required
+            type="text"
+          >
           <span id="lastNameErrorMessage">Please, enter your last name.</span>
         </div>
       </div>
@@ -30,15 +51,35 @@
       <div class="form-row">
         <div class="col">
           <label for="policyField">Your policy number</label>
-          <input oninput="this.className = 'form-control'" onchange="checkPolicy(this)" class="form-control" id="inputPolicy"
-            name="policynumber" pattern="[0-9]{5}[A-Za-z]$" placeholder="Policy number..." required type="text">
+          <input
+            oninput="this.className = 'form-control'"
+            onchange="checkPolicy(this)"
+            class="form-control"
+            id="inputPolicy"
+            name="policynumber"
+            pattern="[0-9]{5}[A-Za-z]$"
+            placeholder="Policy number..."
+            required
+            type="text"
+          >
           <span id="policyErrorMessage">You need to enter a valid policy number.</span>
         </div>
         <div class="col">
           <label for="">Date of birth</label>
-          <input oninput="this.className = 'form-control'" onchange="validateAge(this)" autocomplete class="form-control"
-            id="inputDOB" max="2018-12-31" min="1900-01-01" name="dateofbirth" pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))"
-            placeholder="Date of birth" required type="date">
+          <input
+            oninput="this.className = 'form-control'"
+            onchange="validateAge(this)"
+            autocomplete
+            class="form-control"
+            id="inputDOB"
+            max="2018-12-31"
+            min="1900-01-01"
+            name="dateofbirth"
+            pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))"
+            placeholder="Date of birth"
+            required
+            type="date"
+          >
           <span id="ageErrorMessage">You must be 18 or older to subscribe to Healthwave.</span>
         </div>
       </div>
@@ -52,25 +93,57 @@
     <br>
     <div class="form-group">
       <label for="inputAddress1">Address</label>
-      <input autocomplete autofocus oninput="this.className = 'form-control'" onchange="checkAddress(this)" class="form-control"
-        id="inputAddress1" name="address1" pattern="[0-9A-Za-z\s]{2,}" placeholder="Line 1..." required type="text">
+      <input
+        autocomplete
+        autofocus
+        oninput="this.className = 'form-control'"
+        onchange="checkAddress(this)"
+        class="form-control"
+        id="inputAddress1"
+        name="address1"
+        pattern="[0-9A-Za-z\s]{2,}"
+        placeholder="Line 1..."
+        required
+        type="text"
+      >
       <span id="addressErrorMessage">Please, enter a valid address.</span>
     </div>
     <div class="form-group">
       <label for="inputAddress2">Address 2</label>
-      <input autocomplete class="form-control disableValidation" id="inputAddress2" name="address2" placeholder="(optional)"
-        type="text">
+      <input
+        autocomplete
+        class="form-control disableValidation"
+        id="inputAddress2"
+        name="address2"
+        placeholder="(optional)"
+        type="text"
+      >
     </div>
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="inputCity">City</label>
-        <input autocomplete class="form-control" id="inputCity" name="city" onchange="checkCity(this)" oninput="this.className = 'form-control'"
-          pattern="[A-Za-z\s]{1,}" required type="text">
+        <input
+          autocomplete
+          class="form-control"
+          id="inputCity"
+          name="city"
+          onchange="checkCity(this)"
+          oninput="this.className = 'form-control'"
+          pattern="[A-Za-z\s]{1,}"
+          required
+          type="text"
+        >
         <span id="addressErrorMessage">Please, enter a valid city/town name.</span>
       </div>
       <div class="form-group col-md-4">
         <label for="inputCounty">County</label>
-        <select autocomplete class="form-control" id="inputCounty" name="county" required>
+        <select
+          autocomplete
+          class="form-control"
+          id="inputCounty"
+          name="county"
+          required
+        >
           <option value="Antrim">Antrim</option>
           <option value="Armagh">Armagh</option>
           <option value="Carlow">Carlow</option>
@@ -107,27 +180,58 @@
       </div>
       <div class="form-group col-md-2">
         <label for="inputEircode">Eircode</label>
-        <input oninput="this.className = 'form-control'" id="inputEircode" class="form-control" type="text" name="eircode">
+        <input
+          oninput="this.className = 'form-control'"
+          id="inputEircode"
+          class="form-control"
+          type="text"
+          name="eircode"
+        >
       </div>
     </div>
     <div class="form-group">
       <label for="inputPhone">Phone number</label>
-      <input id="inputPhone" oninput="this.className = 'form-control'" class="form-control" type="tel" name="phonenumber"
-        minlength="9" maxlenght="10" pattern="[0-9]" required>
+      <input
+        id="inputPhone"
+        oninput="this.className = 'form-control'"
+        class="form-control"
+        type="tel"
+        name="phonenumber"
+        minlength="9"
+        maxlenght="10"
+        pattern="[0-9]"
+        required
+      >
     </div>
     <div class="form-group">
       <div class="form-row">
         <div class="col">
           <label for="">Enter your email</label>
-          <input class="form-control" id="inputEmail" name="email" onchange="checkEmail(this)" oninput="this.className = 'form-control'"
+          <input
+            class="form-control"
+            id="inputEmail"
+            name="email"
+            onchange="checkEmail(this)"
+            oninput="this.className = 'form-control'"
             pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"
-            placeholder="Email..." required type="email">
+            placeholder="Email..."
+            required
+            type="email"
+          >
           <span id="emailErrorMessage">Please, enter a valid email address.</span>
         </div>
         <div class="col">
           <label for="">Confirm your email</label>
-          <input class="form-control" id="confirmEmail" name="confirmemail" onchange="checkEmailMatch(this)" oninput="this.className = 'form-control'"
-            placeholder="Email..." required type="email">
+          <input
+            class="form-control"
+            id="confirmEmail"
+            name="confirmemail"
+            onchange="checkEmailMatch(this)"
+            oninput="this.className = 'form-control'"
+            placeholder="Email..."
+            required
+            type="email"
+          >
           <span id="confEmailErrorMessage">The email address you entered doesn't match.</span>
         </div>
       </div>
@@ -136,16 +240,30 @@
       <div class="form-row">
         <div class="col">
           <label for="inputPassword">Create your password</label>
-          <input class="form-control" id="inputPassword" minlength="8" name="password" onchange="checkPwd(this)"
-            oninput="this.className = 'form-control'" required title="Please include at least 1 uppercase character, 1 lowercase character, and 1 number. Must be at least 6 characters long."
-            type="password">
+          <input
+            class="form-control"
+            id="inputPassword"
+            minlength="8"
+            name="password"
+            onchange="checkPwd(this)"
+            oninput="this.className = 'form-control'"
+            required
+            title="Please include at least 1 uppercase character, 1 lowercase character, and 1 number. Must be at least 6 characters long."
+            type="password"
+          >
           <span id="pwdErrorMessage">Please include at least 1 uppercase character, 1 lowercase character, and 1
             number. Must be at least 6 characters long.</span>
         </div>
         <div class="col">
           <label for="inputPassword">Confirm your password</label>
-          <input class="form-control" id="confirmPassword" onchange="checkPwdMatch(this)" oninput="this.className = 'form-control'"
-            required type="password">
+          <input
+            class="form-control"
+            id="confirmPassword"
+            onchange="checkPwdMatch(this)"
+            oninput="this.className = 'form-control'"
+            required
+            type="password"
+          >
           <span id="confPwdErrorMessage">Your 2 passwords are not matching</span>
         </div>
       </div>
@@ -155,17 +273,7 @@
   <!-- Page 3 Add Members -->
   <fieldset class="tab">
     <h4>Add members</h4><span>(1 partner, up to 4 children)</span>
-    <ul class="memberInputForms">
-      <p>Extra member 1</p>
-      <li>
-        <p><input class="form-control" type="text" placeholder="First name..." oninput="this.className = 'form-control'"></p>
-        <p><input class="form-control" type="text" placeholder="Last name..." oninput="this.className = 'form-control'"></p>
-        <p><input class="form-control" type="date" placeholder="Date of birth" oninput="this.className = 'form-control'"
-            pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))"></p>
-      </li>
-    </ul>
-    <button class="removeMemberButton btn btn-secondary">- 1 member</button>
-    <button class="addMemberButton btn btn-primary">+ 1 member</button>
+    {% include 'extra-member-table' %}
   </fieldset>
 
   <!-- Page 4 Payment Information-->
@@ -175,41 +283,41 @@
       <input class="form-check-input" type="checkbox" id="exampleCheck1">
       <label class="form-check-label" for="exampleCheck1">Skip this step for now</label>
     </div>
-    <div class="form-group">
-      <label for="cardNumber">CARD NUMBER</label>
-      <div class="input-group mb-3">
-        <input type="tel" class="form-control" name="cardNumber" placeholder="Valid Card Number" autocomplete="cc-number"
-          aria-describedby="button-addon2">
-        <div class="input-group-append">
-          <span class="input-group-text" id="button-addon2"><i class="far fa-credit-card"></i></span>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-7 col-md-7">
-          <div class="form-group">
-            <label for="cardExpiry"><span class="hidden-xs">EXPIRATION</span><span class="visible-xs-inline">EXP</span>
-              DATE</label>
-            <input type="tel" class="form-control" name="cardExpiry" placeholder="MM / YY" autocomplete="cc-exp"
-              required />
-          </div>
-        </div>
-        <div class="col-xs-5 col-md-5 pull-right">
-          <div class="form-group">
-            <label for="cardCVC">CV CODE</label>
-            <input type="tel" class="form-control" name="cardCVC" placeholder="CVC" autocomplete="cc-csc" required />
-          </div>
-        </div>
-      </div>
-    </div>
+    {% include 'stripe-card-form' %}
   </fieldset>
 
   <!-- Page 5 Pharmacist meeting -->
   <fieldset class="tab">
     <h4>Pharmacist meeting</h4>
-    <div class="btn-group btn-group-lg" role="group" aria-label="...">
-      <button class="btn btn-primary">Call in store</button>
-      <button class="btn brn-secondary">House call <span>(€25)</span></button>
+    <div class="form-row">
+      <div class="col">
+        <label for="checkoutPhoneCall" class="radio-wrapper">
+          <input
+            type="radio"
+            name="checkout-option"
+            id="checkoutPhoneCall"
+          >
+          <span class="checkmark">
+            <i class="fas fa-phone"></i>
+          </span>
+          <h3>Phone call</h3>
+        </label>
+      </div>
+      <div class="col">
+        <label for="checkoutHomeVisit" class="radio-wrapper">
+          <input
+            type="radio"
+            name="checkout-option"
+            id="checkoutHomeVisit"
+          >
+          <span class="checkmark">
+            <i class="fas fa-user-md"></i>
+          </span>
+          <h3>Home visit (€25)</h3>
+        </label>
+      </div>
     </div>
+
 
   </fieldset>
 

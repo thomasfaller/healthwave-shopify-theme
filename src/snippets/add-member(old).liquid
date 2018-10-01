@@ -1,0 +1,11 @@
+<ul class="memberInputForms">
+  <p>Extra member 1</p>
+  <li>
+    <p><input class="form-control" type="text" placeholder="First name..." oninput="this.className = 'form-control'"></p>
+    <p><input class="form-control" type="text" placeholder="Last name..." oninput="this.className = 'form-control'"></p>
+    <p><input class="form-control" type="date" placeholder="Date of birth" oninput="this.className = 'form-control'"
+        pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))"></p>
+  </li>
+</ul>
+<button class="removeMemberButton btn btn-secondary">- 1 member</button>
+<button class="addMemberButton btn btn-primary">+ 1 member</button>

@@ -1,0 +1,30 @@
+const extraMemberTable = $("#table_id").DataTable();
+let memberCounter = 0;
+
+$("#addMember").on("click", function () {
+  memberCounter++;
+  const inputRow = [
+    `<input class="form-control" type="text" name="firstnameExtraMember${memberCounter}">`,
+    `<input class="form-control" type="text" name="lastnameExtraMember${memberCounter}">`,
+    `<input class="form-control" type="date" name="dateOfBirthExtraMember${memberCounter}">`,
+    `<button class="removeExtraMember btn btn-danger">x</button>`
+  ];
+  extraMemberTable.row.add(inputRow).draw(false);
+
+  if (memberCounter > 4) {
+    $("#addMember")
+      .attr("disabled", "true");
+  }
+});
+
+$("#table_id tbody").on("click", ".removeExtraMember", function () {
+  memberCounter--;
+  if (memberCounter <= 5) {
+    $("#addMember")
+      .removeAttr("disabled");
+  }
+  extraMemberTable
+    .row($(this).parents("tr"))
+    .remove()
+    .draw();
+});
