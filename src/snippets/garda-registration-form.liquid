@@ -1,13 +1,13 @@
 <form action="" id="garda-registration-form">
   <!-- Page 1 Verification information-->
   <fieldset class="tab">
-    <div class="welcome-text">
+    <div class="text-box">
       <p>Welcome to the Healthwave Garda Medical Aid portal.</p>
       <p>Register your family using the form on this page and enjoy the benefits of the Healthwave service.</p>
       <p>Once we have verified your plan you can start ordering prescriptions for home delivery.</p>
     </div>
     <br>
-    <h4>Verification information</h4>
+    <h3 class="tab-title">Verification information</h3>
     <br>
     <div class="form-group">
       <div class="form-row">
@@ -15,7 +15,6 @@
           <label for="inputFn">First name</label>
           <input
             autocomplete
-            autofocus
             class="form-control"
             id="inputFirstName"
             name="firstname"
@@ -89,18 +88,18 @@
   <!-- Page 2 Your Account-->
   <fieldset class="tab">
     <br>
-    <h4>Your account</h4>
+    <h3 class="tab-title">Your account</h3>
     <br>
     <div class="form-group">
       <label for="inputAddress1">Address</label>
       <input
         autocomplete
-        autofocus
-        oninput="this.className = 'form-control'"
-        onchange="checkAddress(this)"
         class="form-control"
+        data-custom-attribute="focused-field"
         id="inputAddress1"
         name="address1"
+        onchange="checkAddress(this)"
+        oninput="this.className = 'form-control'"
         pattern="[0-9A-Za-z\s]{2,}"
         placeholder="Line 1..."
         required
@@ -133,7 +132,7 @@
           required
           type="text"
         >
-        <span id="addressErrorMessage">Please, enter a valid city/town name.</span>
+        <span id="cityErrorMessage">Please, enter a valid city/town name.</span>
       </div>
       <div class="form-group col-md-4">
         <label for="inputCounty">County</label>
@@ -144,6 +143,7 @@
           name="county"
           required
         >
+          <option disabled selected value> -- select an option -- </option>
           <option value="Antrim">Antrim</option>
           <option value="Armagh">Armagh</option>
           <option value="Carlow">Carlow</option>
@@ -272,61 +272,107 @@
 
   <!-- Page 3 Add Members -->
   <fieldset class="tab">
-    <h4>Add members</h4><span>(1 partner, up to 4 children)</span>
+    <br>
+    <h3 class="tab-title">Add members</h3>
+    <br>
+    <div class="text-box">
+      <p>You can add family members that are part of your Garda Medical Aid plan here.</p>
+      <p>Children in full-time education up to the age of 23 will also come under your family's Drugs Payment Scheme</p>
+    </div>
+    <br><br>
     {% include 'extra-member-table' %}
   </fieldset>
 
   <!-- Page 4 Payment Information-->
   <fieldset class="tab">
-    <h4>Add payment method</h4>
-    <div class="form-group form-check">
-      <input class="form-check-input" type="checkbox" id="exampleCheck1">
-      <label class="form-check-label" for="exampleCheck1">Skip this step for now</label>
+    <h3 class="tab-title">Add payment method</h3>
+    <br>
+    <div class="text-box">
+      <p>You can add a payment method to your account to save you calling it out over the phone with every order.</p>
+      <p>Placing a card on file also enable you to use our “automatic refill” service where we send your medicines out each month automatically.</p>
+      <p>All card details are stored securely using Stripe.</p>
     </div>
-    {% include 'stripe-card-form' %}
+    <br>
+    <div class="form-group form-check">
+      <input
+        onclick="hideCardForm()"
+        class="form-check-input"
+        type="radio"
+        id="skipPaymentMethod"
+        name="add-payment"
+        required
+      >
+      <label class="form-check-label" for="skipPaymentMethod">Skip this step for now</label>
+    </div>
+    <div class="form-group form-check">
+      <input onclick="showCardForm()" class="form-check-input" type="radio" id="addPaymentMethod" name="add-payment" required>
+      <label class="form-check-label" for="addPaymentMethod">Add a credit or debit card</label>
+    </div>
+    <div id="card-form">
+      {% include 'stripe-card-form' %}
+    </div>
   </fieldset>
 
   <!-- Page 5 Pharmacist meeting -->
   <fieldset class="tab">
-    <h4>Pharmacist meeting</h4>
+    <br>
+    <h3 class="tab-title">Pharmacist meeting</h3>
+    <br>
+    <div class="text-box">
+      <p>The final step in activating your account is to meet one of our pharmacists.</p>
+      <p>This can be done by calling into our Dundrum store or by booking a home visit.</p>
+    </div>
+    <br>
     <div class="form-row">
       <div class="col">
-        <label for="checkoutPhoneCall" class="radio-wrapper">
+        <label class="checkout-radio-wrapper" for="">
           <input
-            type="radio"
-            name="checkout-option"
             id="checkoutPhoneCall"
+            name="checkoutOption"
+            onclick="validateCheckoutOption()"
+            type="radio"
           >
           <span class="checkmark">
             <i class="fas fa-phone"></i>
           </span>
-          <h3>Phone call</h3>
+        <p>Phone call</p>
         </label>
       </div>
       <div class="col">
-        <label for="checkoutHomeVisit" class="radio-wrapper">
+        <label class="checkout-radio-wrapper" for="">
           <input
+            id="checkoutVisit"
+            name="checkoutOption"
+            onclick="validateCheckoutOption()"
             type="radio"
-            name="checkout-option"
-            id="checkoutHomeVisit"
           >
           <span class="checkmark">
             <i class="fas fa-user-md"></i>
           </span>
-          <h3>Home visit (€25)</h3>
+        <p>Home visit (€25)</p>
         </label>
       </div>
     </div>
-
-
   </fieldset>
 
-  <!-- Page 6 / "Registration complete!" -->
+  <!-- Page 6 / "Review" -->
   <fieldset class="tab">
-    <h4>Registration is complete!</h4>
-    <p>You should soon receive an email confirmation</p>
+    <br>
+    <h3 class="tab-title">Review your information.</h3>
+    <br><br>
     <div>
-      <i class="far fa-check-circle"></i>
+      <table id="reviewChange-table" class="display">
+        <thead>
+          <tr>
+            <th>First</th>
+            <th>Last</th>
+            <th>Policy</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
     </div>
   </fieldset>
 

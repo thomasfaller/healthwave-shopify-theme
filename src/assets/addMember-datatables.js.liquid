@@ -4,25 +4,34 @@ let memberCounter = 0;
 $("#addMember").on("click", function () {
   memberCounter++;
   const inputRow = [
-    `<input class="form-control" type="text" name="firstnameExtraMember${memberCounter}">`,
-    `<input class="form-control" type="text" name="lastnameExtraMember${memberCounter}">`,
-    `<input class="form-control" type="date" name="dateOfBirthExtraMember${memberCounter}">`,
+    `<input class="form-control" type="text" name="firstnameExtraMember${memberCounter}" onchange="checkFirstName(this)" oninput="this.className = 'form-control'" pattern="[A-Za-z]{2,}" required>`,
+    `<input class="form-control" type="text" name="lastnameExtraMember${memberCounter}" onchange="checkLastName(this)" oninput="this.className = 'form-control'" pattern="[A-Za-z]{2,}" required>`,
+    `<input class="form-control" type="date" name="dateOfBirthExtraMember${memberCounter}" onchange="validateAge(this)" oninput="this.className = 'form-control'" required>`,
     `<button class="removeExtraMember btn btn-danger">x</button>`
   ];
   extraMemberTable.row.add(inputRow).draw(false);
 
-  if (memberCounter > 4) {
-    $("#addMember")
-      .attr("disabled", "true");
+  if (memberCounter > 0) {
+    $("#table_id").show();
   }
+
+  if (memberCounter > 4) {
+    $("#addMember").hide();
+  }
+
 });
 
 $("#table_id tbody").on("click", ".removeExtraMember", function () {
+
   memberCounter--;
+
   if (memberCounter <= 5) {
-    $("#addMember")
-      .removeAttr("disabled");
+    $("#addMember").show();
   }
+  if (memberCounter < 1) {
+    $("#table_id").hide();
+  }
+
   extraMemberTable
     .row($(this).parents("tr"))
     .remove()
