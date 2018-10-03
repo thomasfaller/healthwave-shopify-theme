@@ -179,7 +179,9 @@ main.form-wrapper {
 
     // DataTable for add extra member at regsitration time
 
-    [id^="table_id_"]:not(#table_id_wrapper) {
+    [id^="table_id_"]:not(#table_id_wrapper),
+    [id^="reviewChange-table1_"]:not(#reviewChange-table1_wrapper),
+    [id^="reviewChange-table2_"]:not(#reviewChange-table2_wrapper) {
       display: none;
     }
 

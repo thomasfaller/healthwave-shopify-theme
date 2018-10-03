@@ -1,6 +1,5 @@
 let currentTab = 0; // Current tab is set to be the first tab (0)
 showTab(currentTab); // Display the current tab
-$("#table_id").hide(); // Hides the extra member DataTable by default
 
 function showTab(n) {
   // This function will display the specified tab of the form ...
@@ -29,6 +28,10 @@ function showTab(n) {
   }
   if (n == (x.length - 1)) {
     document.getElementById("nextBtn").innerHTML = "Submit";
+    document.getElementById("nextBtn").addEventListener("click", function(){
+      submitForm();
+      $(".loading-overlay").fadeIn("fast");
+    })
     reviewBeforeSubmit();
   } else {
     document.getElementById("nextBtn").innerHTML = "Next";
@@ -49,7 +52,10 @@ function nextPrev(n) {
   // if you have reached the end of the form... :
   if (currentTab >= x.length) {
     //...the form gets submitted:
-    document.getElementById("garda-registration-form").submit();
+    $("#garda-registration-form").submit(function(e){
+      e.preventDefault();
+      submitForm();
+    });
     return false;
   }
   // Otherwise, display the correct tab:
@@ -72,7 +78,7 @@ function validateForm() {
     }
   }
   // If the valid status is true, mark the step as finished and valid:
-  if (valid) {
+  if (valid && currentTab < x.length) {
     document.getElementsByClassName("step")[currentTab].classList.add("finish");
   }
   return valid; // return the valid status
@@ -215,21 +221,50 @@ function hideCardForm() {
 }
 
 function reviewBeforeSubmit() {
-  const providedFirstName = document.querySelector("#inputFirstName").value.trim();
-  const providedLastname = document.querySelector("#inputLastName").value.trim();
+  const providedName = document.querySelector("#inputFirstName").value.trim() + " " + document.querySelector("#inputLastName").value.trim();
   const providedPolicy = document.querySelector("#inputPolicy").value.trim();
   const providedDOB = document.querySelector("#inputDOB").value.trim();
-  // const providedAddress = document.querySelector("#inputAddress1").value.trim() + ", " + document.querySelector("#inputCity").value.trim() + ", " + document.querySelector("#inputCounty").value.trim();
-  const reviewTable = $("#reviewChange-table").DataTable();
-  const row = [
-    providedFirstName,
-    providedLastname,
-    providedPolicy,
-    providedDOB
-  ];
-  reviewTable.row.add(row).draw(false);
+  const providedAddress = document.querySelector("#inputAddress1").value.trim() + ", " + document.querySelector("#inputCity").value.trim() + ", " + document.querySelector("#inputCounty").value.trim();
+  const providedEmail = document.querySelector("#inputEmail").value.trim();
+
+  document.querySelector("#providedName").innerHTML = `<strong>Name:</strong> ${providedName}`;
+  document.querySelector("#providedPolicy").innerHTML = `<strong>Policy:</strong> ${providedPolicy}`;
+  document.querySelector("#providedDOB").innerHTML = `<strong>Date of birth:</strong> ${providedDOB}`;
+  document.querySelector("#providedAddress").innerHTML = `<strong>Address:</strong> ${providedAddress}`;
+  document.querySelector("#providedEmail").innerHTML = `<strong>Email:</strong> ${providedEmail}`;
+
 }
 
-function scrollToView() {
-  window.scrollBy(0,227);
+function submitForm() {
+  const url = $("#garda-registration-form").attr("action");
+  const method = $("#garda-registration-form").attr("method");
+  const fullName = $("#inputFirstName").val() + " " + $("#inputLastName").val();
+  const dataToSend = JSON.stringify({
+    email: $("#inputEmail").val(),
+    full_name: fullName,
+    first_name: $("#inputFirstName").val(),
+    membership_id: $("#inputPolicy").val(),
+    // referral_code: $("#referral_code").val(),
+    // activation_key: $("#activation_key").val()
+  });
+  $.ajax({
+      url: url,
+      type: method,
+      data: dataToSend
+    })
+    .done(() => {
+      setTimeout(() => {
+        displaySuccess();
+      }, 600)
+    })
+    .fail(() => {
+      alert("error");
+    })
+    .always(() => {});
+}
+
+function displaySuccess(){
+  $(".loading-overlay").fadeOut("slow");
+  $(".registration-success").fadeIn("fast");
+
 }

@@ -1,4 +1,9 @@
-<form action="" id="garda-registration-form">
+<form
+  action="https://sandbox.healthwave.ie/webhook/registration_email_garda.php"
+  id="garda-registration-form"
+  method="POST"
+  name="garda-registration-form"
+>
   <!-- Page 1 Verification information-->
   <fieldset class="tab">
     <div class="text-box">
@@ -279,7 +284,7 @@
       <p>You can add family members that are part of your Garda Medical Aid plan here.</p>
       <p>Children in full-time education up to the age of 23 will also come under your family's Drugs Payment Scheme</p>
     </div>
-    <br><br>
+    <br>
     {% include 'extra-member-table' %}
   </fieldset>
 
@@ -359,21 +364,18 @@
   <fieldset class="tab">
     <br>
     <h3 class="tab-title">Review your information.</h3>
-    <br><br>
-    <div>
-      <table id="reviewChange-table" class="display">
-        <thead>
-          <tr>
-            <th>First</th>
-            <th>Last</th>
-            <th>Policy</th>
-            <th>Date</th>
-          </tr>
-        </thead>
-        <tbody>
-        </tbody>
-      </table>
+    <br>
+    <br>
+    <div class="container">
+      <ul class="list-group">
+        <li id="providedName" class="list-group-item list-group-item-action list-group-item-success"></li>
+        <li id="providedPolicy" class="list-group-item list-group-item-action list-group-item-success"></li>
+        <li id="providedDOB" class="list-group-item list-group-item-action list-group-item-success"></li>
+        <li id="providedEmail" class="list-group-item list-group-item-action list-group-item-success"></li>
+        <li id="providedAddress" class="list-group-item list-group-item-action list-group-item-success"></li>
+      </ul>
     </div>
+    <br>
   </fieldset>
 
   <!--           Previous / Next Buttons -->
@@ -386,6 +388,7 @@
 
   <!-- Circles that indicate progress -->
   <div class="steps-wrapper" style="text-align:center">
+    <span class="step"></span>
     <span class="step"></span>
     <span class="step"></span>
     <span class="step"></span>

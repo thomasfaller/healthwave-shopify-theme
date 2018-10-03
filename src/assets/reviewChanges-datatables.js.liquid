@@ -1,5 +1,5 @@
-const reviewTable = $("#reviewChange-table").DataTable();
-let memberCounter = 0;
+const reviewTable1 = $("#reviewChange-table1").DataTable();
+const reviewTable2 = $("#reviewChange-table2").DataTable();
 
 const row = [
   providedFirstName,
@@ -8,4 +8,4 @@ const row = [
   providedDOB
 ];
 
-reviewTable.row.add(inputRow).draw(false);
+reviewTable1.row.add(inputRow).draw(false);
