@@ -28,6 +28,7 @@
   display: block;
   margin: 0 auto;
 }
+
 // *******************************************
 // *             2. Spacing                  *
 // *******************************************
@@ -123,7 +124,7 @@ $heading-font-size: 3.125rem;
 
 @mixin button-regular-tablet($bg-color: $color-main-green, $text-color: white) {
   @include button-sizing(1rem);
-  background-color: $bg-color;
+  background: $bg-color;
   color: $text-color;
   font-weight: 500;
 }
@@ -147,6 +148,7 @@ $heading-font-size: 3.125rem;
   text-decoration: none;
   width: 100%;
 }
+
 // *******************************************
 // *            5. Links / Nav               *
 // *******************************************
@@ -179,6 +181,7 @@ $heading-font-size: 3.125rem;
   height: 50px;
   padding: 0;
 }
+
 @mixin button-navigation-tablet--outlined {
   width: 120px;
   height: 50px;
@@ -189,6 +192,7 @@ $heading-font-size: 3.125rem;
   padding: 5px 15px;
   font-weight: 500;
 }
+
 @mixin button-navigation-desktop {
   padding: 5px 15px;
   font-weight: 500;

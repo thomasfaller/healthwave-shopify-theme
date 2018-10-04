@@ -1,0 +1,201 @@
+// Garda Landing page => shop.healthwave.ie/pages/garda
+
+#garda-landing-page {
+
+  div.header {
+    margin-bottom: 25px;
+    background: linear-gradient(rgba(255, 255, 255, 0.55),
+      rgba(255, 255, 255, 0.25)),
+      url("https://res.cloudinary.com/djr6sgsbd/image/upload/v1537193876/Group_Copy.png") 0 0 / cover no-repeat;
+
+    .logo-wrapper {
+      max-width: 300px;
+    }
+
+    h1.header-title {
+      @include text-heading;
+      color: tomato;
+    }
+  }
+
+  .refer-wrapper {
+    background-color: tomato;
+    border-radius: 7px;
+    margin: 55px 0;
+    padding: 35px 75px;
+
+    h1 {
+      @include text-heading;
+      color: white;
+    }
+
+    p.lead {
+      @include text-regular;
+      color: white;
+      font-weight: 200;
+    }
+
+    .lead {
+      font-size: 28px;
+    }
+
+    img#cash-icon {
+      margin: 25px 0;
+    }
+
+  }
+
+  .offer-wrapper {
+    margin: 25px 55px;
+    width: 550px;
+    padding: 35px 75px;
+    border-radius: 7px;
+    background: rgba(255, 255, 255, 0.25);
+    border: solid 3px $color-main-green;
+
+    h2.offer-title {
+      @include text-heading;
+      color: $color-main-green;
+    }
+
+    p.offer-text {
+      @include text-regular;
+      color: $color-main-green;
+    }
+  }
+
+}
+
+button.register-button {
+  margin: 25px 0;
+  font-size: 28px;
+  color: white;
+  background: linear-gradient(rgba(255, 255, 255, 0.55),
+    rgba(255, 255, 255, 0.25)),
+    url("https://res.cloudinary.com/djr6sgsbd/image/upload/v1537193876/Group_Copy.png") 0 0 / cover no-repeat;
+  padding: 30px 55px;
+  border-radius: 7px;
+
+  span {
+    // "Your Healthwave account" part of the button text.
+    color: white;
+  }
+}
+
+.column {
+
+  h2.main-title {
+    @include text-heading;
+    margin: 50px 0;
+  }
+
+  h4.benefit-title {
+    margin: 25px 0;
+    @include text-regular;
+    font-size: 1.325rem;
+    font-weight: 500;
+  }
+
+  p {
+    @include text-regular;
+    font-size: 1.25rem;
+  }
+
+}
+
+@media (max-width: 480px) {
+  .header {
+    margin: 0;
+  }
+
+  h1.refer-title {
+    font-size: 1.8rem;
+  }
+
+  .refer-wrapper {
+    padding: 30px 12px;
+    margin: 0;
+
+    p.lead {
+      font-size: 1.2rem;
+    }
+  }
+
+  button.register-button {
+    background: $color-main-green;
+    width: 100%;
+    font-weight: 400;
+  }
+}
+
+
+i {
+  font-size: 2.3rem;
+  color: $color-main-green;
+  margin-bottom: 30px;
+}
+
+// TABLET
+
+@media (max-width: 992px) {
+
+  button.register-button {
+    background: $color-main-green;
+    padding: 30px 55px;
+    font-size: 1.625rem;
+  }
+
+}
+
+// MOBILE
+
+@media (max-width: 500px) {
+
+  #garda-landing-page {
+
+    main.column {
+      h2.main-title {
+        @include text-heading-mobile;
+      }
+
+      .benefit-wrapper {
+        h4.benefit-title {
+          margin-top: 0;
+        }
+
+        p:last-of-type {
+          margin-bottom: 55px;
+        }
+      }
+    }
+
+    .refer-wrapper {
+      padding: 25px 12px;
+      margin: 0;
+
+      h1.refer-title {
+        @include text-heading-mobile;
+        color: white;
+      }
+
+      p.lead {
+        @include text-regular-mobile;
+        color: white;
+      }
+    }
+
+    .offer-wrapper {
+      padding: 25px 12px;
+      margin: 25px 0;
+
+      h2.offer-title {
+        @include text-heading-mobile;
+      }
+
+      p.offer-text {
+        @include text-regular-mobile;
+      }
+    }
+  }
+
+}
