@@ -7,20 +7,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   width: 100vw;
-  height: 170vh;
 
-  aside.sidebar {
-    padding: 35px 5px;
-    background-color: #00bfb3;
-    background: url("https://res.cloudinary.com/djr6sgsbd/image/upload/v1537193876/Group_Copy.png");
-    background-position: top-left;
-    background-repeat: repeat;
-    background-size: cover;
-
-    #garda-logo {
-      opacity: 0.5;
-    }
-  }
 }
 
 main.form-wrapper {
@@ -32,7 +19,7 @@ main.form-wrapper {
   .logos-wrapper {
     justify-content: center;
     display: flex;
-    width: 440px;
+    max-width: 440px;
   }
 
   #garda-registration-form {
@@ -45,7 +32,7 @@ main.form-wrapper {
       text-align: center;
       padding: 25px;
       margin: 25px 0;
-      background-color: #00bfb3;
+      background-color: $color-main-green;
 
       p {
         @include text-regular(16px, white);
@@ -131,7 +118,12 @@ main.form-wrapper {
 
         &:checked~.checkmark {
           color: $color-main-green;
-          border: 5px solid $color-main-green;
+          border-color: $color-main-green;
+        }
+
+        &:checked~.checkoutOption-text {
+          color: $color-main-green;
+          font-weight: bold;
         }
       }
 
@@ -162,6 +154,10 @@ main.form-wrapper {
       }
     }
 
+    div.toc-wrapper {
+      margin-top: 1rem;
+    }
+
     button#prevBtn {
       @include button-regular-form-outlined;
 
@@ -173,8 +169,7 @@ main.form-wrapper {
 
     button#addMember {
       @include button-regular-form-outlined;
-      display: block;
-      margin: 35px auto;
+      @include center-block;
     }
 
     // DataTable for add extra member at regsitration time
@@ -226,4 +221,42 @@ div#card-form {
 
 .StripeElement--webkit-autofill {
   background-color: #fefde5 !important;
+}
+
+// MEDIA QUERIES
+
+@media (max-width:991px) {
+  #registration-page-garda {
+    main.form-wrapper {
+      width: 95%;
+      padding: 35px 45px;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  #registration-page-garda {
+
+    #container-mobile {
+      margin: 0;
+      padding: 0; // overrides the .container class from Bootstap on mobile
+    }
+
+    main.form-wrapper {
+      width: 100%;
+      padding: 15px;
+
+      #garda-registration-form {
+
+        button#prevBtn {
+          @include button-regular-mobile-outlined;
+        }
+
+        button#nextBtn {
+          @include button-regular-mobile;
+        }
+
+      }
+    }
+  }
 }

@@ -11,12 +11,10 @@
       <p>Register your family using the form on this page and enjoy the benefits of the Healthwave service.</p>
       <p>Once we have verified your plan you can start ordering prescriptions for home delivery.</p>
     </div>
-    <br>
     <h3 class="tab-title">Verification information</h3>
-    <br>
     <div class="form-group">
       <div class="form-row">
-        <div class="col">
+        <div class="col-md-6">
           <label for="inputFn">First name</label>
           <input
             autocomplete
@@ -32,7 +30,7 @@
           >
           <span id="firstNameErrorMessage">Please, enter your first name.</span>
         </div>
-        <div class="col">
+        <div class="col-md-6 mt-3 mt-md-0">
           <label for="inputLn">Last name</label>
           <input
             autocomplete
@@ -50,10 +48,9 @@
         </div>
       </div>
     </div>
-    <br>
     <div class="form-group">
       <div class="form-row">
-        <div class="col">
+        <div class="col-md-6">
           <label for="policyField">Your policy number</label>
           <input
             oninput="this.className = 'form-control'"
@@ -68,7 +65,7 @@
           >
           <span id="policyErrorMessage">You need to enter a valid policy number.</span>
         </div>
-        <div class="col">
+        <div class="col-md-6 mt-3 mt-md-0">
           <label for="">Date of birth</label>
           <input
             oninput="this.className = 'form-control'"
@@ -210,7 +207,7 @@
     </div>
     <div class="form-group">
       <div class="form-row">
-        <div class="col">
+        <div class="col-md-6">
           <label for="">Enter your email</label>
           <input
             class="form-control"
@@ -225,7 +222,7 @@
           >
           <span id="emailErrorMessage">Please, enter a valid email address.</span>
         </div>
-        <div class="col">
+        <div class="col-md-6">
           <label for="">Confirm your email</label>
           <input
             class="form-control"
@@ -243,7 +240,7 @@
     </div>
     <div class="form-group">
       <div class="form-row">
-        <div class="col">
+        <div class="col-md-6">
           <label for="inputPassword">Create your password</label>
           <input
             class="form-control"
@@ -259,7 +256,7 @@
           <span id="pwdErrorMessage">Please include at least 1 uppercase character, 1 lowercase character, and 1
             number. Must be at least 6 characters long.</span>
         </div>
-        <div class="col">
+        <div class="col-md-6">
           <label for="inputPassword">Confirm your password</label>
           <input
             class="form-control"
@@ -340,7 +337,21 @@
           <span class="checkmark">
             <i class="fas fa-phone"></i>
           </span>
-        <p>Phone call</p>
+          <p  class="checkoutOption-text">Phone call</p>
+        </label>
+      </div>
+      <div class="col">
+        <label class="checkout-radio-wrapper" for="">
+          <input
+            id="checkoutInStore"
+            name="checkoutOption"
+            onclick="validateCheckoutOption()"
+            type="radio"
+          >
+          <span class="checkmark">
+            <i class="fas fa-store"></i>
+          </span>
+          <p class="checkoutOption-text">In store</p>
         </label>
       </div>
       <div class="col">
@@ -354,7 +365,7 @@
           <span class="checkmark">
             <i class="fas fa-user-md"></i>
           </span>
-        <p>Home visit (€25)</p>
+        <p class="checkoutOption-text">Home visit (€25)</p>
         </label>
       </div>
     </div>
@@ -374,6 +385,18 @@
         <li id="providedEmail" class="list-group-item list-group-item-action list-group-item-success"></li>
         <li id="providedAddress" class="list-group-item list-group-item-action list-group-item-success"></li>
       </ul>
+      <div class="toc-wrapper">
+        <div class="form-group">
+          <input
+            type="checkbox"
+            name="checkbox"
+            value="check"
+            id="inputTermsAndConditions"
+            required
+            onchange="handleTermsAndConditions(this)"
+          >  I have read and agree to the Terms and Conditions and Privacy Policy
+        </div>
+      </div>
     </div>
     <br>
   </fieldset>
@@ -381,8 +404,8 @@
   <!--           Previous / Next Buttons -->
   <div style="overflow:auto;text-align:center;">
     <div class="mx-auto button-wrapper">
-      <button class="btn btn-primary-outline" type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-      <button class="btn btn-primary" type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+      <button class="btn btn-primary-outline mb-2 mb-md-0" type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+      <button class="btn btn-primary mt-2 mt-md-0" type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
     </div>
   </div>
 

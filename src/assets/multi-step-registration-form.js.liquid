@@ -28,7 +28,8 @@ function showTab(n) {
   }
   if (n == (x.length - 1)) {
     document.getElementById("nextBtn").innerHTML = "Submit";
-    document.getElementById("nextBtn").addEventListener("click", function(){
+    document.getElementById("nextBtn").setAttribute("disabled", "true");
+    document.getElementById("nextBtn").addEventListener("click", function () {
       submitForm();
       $(".loading-overlay").fadeIn("fast");
     })
@@ -52,7 +53,7 @@ function nextPrev(n) {
   // if you have reached the end of the form... :
   if (currentTab >= x.length) {
     //...the form gets submitted:
-    $("#garda-registration-form").submit(function(e){
+    $("#garda-registration-form").submit(function (e) {
       e.preventDefault();
       submitForm();
     });
@@ -235,6 +236,14 @@ function reviewBeforeSubmit() {
 
 }
 
+function handleTermsAndConditions(checkbox) {
+  if (checkbox.checked == true) {
+    document.getElementById("nextBtn").removeAttribute("disabled");
+  } else {
+    document.getElementById("nextBtn").setAttribute("disabled", "false");
+  }
+}
+
 function submitForm() {
   const url = $("#garda-registration-form").attr("action");
   const method = $("#garda-registration-form").attr("method");
@@ -263,7 +272,7 @@ function submitForm() {
     .always(() => {});
 }
 
-function displaySuccess(){
+function displaySuccess() {
   $(".loading-overlay").fadeOut("slow");
   $(".registration-success").fadeIn("fast");
 

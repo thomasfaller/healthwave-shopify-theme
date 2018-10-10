@@ -1,17 +1,36 @@
 {
   "name": "healthwave-main-theme",
   "version": "0.0.1",
+  "description": "This is the main Shopify theme for Healthwave Limited.",
+  "keywords": [
+    "Shopify",
+    "Node",
+    "Gulp",
+    "Javascript",
+    "Liquid",
+    "Healthwave"
+  ],
+  "homepage": "https://shop.healthwave.ie",
+  "author": {
+    "name": "Thomas Faller",
+    "email": "thomas.faller@healthwave.ie",
+    "url": "https://tomthedev.com"
+  },
   "devDependencies": {
     "@shopify/slate": "^0.14.0",
-    "@shopify/slate-tools": "0.13.0"
+    "@shopify/slate-tools": "^0.14.0"
   },
   "dependencies": {
-    "debug": "^3.1.0",
+    "debug": "^3.2.6",
     "fresh": "^0.5.2",
-    "hoek": "^5.0.3",
-    "lodash": "^4.17.10",
+    "hoek": "^5.0.4",
+    "lodash": "^4.17.11",
     "node-mime": "^1.0.0",
     "parsejson": "0.0.3",
     "tough-cookie": "^2.4.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thomasfaller/healthwave-shopify-theme.git"
   }
 }

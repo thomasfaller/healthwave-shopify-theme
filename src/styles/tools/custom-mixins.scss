@@ -149,6 +149,19 @@ $heading-font-size: 3.125rem;
   width: 100%;
 }
 
+@mixin button-regular-mobile-outlined($bg-color: white, $text-color: $color-main-green) {
+  background-color: $bg-color;
+  border-radius: 3px;
+  border: 1.75px solid $text-color;
+  color: $text-color;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: .03em;
+  padding: 1rem 0;
+  text-decoration: none;
+  width: 100%;
+}
+
 // *******************************************
 // *            5. Links / Nav               *
 // *******************************************

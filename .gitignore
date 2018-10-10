@@ -61,3 +61,4 @@ secrets.json
 .ruby-version
 localhost.crt
 localhost.key
+certificateLocahost.json

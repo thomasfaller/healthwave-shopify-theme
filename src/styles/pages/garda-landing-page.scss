@@ -129,7 +129,9 @@ button.register-button {
 }
 
 
-i {
+i#thumb-up-icon,
+i#truck-icon,
+i#piggy-bank-icon {
   font-size: 2.3rem;
   color: $color-main-green;
   margin-bottom: 30px;
