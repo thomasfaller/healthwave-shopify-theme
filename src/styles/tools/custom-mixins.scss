@@ -162,6 +162,19 @@ $heading-font-size: 3.125rem;
   width: 100%;
 }
 
+@mixin button-cta-mobile($bg-color: $color-main-green, $text-color: white) {
+  // Slightly more visible buttons for "Call-To-Action" contexts
+  background-color: $bg-color;
+  border-radius: 3px;
+  color: $text-color;
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  padding: 1.5rem 0;
+  text-decoration: none;
+  width: 100%;
+}
+
 // *******************************************
 // *            5. Links / Nav               *
 // *******************************************

@@ -1,16 +1,7 @@
 <div id="garda-landing-page">
   <div class="header jumbotron">
-    <div class="logo-wrapper mx-auto">
-      <div class="row">
-        <div class="col">
-          <img class="img-fluid" src="https://res.cloudinary.com/djr6sgsbd/image/upload/v1538037915/Healthwave_RGB_Symbol_Green_2.png"
-            alt="">
-        </div>
-        <div class="col">
-          <img class="img-fluid" src="https://res.cloudinary.com/djr6sgsbd/image/upload/v1538567178/st-pauls-garda-logo.png"
-            alt="">
-        </div>
-      </div>
+    <div class="logo-wrapper mx-auto mb-1">
+      <img class="img-fluid" src="https://res.cloudinary.com/djr6sgsbd/image/upload/v1538567178/st-pauls-garda-logo.png" alt="">
     </div>
     <h1 class="header-title text-center">Healthwave Garda Prescription Service</h1>
     {% include 'garda-introductory-offer' %}
@@ -20,22 +11,22 @@
       <h2 class="main-title text-center">KEY BENEFITS OF SWITCHING TO HEALTHWAVE</h2>
       <div class="row text-center">
         <div class="benefit-wrapper col-md-4">
-          <i id="thumb-up-icon" class="far fa-thumbs-up"></i>
+          <i id="thumb-up-icon" class="benefit-icon far fa-thumbs-up"></i>
           <h4 class="benefit-title">NO CLAIMING REFUNDS</h4>
-          <p><strong>You only pay the first €20 and any amount above €80 to Healthwave.</strong></p>
-          <p>Healthwave will directly bill St Paul's for any amounts in between meaning you will no longer have to send
+          <p class="benefit-text"><strong>You only pay the first €20 and any amount above €80 to Healthwave.</strong></p>
+          <p class="benefit-text">Healthwave will directly bill St Paul's for any amounts in between meaning you will no longer have to send
             in receipts and wait for refunds.</p>
         </div>
         <div class="benefit-wrapper col-md-4">
-          <i id="truck-icon" class="fas fa-truck"></i>
+          <i id="truck-icon" class="benefit-icon fas fa-truck"></i>
           <h4 class="benefit-title">NATIONWIDE DELIVERY</h4>
-          <p>Healthwave operate a national delivery service using An Post and can send your monthly prescriptions to
+          <p class="benefit-text">Healthwave operate a national delivery service using An Post and can send your monthly prescriptions to
             you at home or work.</p>
         </div>
         <div class="benefit-wrapper col-md-4">
-          <i id="piggy-bank-icon" class="fas fa-piggy-bank"></i>
+          <i id="piggy-bank-icon" class="benefit-icon fas fa-piggy-bank"></i>
           <h4 class="benefit-title">SAVINGS</h4>
-          <p>Healthwave offer up to <strong>50% cheaper</strong> prescription prices.</p>
+          <p class="benefit-text">Healthwave offer up to <strong>50% cheaper</strong> prescription prices.</p>
         </div>
       </div>
     </main>
@@ -45,17 +36,19 @@
       <h1 class="refer-title display-4">REFER A FRIEND</h1>
       <img id="cash-icon" style="width:100px;" src="https://res.cloudinary.com/djr6sgsbd/image/upload/v1538654271/White.png"
         alt="" class="img-fluid">
-      <p class="lead">Healthwave will credit your account with <strong>€25</strong> for every non- Garda person you
+      <p class="refer-text lead">Healthwave will credit your account with <strong>€25</strong> for every non-Garda person you
         introduce to their prescription service.</p>
-      <p class="lead">You will be given a coupon code to share with friends when you register. You can then pay for
+      <p class="refer-text lead">You will be given a coupon code to share with friends when you register. You can then pay for
         prescriptions with the credit you earn.</p>
     </div>
     <div class="text-center">
       <a href="/account/register?view=garda">
         <button class="register-button btn">Register
-          <span class="d-none d-md-inline"> your Healthwave account</span>
+          <span class="lg-button-text"> your Healthwave account</span>
         </button>
       </a>
     </div>
-    <p class="text-center"><a href="">terms & conditions</a></p>
+    <p class="misc-text text-center">
+      <a class="misc-link" href="">terms & conditions</a>
+    </p>
   </div>

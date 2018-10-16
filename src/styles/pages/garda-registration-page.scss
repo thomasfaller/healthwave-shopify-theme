@@ -16,7 +16,7 @@ main.form-wrapper {
   padding: 35px 110px;
   max-width: 800px;
 
-  .logos-wrapper {
+  .logo-wrapper {
     justify-content: center;
     display: flex;
     max-width: 440px;
@@ -245,6 +245,7 @@ div#card-form {
     main.form-wrapper {
       width: 100%;
       padding: 15px;
+      padding-bottom: 30px;
 
       #garda-registration-form {
 

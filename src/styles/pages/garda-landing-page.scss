@@ -9,13 +9,64 @@
       url("https://res.cloudinary.com/djr6sgsbd/image/upload/v1537193876/Group_Copy.png") 0 0 / cover no-repeat;
 
     .logo-wrapper {
-      max-width: 300px;
+      width: 150px;
     }
 
     h1.header-title {
+      margin-top: 1em;
+      margin-bottom: 1em;
       @include text-heading;
       color: tomato;
     }
+  }
+
+  .offer-wrapper {
+    text-align: center;
+    margin: 25px 55px;
+    width: 550px;
+    padding: 35px 75px;
+    border-radius: 7px;
+    background: rgba(255, 255, 255, 0.75);
+    border: solid 3px $color-main-green;
+
+    h2.offer-title {
+      @include text-heading;
+      font-weight: bolder;
+      color: $color-main-green;
+    }
+
+    p.offer-text {
+      @include text-regular;
+      font-weight: bold;
+      color: $color-main-green;
+    }
+  }
+
+  .column {
+
+    h2.main-title {
+      @include text-heading;
+      margin: 50px 0;
+    }
+
+    h4.benefit-title {
+      margin: 25px 0;
+      @include text-regular;
+      font-size: 1.325rem;
+      font-weight: 500;
+    }
+
+    i.benefit-icon {
+      font-size: 2.3rem;
+      color: $color-main-green;
+      margin-bottom: 30px;
+    }
+
+    p {
+      @include text-regular;
+      font-size: 1.25rem;
+    }
+
   }
 
   .refer-wrapper {
@@ -24,18 +75,15 @@
     margin: 55px 0;
     padding: 35px 75px;
 
-    h1 {
+    h1.refer-title {
       @include text-heading;
       color: white;
     }
 
-    p.lead {
+    p.refer-text {
       @include text-regular;
       color: white;
       font-weight: 200;
-    }
-
-    .lead {
       font-size: 28px;
     }
 
@@ -45,115 +93,139 @@
 
   }
 
-  .offer-wrapper {
-    margin: 25px 55px;
-    width: 550px;
-    padding: 35px 75px;
-    border-radius: 7px;
-    background: rgba(255, 255, 255, 0.25);
-    border: solid 3px $color-main-green;
-
-    h2.offer-title {
-      @include text-heading;
-      color: $color-main-green;
-    }
-
-    p.offer-text {
-      @include text-regular;
-      color: $color-main-green;
-    }
-  }
-
-}
-
-button.register-button {
-  margin: 25px 0;
-  font-size: 28px;
-  color: white;
-  background: linear-gradient(rgba(255, 255, 255, 0.55),
-    rgba(255, 255, 255, 0.25)),
-    url("https://res.cloudinary.com/djr6sgsbd/image/upload/v1537193876/Group_Copy.png") 0 0 / cover no-repeat;
-  padding: 30px 55px;
-  border-radius: 7px;
-
-  span {
-    // "Your Healthwave account" part of the button text.
-    color: white;
-  }
-}
-
-.column {
-
-  h2.main-title {
-    @include text-heading;
-    margin: 50px 0;
-  }
-
-  h4.benefit-title {
-    margin: 25px 0;
-    @include text-regular;
-    font-size: 1.325rem;
-    font-weight: 500;
-  }
-
-  p {
-    @include text-regular;
-    font-size: 1.25rem;
-  }
-
-}
-
-@media (max-width: 480px) {
-  .header {
-    margin: 0;
-  }
-
-  h1.refer-title {
-    font-size: 1.8rem;
-  }
-
-  .refer-wrapper {
-    padding: 30px 12px;
-    margin: 0;
-
-    p.lead {
-      font-size: 1.2rem;
-    }
-  }
-
   button.register-button {
+    margin: 25px 0;
+    font-size: 28px;
+    color: white;
     background: $color-main-green;
-    width: 100%;
-    font-weight: 400;
+    padding: 30px 55px;
+    border-radius: 7px;
+
+    span {
+      // "Your Healthwave account" part of the button text.
+      color: white;
+    }
   }
+
+  p.misc-text {
+    margin-bottom: 3em;
+
+    a.misc-link {
+      color: $color-main-green;
+      cursor: pointer;
+
+      &:hover {
+        font-weight: 600;
+        text-decoration: underline;
+      }
+    }
+  }
+
 }
 
 
-i#thumb-up-icon,
-i#truck-icon,
-i#piggy-bank-icon {
-  font-size: 2.3rem;
-  color: $color-main-green;
-  margin-bottom: 30px;
-}
 
-// TABLET
+// TABLET / Medium screens
 
 @media (max-width: 992px) {
 
+  #garda-landing-page {
+
+    .offer-wrapper {
+      text-align: center;
+      margin: 0 55px;
+      max-width: 90vw;
+      padding: 35px 55px;
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.75);
+      border: solid 2px $color-main-green;
+
+      h2.offer-title {
+        font-weight: unset;
+      }
+
+      p.offer-text {
+        font-weight: unset;
+      }
+    }
+
+    main.column {
+
+      h2.main-title {
+        font-size: 2rem;
+      }
+
+      .benefit-wrapper {
+
+        h4.benefit-title {
+          font-weight: bold;
+        }
+
+        i.benefit-icon {
+          margin-bottom: 20px;
+          margin-top: 30px;
+        }
+
+        p.benefit-text {
+          margin-bottom: 25px;
+        }
+      }
+
+    }
+
+    .refer-wrapper {
+      padding: 25px 12px;
+
+      h1.refer-title {
+        @include text-heading-mobile;
+        color: white;
+      }
+
+      p.lead {
+        @include text-regular-mobile;
+        color: white;
+      }
+    }
+
+  }
+
   button.register-button {
-    background: $color-main-green;
-    padding: 30px 55px;
-    font-size: 1.625rem;
+    @include button-regular-tablet;
+
+    span.lg-button-text {
+      display: none;
+    }
   }
 
 }
+
+
+
+
+
+
+
+
+
 
 // MOBILE
 
 @media (max-width: 500px) {
 
   #garda-landing-page {
+
+    .offer-wrapper {
+      padding: 25px 12px;
+      margin: 25px 0;
+
+      h2.offer-title {
+        @include text-heading-mobile;
+      }
+
+      p.offer-text {
+        @include text-regular-mobile;
+      }
+    }
 
     main.column {
       h2.main-title {
@@ -173,7 +245,6 @@ i#piggy-bank-icon {
 
     .refer-wrapper {
       padding: 25px 12px;
-      margin: 0;
 
       h1.refer-title {
         @include text-heading-mobile;
@@ -186,18 +257,10 @@ i#piggy-bank-icon {
       }
     }
 
-    .offer-wrapper {
-      padding: 25px 12px;
-      margin: 25px 0;
-
-      h2.offer-title {
-        @include text-heading-mobile;
-      }
-
-      p.offer-text {
-        @include text-regular-mobile;
-      }
+    button.register-button {
+      @include button-cta-mobile;
     }
+
   }
 
 }
