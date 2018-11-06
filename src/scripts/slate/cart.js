@@ -7,15 +7,15 @@
  */
 
 slate.cart = {
-  
+
   /**
    * Browser cookies are required to use the cart. This function checks if
    * cookies are enabled in the browser.
    */
-  cookiesEnabled: function() {
+  cookiesEnabled: function () {
     var cookieEnabled = navigator.cookieEnabled;
 
-    if (!cookieEnabled){
+    if (!cookieEnabled) {
       document.cookie = 'testcookie';
       cookieEnabled = (document.cookie.indexOf('testcookie') !== -1);
     }

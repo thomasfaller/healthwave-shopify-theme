@@ -5,9 +5,9 @@ $("#table_id").hide();
 $("#addMember").on("click", function () {
   memberCounter++;
   const inputRow = [
-    `<input class="form-control" type="text" name="firstnameExtraMember${memberCounter}" onchange="checkFirstName(this)" oninput="this.className = 'form-control'" pattern="[A-Za-z]{2,}" required>`,
-    `<input class="form-control" type="text" name="lastnameExtraMember${memberCounter}" onchange="checkLastName(this)" oninput="this.className = 'form-control'" pattern="[A-Za-z]{2,}" required>`,
-    `<input class="form-control" type="date" name="dateOfBirthExtraMember${memberCounter}" onchange="validateAge(this)" oninput="this.className = 'form-control'" required>`,
+    `<input id="firstnameExtraMember${memberCounter}" class="form-control" type="text" name="firstnameExtraMember${memberCounter}" onchange="checkFirstName(this)" oninput="this.className = 'form-control'" pattern="[A-Za-z]{2,}" required>`,
+    `<input id="lastnameExtraMember${memberCounter}" class="form-control" type="text" name="lastnameExtraMember${memberCounter}" onchange="checkLastName(this)" oninput="this.className = 'form-control'" pattern="[A-Za-z]{2,}" required>`,
+    `<input id="dateOfBirthExtraMember${memberCounter}" class="form-control" type="date" name="dateOfBirthExtraMember${memberCounter}" onchange="validateAge(this)" oninput="this.className = 'form-control'" required>`,
     `<button class="removeExtraMember btn btn-danger">x</button>`
   ];
   extraMemberTable.row.add(inputRow).draw(false);

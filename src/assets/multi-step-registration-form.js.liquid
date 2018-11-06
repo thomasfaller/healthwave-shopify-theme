@@ -53,7 +53,7 @@ function nextPrev(n) {
   // if you have reached the end of the form... :
   if (currentTab >= x.length) {
     //...the form gets submitted:
-    $("#garda-registration-form").submit(function (e) {
+    $(".garda-registration-form").submit(function (e) {
       e.preventDefault();
       submitForm();
     });
@@ -244,9 +244,9 @@ function handleTermsAndConditions(checkbox) {
   }
 }
 
-function submitForm() {
-  const url = $("#garda-registration-form").attr("action");
-  const method = $("#garda-registration-form").attr("method");
+function submitForm() { // this is sending the form to Sendgrid for mailing
+  const url = $(".garda-registration-form").attr("action");
+  const method = $(".garda-registration-form").attr("method");
   const fullName = $("#inputFirstName").val() + " " + $("#inputLastName").val();
   const dataToSend = JSON.stringify({
     email: $("#inputEmail").val(),
@@ -264,16 +264,122 @@ function submitForm() {
     .done(() => {
       setTimeout(() => {
         displaySuccess();
+        createGardaAccount();
       }, 600)
     })
     .fail(() => {
       alert("error");
     })
-    .always(() => {});
+    .always(() => {
+      // createShopifyCustomer();
+    });
 }
+
+// ADD THE GUARD TO THE MYSQL DB
+
+function createGardaAccount() {
+  const consultation_option = () => {
+    if ($("#checkoutPhoneCall").prop("checked")) return 1;
+    if ($("#checkoutInStore").prop("checked")) return 2;
+    if ($("#checkoutVisit").prop("checked")) return 3;
+  }
+
+  const formData = JSON.stringify({
+    first_name: $("#inputFirstName").val(),
+    last_name: $("#inputLastName").val(),
+    garda_number: $("#inputPolicy").val(),
+    date_of_birth: $("#inputDOB").val(),
+    address1: $("#inputAddress1").val(),
+    address2: $("#inputAddress2").val(),
+    city: $("#inputCity").val(),
+    county: $("#inputCounty").val(),
+    eircode: $("#inputEircode").val(),
+    phone_number: $("#inputPhone").val(),
+    email: $("#inputEmail").val(),
+    password: $("#inputPassword").val(),
+    dependent1_first_name: $("#firstnameExtraMember1").val(),
+    dependent1_last_name: (($("#lastnameExtraMember1").length == 0) ? "" : $("#lastnameExtraMember1").val()),
+    dependent1_date_of_birth: (($("#dateOfBirthExtraMember1").length == 0) ? "" : $("#dateOfBirthExtraMember1").val()),
+    dependent2_first_name: (($("#firstnameExtraMember2").length == 0) ? "" : $("#firstnameExtraMember2").val()),
+    dependent2_last_name: (($("#lastnameExtraMember2").length == 0) ? "" : $("#lastnameExtraMember2").val()),
+    dependent2_date_of_birth: (($("#dateOfBirthExtraMember2").length == 0) ? "" : $("#dateOfBirthExtraMember2").val()),
+    dependent3_first_name: (($("#firstnameExtraMember3").length == 0) ? "" : $("#firstnameExtraMember3").val()),
+    dependent3_last_name: (($("#lastnameExtraMember3").length == 0) ? "" : $("#lastnameExtraMember3").val()),
+    dependent3_date_of_birth: (($("#dateOfBirthExtraMember3").length == 0) ? "" : $("#dateOfBirthExtraMember3").val()),
+    dependent4_first_name: (($("#firstnameExtraMember4").length == 0) ? "" : $("#firstnameExtraMember4").val()),
+    dependent4_last_name: (($("#lastnameExtraMember4").length == 0) ? "" : $("#lastnameExtraMember4").val()),
+    dependent4_date_of_birth: (($("#dateOfBirthExtraMember4").length == 0) ? "" : $("#dateOfBirthExtraMember4").val()),
+    dependent5_first_name: (($("#firstnameExtraMember5").length == 0) ? "" : $("#firstnameExtraMember5").val()),
+    dependent5_last_name: (($("#lastnameExtraMember5").length == 0) ? "" : $("#lastnameExtraMember5").val()),
+    dependent5_date_of_birth: (($("#dateOfBirthExtraMember5").length == 0) ? "" : $("#dateOfBirthExtraMember5").val()),
+    dependent6_first_name: (($("#firstnameExtraMember6").length == 0) ? "" : $("#firstnameExtraMember6").val()),
+    dependent6_last_name: (($("#lastnameExtraMember6").length == 0) ? "" : $("#lastnameExtraMember6").val()),
+    dependent6_date_of_birth: (($("#dateOfBirthExtraMember6").length == 0) ? "" : $("#dateOfBirthExtraMember6").val()),
+    no_payment_method: true,
+    pharmacist_consult: consultation_option,
+  })
+  const settings = {
+    url: "https://sandbox.healthwave.ie/api/create-account-garda.php",
+    type: "POST",
+    async: true,
+    crossDomain: true,
+    data: formData
+  }
+  $.ajax(settings).done(() => {
+      console.log("Garda account created");
+      console.log(formData);
+    }).fail(() => {
+      alert("error");
+    })
+    .always(() => {
+      // createShopifyCustomer();
+    });
+}
+
+// END OF DB FUNC
+
+function createShopifyCustomer() {
+  var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "https://hwave.myshopify.com/admin/customers.json",
+    "method": "POST",
+    "headers": {
+      "Authorization": "BasicZmQwYTYyNjRlNThlZjBhODc5MjIyMzE5N2FiYjIwZDM6NWFiNTc5MzA3ZTgzNWNmMGFjYzg4ZTk5ZjE1Nzg2YTQ="
+    },
+    "data": "{\n  \"customer\": {\n    \"first_name\": \"Fake\",\n    \"last_name\": \"Customer\",\n    \"email\": \"peppa.pig@gmail.com\",\n    \"phone\": \"+123456789\",\n    \"verified_email\": true,\n    \"addresses\": [\n      {\n        \"address1\": \"123 mainstreet\",\n        \"city\": \"Somecity\",\n        \"province\": \"ON\",\n        \"phone\": \"555-1212\",\n        \"zip\": \"123 ABC\",\n        \"last_name\": \"Pig\",\n        \"first_name\": \"House\",\n        \"country\": \"IE\"\n      }\n    ],\n    \"send_email_invite\": true\n  }\n}"
+  }
+
+  $.ajax(settings).done(function (response) {
+    console.log(response);
+  });
+}
+
 
 function displaySuccess() {
   $(".loading-overlay").fadeOut("slow");
   $(".registration-success").fadeIn("fast");
-
 }
+
+
+
+// BACKUP
+
+// dependent1_first_name: (($("#firstnameExtraMember1").val() == 0) ? "" : $("#firstnameExtraMember1").val()),
+//     dependent1_last_name: (($("#lastnameExtraMember1").length == 0) ? "" : $("#lastnameExtraMember1").val()),
+//     dependent1_date_of_birth: (($("#dateOfBirthExtraMember1").length == 0) ? "" : $("#dateOfBirthExtraMember1").val()),
+//     dependent2_first_name: (($("#firstnameExtraMember2").length == 0) ? "" : $("#firstnameExtraMember2").val()),
+//     dependent2_last_name: (($("#lastnameExtraMember2").length == 0) ? "" : $("#lastnameExtraMember2").val()),
+//     dependent2_date_of_birth: (($("#dateOfBirthExtraMember2").length == 0) ? "" : $("#dateOfBirthExtraMember2").val()),
+//     dependent3_first_name: (($("#firstnameExtraMember3").length == 0) ? "" : $("#firstnameExtraMember3").val()),
+//     dependent3_last_name: (($("#lastnameExtraMember3").length == 0) ? "" : $("#lastnameExtraMember3").val()),
+//     dependent3_date_of_birth: (($("#dateOfBirthExtraMember3").length == 0) ? "" : $("#dateOfBirthExtraMember3").val()),
+//     dependent4_first_name: (($("#firstnameExtraMember4").length == 0) ? "" : $("#firstnameExtraMember4").val()),
+//     dependent4_last_name: (($("#lastnameExtraMember4").length == 0) ? "" : $("#lastnameExtraMember4").val()),
+//     dependent4_date_of_birth: (($("#dateOfBirthExtraMember4").length == 0) ? "" : $("#dateOfBirthExtraMember4").val()),
+//     dependent5_first_name: (($("#firstnameExtraMember5").length == 0) ? "" : $("#firstnameExtraMember5").val()),
+//     dependent5_last_name: (($("#lastnameExtraMember5").length == 0) ? "" : $("#lastnameExtraMember5").val()),
+//     dependent5_date_of_birth: (($("#dateOfBirthExtraMember5").length == 0) ? "" : $("#dateOfBirthExtraMember5").val()),
+//     dependent6_first_name: (($("#firstnameExtraMember6").length == 0) ? "" : $("#firstnameExtraMember6").val()),
+//     dependent6_last_name: (($("#lastnameExtraMember6").length == 0) ? "" : $("#lastnameExtraMember6").val()),
+//     dependent6_date_of_birth: (($("#dateOfBirthExtraMember6").length == 0) ? "" : $("#dateOfBirthExtraMember6").val()),

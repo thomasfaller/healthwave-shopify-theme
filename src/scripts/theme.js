@@ -18,14 +18,14 @@ window.theme = window.theme || {};
 // =require templates/customers-addresses.js
 // =require templates/customers-login.js
 
-$(document).ready(function() {
+$(document).ready(function () {
   var sections = new slate.Sections();
   sections.register('product', theme.Product);
 
   // Common a11y fixes
   slate.a11y.pageLinkFocus($(window.location.hash));
 
-  $('.in-page-link').on('click', function(evt) {
+  $('.in-page-link').on('click', function (evt) {
     slate.a11y.pageLinkFocus($(evt.currentTarget.hash));
   });
 

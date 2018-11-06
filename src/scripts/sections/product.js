@@ -6,7 +6,7 @@
    * @namespace product
  */
 
-theme.Product = (function() {
+theme.Product = (function () {
 
   var selectors = {
     addToCart: '[data-add-to-cart]',
@@ -71,7 +71,7 @@ theme.Product = (function() {
      * @param {boolean} enabled - Decides whether cart is enabled or disabled
      * @param {string} text - Updates the text notification content of the cart
      */
-    updateAddToCartState: function(evt) {
+    updateAddToCartState: function (evt) {
       var variant = evt.variant;
 
       if (variant) {
@@ -98,7 +98,7 @@ theme.Product = (function() {
      * @param {string} productPrice - The current price of the product
      * @param {string} comparePrice - The original price of the product
      */
-    updateProductPrices: function(evt) {
+    updateProductPrices: function (evt) {
       var variant = evt.variant;
       var $comparePrice = $(selectors.comparePrice, this.$container);
       var $compareEls = $comparePrice.add(selectors.comparePriceText, this.$container);
@@ -120,7 +120,7 @@ theme.Product = (function() {
      *
      * @param {string} src - Image src URL
      */
-    updateProductImage: function(evt) {
+    updateProductImage: function (evt) {
       var variant = evt.variant;
       var sizedImgUrl = slate.Image.getSizedImageUrl(variant.featured_image.src, this.settings.imageSize);
 
@@ -130,7 +130,7 @@ theme.Product = (function() {
     /**
      * Event callback for Theme Editor `section:unload` event
      */
-    onUnload: function() {
+    onUnload: function () {
       this.$container.off(this.namespace);
     }
   });

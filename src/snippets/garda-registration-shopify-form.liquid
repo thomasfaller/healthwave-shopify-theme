@@ -1,11 +1,6 @@
-<form
-  action="https://sandbox.healthwave.ie/webhook/registration_email_garda.php"
-  id="garda-registration-form"
-  method="POST"
-  name="garda-registration-form"
->
-
+{% form 'create_customer', class:'garda-registration-form' %}
   <!-- Page 1 Verification information-->
+  {{ form.errors | default_errors }}
   <fieldset class="tab">
     <div class="text-box">
       <p>Welcome to the Healthwave Garda Medical Aid portal.</p>
@@ -16,12 +11,13 @@
     <div class="form-group">
       <div class="form-row">
         <div class="col-md-6">
-          <label for="inputFn">First name</label>
-          <input
+          <label for="inputFn">{{ 'customer.register.first_name' | t }}</label>
+          <input {% if form.fist_name %} value="{{ form.first_name }}"{% endif %}
             autocomplete
+            autofocus
             class="form-control"
             id="inputFirstName"
-            name="firstname"
+            name="customer[first_name]"
             onchange="checkFirstName(this)"
             oninput="this.className = 'form-control'"
             pattern="[A-Za-z]{2,}"
@@ -33,11 +29,11 @@
         </div>
         <div class="col-md-6 mt-3 mt-md-0">
           <label for="inputLn">Last name</label>
-          <input
+          <input {% if form.last_name %} value="{{ form.last_name }}"{% endif %}
             autocomplete
             class="form-control"
             id="inputLastName"
-            name="lastname"
+            name="customer[last_name]"
             onchange="checkLastName(this)"
             oninput="this.className = 'form-control'"
             pattern="[A-Za-z]{2,}"
@@ -58,7 +54,7 @@
             onchange="checkPolicy(this)"
             class="form-control"
             id="inputPolicy"
-            name="policynumber"
+            name="customer[note][garda-policy-number]"
             pattern="[0-9]{5}[A-Za-z]$"
             placeholder="Policy number..."
             required
@@ -76,7 +72,7 @@
             id="inputDOB"
             max="2018-12-31"
             min="1900-01-01"
-            name="dateofbirth"
+            name="customer[note][DOB]"
             pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))"
             placeholder="DD/MM/YYYY..."
             required
@@ -100,7 +96,7 @@
         class="form-control"
         data-custom-attribute="focused-field"
         id="inputAddress1"
-        name="address1"
+        name="customer_address.address1"
         onchange="checkAddress(this)"
         oninput="this.className = 'form-control'"
         pattern="[0-9A-Za-z\s]{2,}"
@@ -395,7 +391,7 @@
             id="inputTermsAndConditions"
             required
             onchange="handleTermsAndConditions(this)"
-          >  I have read and agree to the <a href="https://healthwave.ie/healthpass-prescription-service/" rel="noopener noreferrer" target="_blank">Terms and Conditions</a> and Privacy Policy
+          >  I have read and agree to the Terms and Conditions and Privacy Policy
         </div>
       </div>
     </div>
@@ -420,4 +416,4 @@
     <span class="step"></span>
   </div>
   <!-- END Form -->
-</form>
+{% endform %}

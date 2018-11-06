@@ -1,0 +1,4 @@
+https: {
+      key: "/Users/guest/Dropbox (Healthwave)/Web:IT/Web Projects/Slate/healthwave-main-theme/localhost.key",
+      cert: "/Users/guest/Dropbox (Healthwave)/Web:IT/Web Projects/Slate/healthwave-main-theme/localhost.crt"
+    }

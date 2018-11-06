@@ -22,7 +22,7 @@ main.form-wrapper {
     max-width: 440px;
   }
 
-  #garda-registration-form {
+  .garda-registration-form {
 
     h1.title {
       @include text-heading;
@@ -247,7 +247,7 @@ div#card-form {
       padding: 15px;
       padding-bottom: 30px;
 
-      #garda-registration-form {
+      .garda-registration-form {
 
         button#prevBtn {
           @include button-regular-mobile-outlined;
